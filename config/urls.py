@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from project_board import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('projects/', include('project_board.urls'), name='projects')
+    path('projects/', views.projectsList, name='projects')
 ]
