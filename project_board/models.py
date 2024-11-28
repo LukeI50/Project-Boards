@@ -17,16 +17,14 @@ class Project(models.Model):
     """
     Stores a single Project related to :model:`auth.User`.
     """
-    title = models.CharField()
-    slug = models.SlugField()
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='project_boards')
+    title = models.CharField(max_length=200)
+    slug = models.CharField(max_length=200)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="project_owner")
     description = models.TextField()
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
-    last_updated_by = models.ForeignKey(User, on_delete=models.SET(dud_user), name='last_updated_by')
-    allowed_editors = models.ForeignKey(User, on_delete=models.SET(dud_user), blank=True, null=True, related_name='editor')
-
-
+    last_updated_by = models.OneToOneField(User, on_delete=models.SET(dud_user), blank=True, name='last_editor')
+    allowed_editors = models.ForeignKey(User, on_delete=models.SET(dud_user), blank=True, null=True, name='editor')
 
 
 class Task(models.Model):
@@ -41,19 +39,21 @@ class Task(models.Model):
         TODO = 1, "Todo"
         IN_PROGRESS = 2, "In Progress"
         DONE = 3, "Done"
+    
+    status = models.PositiveBigIntegerField(choices=TaskStatus.choices, default=TaskStatus.BACKLOG)
 
-    status = models.PositiveSmallIntegerField(choices=TaskStatus.choices, default=TaskStatus.BACKLOG)
-
-    project = models.ForeignKey(Project, on_delete=models.CASCADE, name="project_tasks")
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, name='project_tasks')
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)
     date_created = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, on_delete=models.SET(dud_user), name='created_by')
+    created_by = models.OneToOneField(User, on_delete=models.SET(dud_user), name='task_creator')
     last_updated = models.DateTimeField(auto_now=True)
     content = models.TextField()
 
     def __str__(self):
         return f"{self.title} | Created by: {self.created_by}, on {self.date_created}"
+
+
 
 
 
