@@ -14,14 +14,14 @@ class Project(models.Model):
     """
     Stores a single Project related to :model:`auth.User`.
     """
-    title = models.CharField(max_length=200)
-    slug = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.CharField(max_length=200, unique=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="project_owner")
     description = models.TextField()
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
-    last_updated_by = models.OneToOneField(User, on_delete=models.SET(dud_user), blank=True, name='last_editor')
-    allowed_editors = models.ForeignKey(User, on_delete=models.SET(dud_user), blank=True, null=True, name='editor')
+    last_updated_by = models.OneToOneField(User, on_delete=models.SET(dud_user), blank=True, name='last_updated_by')
+    allowed_editors = models.ForeignKey(User, on_delete=models.SET(dud_user), blank=True, null=True, related_name='authorised_editor')
 
 
 class Task(models.Model):
