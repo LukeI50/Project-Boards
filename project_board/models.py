@@ -27,11 +27,16 @@ class Project(models.Model):
     allowed_editors = models.ForeignKey(User, on_delete=models.SET(dud_user), blank=True, null=True, related_name='editor')
 
 
+
+
 class Task(models.Model):
     """
     Stores a single task related to :model:`Project`.
     """
     class TaskStatus(models.IntegerChoices):
+        """
+        Stores four integer choices for the status variable. 0 = Backlog, 1 = Todo, 2 = In Progress, 3 = Done.
+        """
         BACKLOG = 0, "Backlog"
         TODO = 1, "Todo"
         IN_PROGRESS = 2, "In Progress"
@@ -39,7 +44,7 @@ class Task(models.Model):
 
     status = models.PositiveSmallIntegerField(choices=TaskStatus.choices, default=TaskStatus.BACKLOG)
 
-    project = models.ForeignKey(Project, on_delete=models.CASCADE, name="project_tast")
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, name="project_tasks")
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -49,6 +54,8 @@ class Task(models.Model):
 
     def __str__(self):
         return f"{self.title} | Created by: {self.created_by}, on {self.date_created}"
+
+
 
 
 class Note(models.Model):
