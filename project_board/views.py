@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+
+from .models import Project
 
 # Create your views here.
-def projectsList(request):
-    return HttpResponse("Hello, World!")
+class ProjectsList(generic.ListView):
+    model = Project
