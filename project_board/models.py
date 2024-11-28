@@ -48,7 +48,7 @@ class Task(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)
     date_created = models.DateTimeField(auto_now_add=True)
-    created_by = models.OneToOneField(User, on_delete=models.SET(dud_user), name='task_creator')
+    author = models.ForeignKey(User, on_delete=models.SET(dud_user))
     last_updated = models.DateTimeField(auto_now=True)
     content = models.TextField()
 
@@ -58,9 +58,10 @@ class Task(models.Model):
         passes ordering value to the :model:`Task`.
         """
         ordering = ["date_created"]
-
+    
     def __str__(self):
-        return f"{self.title} | Created by: {self.created_by}, on {self.date_created}"
+        return f"{self.title} | {self.author} Created on {self.date_created}"
+
 
 
 class Note(models.Model):
