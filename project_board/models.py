@@ -20,7 +20,7 @@ class Project(models.Model):
     description = models.TextField()
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
-    last_updated_by = models.OneToOneField(User, on_delete=models.SET(dud_user), blank=True, null=True, name='last_updated_by')
+    last_updated_by = models.ForeignKey(User, on_delete=models.SET(dud_user), blank=True, null=True, name='last_updated_by')
     # A Many to Many Field creates a sub table that links the relevant objects in their own table.
     # Technically this table is called project_board_authorised_editors
     authorised_editors = models.ManyToManyField(User, blank=True, related_name='authorised_editor')
