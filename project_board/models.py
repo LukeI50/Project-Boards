@@ -5,22 +5,26 @@ from django.contrib.auth.models import User
 STATUS = ((0, 'Backlog'), (1, 'Todo'), (2, 'In Progress'), (3, 'Done'))
 
 # Create your models here.
-class Todos(models.Model):
+class Task(models.Model):
     class TaskStatus(models.IntegerChoices):
         BACKLOG = 0, "Backlog"
         TODO = 1, "Todo"
         IN_PROGRESS = 2, "In Progress"
         DONE = 3, "Done"
 
-    task_status = models.PositiveSmallIntegerField(choices=TaskStatus)
+    status = models.PositiveSmallIntegerField(choices=TaskStatus)
 
-    title = models.CharField()
-    slug = models.SlugField()
-    status = models.TextChoices()
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200)
     date_created = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, name='created_by')
     last_updated = models.DateTimeField(auto_now=True)
     content = models.TextField()
+
+
+class Note(models.Model):
+    short = models.TextField()
+    essay = models.TextField()
 
 
 class Project(models.Model):
@@ -30,8 +34,9 @@ class Project(models.Model):
     description = models.TextField()
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
-    last_updated_by = models.ForeignKey(User, name='last_update_by')
-    authorised_editors = models.ForeignKey(User, related_name='editors')
-    todos = models.ForeignKey(Todos)
+    last_updated_by = models.ForeignKey(User, name='last_updated_by')
+    allowed_editors = models.ForeignKey(User, related_name='editors')
+    tasks = models.ForeignKey(Task)
+    notes = models.ForeignKey(Note)
 
 
