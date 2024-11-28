@@ -10,29 +10,6 @@ def dud_user():
 
 
 # Create your models here.
-class Task(models.Model):
-    class TaskStatus(models.IntegerChoices):
-        BACKLOG = 0, "Backlog"
-        TODO = 1, "Todo"
-        IN_PROGRESS = 2, "In Progress"
-        DONE = 3, "Done"
-
-    status = models.PositiveSmallIntegerField(choices=TaskStatus.choices, default=TaskStatus.BACKLOG)
-
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200)
-    date_created = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, on_delete=models.SET(dud_user), name='created_by')
-    last_updated = models.DateTimeField(auto_now=True)
-    content = models.TextField()
-
-
-
-
-class Note(models.Model):
-    short = models.TextField(blank=True)
-    essay = models.TextField(blank=True)
-
 
 
 
@@ -45,7 +22,33 @@ class Project(models.Model):
     last_updated = models.DateTimeField(auto_now=True)
     last_updated_by = models.ForeignKey(User, on_delete=models.SET(dud_user), name='last_updated_by')
     allowed_editors = models.ForeignKey(User, on_delete=models.SET(dud_user), blank=True, null=True, related_name='editor')
-    tasks = models.ForeignKey(Task, on_delete=models.DO_NOTHING, null=True, name="todos")
-    notes = models.ForeignKey(Note, on_delete=models.CASCADE, name="project notes")
 
 
+class Task(models.Model):
+    """
+    Stores a single task related to :model:`auth.User`.
+    """
+    class TaskStatus(models.IntegerChoices):
+        BACKLOG = 0, "Backlog"
+        TODO = 1, "Todo"
+        IN_PROGRESS = 2, "In Progress"
+        DONE = 3, "Done"
+
+    status = models.PositiveSmallIntegerField(choices=TaskStatus.choices, default=TaskStatus.BACKLOG)
+
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, name="project_tast")
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200)
+    date_created = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, on_delete=models.SET(dud_user), name='created_by')
+    last_updated = models.DateTimeField(auto_now=True)
+    content = models.TextField()
+
+    def __str__(self):
+        return f"{self.title} | Created by: {self.created_by}, on {self.date_created}"
+
+
+class Note(models.Model):
+    project = models.OneToOneRel(Project, on_delete=models.CASCADE, name='notes')
+    short = models.TextField(blank=True)
+    essay = models.TextField(blank=True)
