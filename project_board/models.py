@@ -22,15 +22,19 @@ class Task(models.Model):
 
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)
-    date_created = models.DateTimeField(auto_now_ad2d=True)
+    date_created = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, name='created_by')
     last_updated = models.DateTimeField(auto_now=True)
     content = models.TextField()
 
 
+
+
 class Note(models.Model):
-    short = models.TextField()
-    essay = models.TextField()
+    short = models.TextField(blank=True)
+    essay = models.TextField(blank=True)
+
+
 
 
 class Project(models.Model):
@@ -41,8 +45,8 @@ class Project(models.Model):
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
     last_updated_by = models.ForeignKey(User, on_delete=models.SET(dud_user), name='last_updated_by')
-    allowed_editors = models.ForeignKey(User, on_delete=models.SET(dud_user), related_name='editors')
-    tasks = models.ForeignKey(Task, on_delete=models.DO_NOTHING, name="todos")
+    allowed_editors = models.ForeignKey(User, on_delete=models.SET(dud_user), blank=True, null=True, related_name='editor')
+    tasks = models.ForeignKey(Task, on_delete=models.DO_NOTHING, null=True, name="todos")
     notes = models.ForeignKey(Note, on_delete=models.CASCADE, name="project notes")
 
 
