@@ -52,6 +52,13 @@ class Task(models.Model):
     last_updated = models.DateTimeField(auto_now=True)
     content = models.TextField()
 
+
+    class Meta:
+        """
+        passes ordering value to the :model:`Task`.
+        """
+        ordering = ["date_created"]
+
     def __str__(self):
         return f"{self.title} | Created by: {self.created_by}, on {self.date_created}"
 
