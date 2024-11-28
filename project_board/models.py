@@ -25,6 +25,9 @@ class Project(models.Model):
     # Technically this table is called project_board_authorised_editors
     authorised_editors = models.ManyToManyField(User, blank=True, related_name='authorised_editor')
 
+    def __str__(self):
+        return f"{self.title} | Created on: {self.date_created}"
+
 
 class Task(models.Model):
     """
