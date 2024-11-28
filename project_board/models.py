@@ -10,9 +10,6 @@ def dud_user():
 
 
 # Create your models here.
-
-
-
 class Project(models.Model):
     """
     Stores a single Project related to :model:`auth.User`.
@@ -54,17 +51,13 @@ class Task(models.Model):
         return f"{self.title} | Created by: {self.created_by}, on {self.date_created}"
 
 
-
-
-
-
 class Note(models.Model):
     """
     Stores a single Note related to :model:`Project`.
     """
-    project = models.OneToOneField(to=Project, on_delete=models.CASCADE)
-    short = models.TextField(blank=True)
-    essay = models.TextField(blank=True)
+    project = models.OneToOneField(Project, on_delete=models.CASCADE, name='project_notes')
+    short = models.TextField()
+    essay = models.TextField()
     last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
