@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.conf import settings
 from django.contrib.auth import get_user_model
 
 
@@ -23,7 +22,7 @@ class Task(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)
     date_created = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, name='created_by')
+    created_by = models.ForeignKey(User, on_delete=models.SET(dud_user), name='created_by')
     last_updated = models.DateTimeField(auto_now=True)
     content = models.TextField()
 
