@@ -14,6 +14,9 @@ def dud_user():
 
 
 class Project(models.Model):
+    """
+    Stores a single Project related to :model:`auth.User`.
+    """
     title = models.CharField()
     slug = models.SlugField()
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='project_boards')
@@ -26,7 +29,7 @@ class Project(models.Model):
 
 class Task(models.Model):
     """
-    Stores a single task related to :model:`auth.User`.
+    Stores a single task related to :model:`Project`.
     """
     class TaskStatus(models.IntegerChoices):
         BACKLOG = 0, "Backlog"
@@ -49,6 +52,13 @@ class Task(models.Model):
 
 
 class Note(models.Model):
-    project = models.OneToOneRel(Project, on_delete=models.CASCADE, name='notes')
+    """
+    Stores a single Note related to :model:`Project`.
+    """
+    project = models.OneToOneField(to=Project, on_delete=models.CASCADE)
     short = models.TextField(blank=True)
     essay = models.TextField(blank=True)
+    last_updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.project} Notes."
