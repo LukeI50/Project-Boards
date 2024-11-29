@@ -44,7 +44,7 @@ class Task(models.Model):
     
     status = models.PositiveBigIntegerField(choices=TaskStatus.choices, default=TaskStatus.BACKLOG)
 
-    project = models.ForeignKey(Project, on_delete=models.CASCADE, name='project_tasks')
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, name='associated_project')
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)
     date_created = models.DateTimeField(auto_now_add=True)

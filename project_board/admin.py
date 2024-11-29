@@ -12,9 +12,8 @@ class ProjectAdmin(SummernoteModelAdmin):
 
 @admin.register(Task)
 class TaskAdmin(SummernoteModelAdmin):
-    list_display = ('project', 'title', 'status', 'last_updated')
+    list_display = ('associated_project', 'title', 'status', 'last_updated')
     search_fields = ['project']
-    list_filter = ('project','status',)
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
 
