@@ -18,5 +18,12 @@ class TaskAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
 
+
+@admin.register(Note)
+class NoteAdmin(SummernoteModelAdmin):
+    list_display = ('Notes for', 'last_updated')
+    search_fields = ['Notes for']
+    summernote_fields = ('short', 'essay',)
+
+
 # Register your models here.
-admin.site.register(Note)
