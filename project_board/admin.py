@@ -1,9 +1,10 @@
 from django.contrib import admin
 from .models import Project, Task, Note
 from django_summernote.admin import SummernoteModelAdmin
+from guardian.admin import GuardedModelAdmin
 
 @admin.register(Project)
-class ProjectAdmin(SummernoteModelAdmin):
+class ProjectAdmin(SummernoteModelAdmin, GuardedModelAdmin):
     list_display = ('title', 'slug', 'date_created')
     search_fields = ['title']
     list_filter = ('authorised_editors',)
