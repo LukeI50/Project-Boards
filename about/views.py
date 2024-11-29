@@ -5,3 +5,9 @@ from .models import About
 def about_detail(request):
 
     about = get_object_or_404(About)
+
+    return render(
+        request,
+        "about/about.html",
+        {"about": about},
+    )
