@@ -26,7 +26,7 @@ class Project(models.Model):
     authorised_editors = models.ManyToManyField(User, blank=True, related_name='authorised_editor')
 
     def __str__(self):
-        return f"{self.title} | Created on: {self.date_created}"
+        return f"{self.title}"
 
 
 class Task(models.Model):
@@ -68,10 +68,10 @@ class Note(models.Model):
     """
     Stores a single Note related to :model:`Project`.
     """
-    project = models.OneToOneField(Project, on_delete=models.CASCADE, name='Notes for')
+    project = models.OneToOneField(Project, on_delete=models.CASCADE, primary_key=True, name='Notes_from')
     short = models.TextField()
     essay = models.TextField()
     last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.project} Notes."
+        return f"{self.last_updated}"

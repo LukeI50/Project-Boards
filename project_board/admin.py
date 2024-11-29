@@ -21,8 +21,8 @@ class TaskAdmin(SummernoteModelAdmin):
 
 @admin.register(Note)
 class NoteAdmin(SummernoteModelAdmin):
-    list_display = ('Notes for', 'last_updated')
-    search_fields = ['Notes for']
+    list_display = ('Notes_from', 'last_updated')
+    search_fields = ['Notes_from']
     summernote_fields = ('short', 'essay',)
 
 
