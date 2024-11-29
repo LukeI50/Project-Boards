@@ -1,1 +1,1 @@
-console.log("Testing Static JS Script")
+console.log("Testing Static JS Script");
