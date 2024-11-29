@@ -68,7 +68,7 @@ class Note(models.Model):
     """
     Stores a single Note related to :model:`Project`.
     """
-    project = models.OneToOneField(Project, on_delete=models.CASCADE, name='project_notes')
+    project = models.OneToOneField(Project, on_delete=models.CASCADE, name='Notes for')
     short = models.TextField()
     essay = models.TextField()
     last_updated = models.DateTimeField(auto_now=True)
