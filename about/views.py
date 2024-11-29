@@ -3,8 +3,11 @@ from .models import About
 
 # Create your views here.
 def about_detail(request):
+    """
+    Renders the About page
+    """
 
-    about = get_object_or_404(About)
+    about = About.objects.all().order_by('updated_on').first()
 
     return render(
         request,
