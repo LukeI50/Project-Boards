@@ -131,6 +131,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 CSRF_TRUSTED_ORIGINS = [
     'https://127.0.0.1', 'https://*herokuapp.com'
 ]
