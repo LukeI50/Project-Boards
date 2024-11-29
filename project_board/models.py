@@ -9,7 +9,7 @@ def dud_user():
     return get_user_model().objects.get_or_create(username = 'deleted')[0]
 
 
-# Create your models here.
+
 class Project(models.Model):
     """
     Stores a single Project related to :model:`auth.User`.
