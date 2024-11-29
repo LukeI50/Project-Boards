@@ -18,7 +18,7 @@
                                     <p class="author">Owner: {{ project.owner }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="post-link">
+                            <a href="{% url 'project_detail' project.slug %}" class="post-link">
                                 <h2 class="card-title">{{ project.title }}</h2>
                                 <p class="card-text">{{ project.description }}</p>
                             </a>
