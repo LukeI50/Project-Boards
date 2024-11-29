@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'guardian',
     'django_summernote',
     'project_board',
+    'about',
 ]
 
 MIDDLEWARE = [
