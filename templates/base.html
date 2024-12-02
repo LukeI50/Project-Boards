@@ -231,10 +231,8 @@
                     <form id="new-project-form" method="post" style="margin-top: 1.3em;">
                         {{ project_form | crispy }}
                         {% csrf_token %}
+                        <button type="submit" class="btn btn-signup btn-lg btn-primary">Create New Project</button>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-signup btn-lg btn-primary">Create New Project</button>
                 </div>
             </div>
         </div>
