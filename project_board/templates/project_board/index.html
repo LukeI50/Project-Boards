@@ -12,21 +12,17 @@
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for project in project_list %}
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                <div class="image-flash">
-                                    <p class="author">Owner: {{ project.owner }}</p>
-                                </div>
-                            </div>
+                        <div class="card-body text-decoration-none">
                             <a href="{% url 'project_detail' project.slug %}" class="post-link">
                                 <h2 class="card-title">{{ project.title }}</h2>
                                 <p class="card-text">{{ project.description }}</p>
                             </a>
 
                             <hr />
-                            <p class="card-text text-muted h6">{{ project.date_created }}
+                            <p class="card-text text-muted h6">
+                                {{ project.date_created }}
                             </p>
                         </div>
                     </div>
