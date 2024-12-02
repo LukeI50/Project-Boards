@@ -170,7 +170,7 @@
                             <div class="h-100 p-5 text-bg-dark rounded-3">
                                 <h2>User Agreement</h2>
                                 <p>Please make sure to read through the entire User Agreement thoroughly before proceeding to signup.</p>
-                                <button type="button" class="btn btn-outline-secondary">Agreement</button>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#signupModal">Agreement</button>
                             </div>
                         </div>
                     </div>
@@ -218,6 +218,31 @@
 
 
 
+
+
+
+    <!-- Code for Bootstrap Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="signupModal">User Agreement</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        We know what you're thinking... "40 pages? That sounds like a real page-turner!"
+                        <br>
+                        So, we've condensed all that thrilling legalese into one simple paragraph:
+                    </p>
+                    <p>
+                        "You agree to let us do whatever we want with your data. Yeah." Just click the sign up button below 
+                        an we'll all pretend you read the actual thing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
