@@ -6,10 +6,19 @@ from .models import Project
 # Create your views here.
 class ProjectsList(generic.ListView):
 
-    queryset = Project.objects.filter()
+    def get_queryset(self):
+        if self.request.user.is_anonymous:
+            return "None"
+        else:
+            return Project.objects.filter(owner=self.request.user)
+
+
+    queryset = get_queryset
     template_name = 'project_board/index.html'
     paginate_by = 6
 
+# def get_queryset(self):
+#         return Food.objects.filter(user=self.request.user)
 
 def project_detail(request, slug):
     """
