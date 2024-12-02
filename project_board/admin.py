@@ -7,7 +7,7 @@ from guardian.admin import GuardedModelAdmin
 class ProjectAdmin(SummernoteModelAdmin, GuardedModelAdmin):
     list_display = ('title', 'slug', 'date_created')
     search_fields = ['title']
-    list_filter = ('authorised_editors',)
+    list_filter = ('authorised_editor',)
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('description',)
 

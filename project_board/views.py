@@ -4,6 +4,7 @@ from .forms import NewProjectForm
 
 from .models import Project, Task, Note
 
+
 # Create your views here.
 class ProjectsList(generic.ListView):
     template_name = 'project_board/index.html'
@@ -45,11 +46,22 @@ class ProjectsList(generic.ListView):
         context['project_form'] = NewProjectForm()
         return context
 
+
+class CollaboratorList(generic.ListView):
+    template_name = 'project_board/collaborator_index.html'
+    paginate_by = 6
+
+    def get_queryset(self):
+        if self.request.user.is_anonymous:
+            return Project.objects.none()
+        else:
+            return Project.objects.filter(authorised_editor = self.request.user)
     
+    queryset = get_queryset
+        
 
 
-# def get_queryset(self):
-#         return Food.objects.filter(user=self.request.user)
+
 
 def project_detail(request, slug):
     """
