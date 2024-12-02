@@ -5,7 +5,8 @@ from .models import Project
 
 # Create your views here.
 class ProjectsList(generic.ListView):
-    queryset = Project.objects.all()
+
+    queryset = Project.objects.filter()
     template_name = 'project_board/index.html'
     paginate_by = 6
 
