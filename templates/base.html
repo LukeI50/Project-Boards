@@ -7,7 +7,7 @@
 {% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
-<html class="h-100" lang="en">
+<!-- <html class="h-100" lang="en"> -->
 
 <head>
     <title>CodeStar Blog</title>
@@ -32,46 +32,56 @@
 <body>
 
     {% if user.is_authenticated %}
-    <nav class="d-flex flex-nowrap">
+    <main class="d-flex flex-nowrap">
+
         <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-            <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <!-- Contains logo, and Title -->
-                <svg></svg>
-                <span class="fs-4">Test</span>
-                Test
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <svg class="bi pe-none me-2" width="40" height = "32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4">Sidebar</span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                     <a href="#" class="nav-link active" aria-current="page">
-                        <svg></svg>
+                        <svg class="bi pe-none me-2" width="16" height="16"></svg>
                         Home
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link text-white">
-                        <svg></svg>
-                        About
+                        <svg class="bi pe-none me-2" width="16" height="16"></svg>
+                        Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link text-white">
-                        <svg></svg>
-                        Another Thing
+                        <svg class="bi pe-none me-2" width="16" height="16"></svg>
+                        Orders
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link text-white">
-                        <svg></svg>
-                        Another 2nd Thing
+                        <svg class="bi pe-none me-2" width="16" height="16"></svg>
+                        Products
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link text-white">Dashboard</a>
+                    <a href="#" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16"></svg>
+                        Customers
+                    </a>
                 </li>
+
             </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"></a>
+            </div>
         </div>
-    </nav>
+
+    </main>
     {% endif %}
 
     <div class="d-flex h-100 text-center text-bg-dark">
