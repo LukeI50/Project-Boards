@@ -99,12 +99,12 @@
 
             {% if user.is_authenticated %}
             <main class="px-3">
-                <p>Placeholder</p>
+                {% block content %}
+
+                {% endblock %}
             </main>
             {% else %}
             <main class="px-3">
-
-                
 
                 <!-- Hero section/greeting -->
                 <div id="hero" class="px-4 py-5 my-5 text-center">
@@ -132,23 +132,6 @@
                         </p>
                     </div>
                 </div>
-
-                <!-- <div class="divider"></div> -->
-
-
-                <!-- <div class="p-2 mb-4 bg-body-tertiary rounded-3 text-start">
-                    <div class="container-fluid py-5">
-                        <h1 class="display-5 fw-bold text-black">Data</h1>
-                            <p class="col-md-8 fs-4 text-black lead">
-                                At Boards, we're all about transparency - except for our data collection practices, which will probably make your eyes water.
-                                Join us today and experience the thrill of handing over your personal info to a company that's only vaguely sure what it's doing with it.
-
-                                In order to utilise our services, we insist that upon registration you provide us with ALL of your personal information: 
-                                your address, your name, your emails, your likes, dislikes, and anything else we ask for.
-                            </p>
-                        </div>
-                    </div> -->
-                    
                     
                 <div id="jumbo" class="container py-4">
                     <!-- Jumbos, side by side -->
@@ -175,33 +158,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-                <!-- <h1>Welcome to Boards!</h1>
-                <p class="lead">
-                    The GitHub ripoff that promises less security, less features, less customisability, but so much more fun.
-                    Sign up now to experience the absolute joy of Boards. 
-                    <br>
-                    While here you can set up project trackers, task lists, group projects, and so much more.
-                    All you need to do, of course, is provide us with ALL of your personal information: your address, your name, your emails, 
-                    your likes, dislikes, and everything else we ask for.
-                    We, in turn, will of course promise to protect this data in the most secure fashion we know how. No, we won't <em>ever</em> really explain it to you; 
-                    instead we will provide you with a 40 page long legal agreement which we, here at Boards, fervently <em>insist</em> is written in "simple English".
-                    <br>
-                    Once you have scrolled straight down to the bottom of the legal document, skipping all of the sections in which we set our 
-                    necessary terms, such as the right to install countless cookies/trackers on your device which we claim are crucial 
-                    to the functioning of our business (when in reality we don't even know why we need so many, but hey we thought they sounded cool so we chucked them
-                    in anyway).
-                    We then TELL you to <em>ACCEPT</em> the agreement. We act like it's a choice, but we all know it's not.
-
-                    So, today we'll skip it all and just say thank you, and welcome.
-                <p class="lead">
-                    <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
-                </p> -->
 
             </main>
             {% endif %}
@@ -239,6 +195,9 @@
                         "You agree to let us do whatever we want with your data. Yeah." Just click the sign up button below 
                         an we'll all pretend you read the actual thing.
                     </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up!</a>
                 </div>
             </div>
         </div>
