@@ -7,94 +7,224 @@
 {% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
-<html class="h-100" lang="en">
+<!-- <html class="h-100" lang="en"> -->
 
 <head>
     <title>CodeStar Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google Fonts CSS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet"> -->
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
     <!-- Static CSS File Link -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<body class="d-flex w-100">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">c<span class="red-o">o</span>de<span
-                        class="thin">|star</span></span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="page" href="{% url 'about' %}">About</a>
-                    </li>
+    {% if user.is_authenticated %}
+    <nav class="d-flex flex-nowrap">
 
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}">Logout</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" href="{% url 'account_signup'}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" href="{% url 'account_login' %}">Login</a>
-                    </li>
-                    {% endif %}
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+            <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <svg class="bi pe-none me-2" width="40" height = "32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4">Sidebar</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" aria-current="page">
+                        <svg class="bi pe-none me-2" width="16" height="16"></svg>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16"></svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16"></svg>
+                        Orders
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16"></svg>
+                        Products
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16"></svg>
+                        Customers
+                    </a>
+                </li>
 
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
+                    <img class="rounded-circle me-2" src="/" alt=""  width="32" height="32">
+                    <strong>{{ user }}</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(opx, -34px);" data-popper-placement="top-start">
+                    <li>
+                        <a href="#" class="dropdown-item">New project...</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Settings</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    </li>
                 </ul>
-                <span class="navbar-text text-muted">
-                    adventures of a software developer
-                </span>
             </div>
         </div>
+
     </nav>
+    {% endif %}
 
-    <main class="flex-shrink-0 main-bg">
 
-        {% block content %}
-        <!-- Content Goes here -->
-        {% endblock content %}
+    <div class="d-flex flex-column w-100 text-center text-bg-dark">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="mb-auto">
+                <div>
+                    <h3 class="float-md-start mb-0">Cover</h3>
+                    <nav class="nav nav-masthead justify-content-canter float-md-end">
+                        <a href="#" class="nav-link fw-bold py-1 px-0 active">Home</a>
+                        <a href="#" class="nav-link fw-bold py-1 px-0">Features</a>
+                    </nav>
+                </div>
+            </header>
 
-    </main>
+            {% if user.is_authenticated or request.path == signup_url or request.path == login_url %}
+            <main class="px-3">
+                {% block content %}
 
-    <!-- Footer -->
-    <footer class="footer mt-auto py-3 dark-bg">
-        <p class="m-0 text-center text-white">{% block copyright %}Made by Code Instituters{% endblock copyright %}</p>
-        <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
-            <i class="fab fa-twitter-square ms-3"></i>
-            <i class="fab fa-instagram-square ms-3"></i>
-            <i class="fab fa-youtube-square ms-3"></i>
-        </p>
-    </footer>
+                {% endblock %}
+            </main>
+            {% else %}
+            <main class="px-3">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-        </script>
+                <!-- Hero section/greeting -->
+                <div id="hero" class="px-4 py-5 my-5 text-center">
+                    <h1 class="display-5 fw-bold text-body-emphasis">Introducing Boards!</h1>
+                    <div class="col-lg-6 mx-auto">
+                        <p class="lead mb-4">
+                            Imagine a world where you can create project trackers, task lists, and group projects - 
+                            but all at the cost of your soul! Welcome to Boards, where we'll ask for all your secrets, 
+                            store them in a database that's probably not super secure, and then pretend like it's no 
+                            big deal when our lawyers try to explain it to you.
+                        </p>
+                        <p>
+                            Please proceed through the following information before registering as a new user!
+                        </p>
+                    </div>
+                </div>
 
-        <script src="{% static 'js/script.js' %}"></script>
+                <!-- Jumbotron on data collection -->
+                <div class="container my-5">
+                    <div class="p-5 text-start bg-body-tertiary rounded-3 text-black">
+                        <h1 class="text-body-emphasis">Data</h1>
+                        <p class="lead">
+                            At Boards, we're all about transparency - except for our data collection practices, which will probably make your eyes water.
+                            Join us today and experience the thrill of handing over your personal info to a company that's only vaguely sure what it's doing with it.
+                        </p>
+                    </div>
+                </div>
+                    
+                <div id="jumbo" class="container py-4">
+                    <!-- Jumbos, side by side -->
+                    <div class="row align-items-md-stretch">
+                        <div class="col-md-6">
+                            <div class="h-100 p-5 text-bg-dark rounded-3">
+                                <h2>Security</h2>
+                                <p>
+                                    Our insistence upon taking your name, address, emails, likes, dislikes, and whatever else we can think of, 
+                                    means we take your data security seriously.
+                                </p>
+                                <p>
+                                    We swear to keep it safe. How? We'll never really say. But go ahead and read the 40 page long User Agreement anyway. 
+                                    We'll both pretend that we know what it says!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="h-100 p-5 text-bg-dark rounded-3">
+                                <h2>User Agreement</h2>
+                                <p>Please make sure to read through the entire User Agreement thoroughly before proceeding to signup.</p>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#signupModal">Agreement</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+            {% endif %}
+
+
+
+            <footer class="mt-auto text-white-50">
+                <p>
+                    <a href="#" class="text-white">Made with Bootstrap</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+
+
+
+
+    {% if user.is_authenticated != True %}
+    <!-- Code for Bootstrap Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="signupModal">User Agreement</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        We know what you're thinking... "40 pages? That sounds like a real page-turner!"
+                        <br>
+                        So, we've condensed all that thrilling legalese into one simple paragraph:
+                    </p>
+                    <p>
+                        "You agree to let us do whatever we want with your data. Yeah." Just click the sign up button below 
+                        an we'll all pretend you read the actual thing.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+
+    <!-- Script imports -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
+
 
 </html>
