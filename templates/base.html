@@ -35,7 +35,7 @@
     <nav class="d-flex flex-nowrap">
 
         <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <svg class="bi pe-none me-2" width="40" height = "32">
                     <use xlink:href="#bootstrap"></use>
                 </svg>
@@ -97,13 +97,36 @@
                 </div>
             </header>
             <main class="px-3">
-                <h1>Cover Text</h1>
+
+
+                {% if user.is_authenticated %}
+                <p>Placeholder</p>
+
+                {% else %}
+
+                <h1>Welcome to Boards!</h1>
                 <p class="lead">
-                    This is some temporary cover text that will be used until POST integration to the frontend.
-                </p>
+                    The GitHub ripoff that promises less security, less features, less customisability, but so much more fun.
+                    Sign up now to experience the absolute joy of Boards. 
+                    <br>
+                    While here you can set up project trackers, task lists, group projects, and so much more.
+                    All you need to do, of course, is provide us with ALL of your personal information: your address, your name, your emails, 
+                    your likes, dislikes, and everything else we ask for.
+                    We, in turn, will of course promise to protect this data in the most secure fashion we know how. No, we won't <em>ever</em> really explain it to you; 
+                    instead we will provide you with a 40 page long legal agreement which we, here at Boards, fervently <em>insist</em> is written in "simple English".
+                    <br>
+                    Once you have scrolled straight down to the bottom of the legal document, skipping all of the sections in which we set our 
+                    necessary terms, such as the right to install countless cookies/trackers on your device which we claim are crucial 
+                    to the functioning of our business (when in reality we don't even know why we need so many, but hey we thought they sounded cool so we chucked them
+                    in anyway).
+                    We then TELL you to <em>ACCEPT</em> the agreement. We act like it's a choice, but we all know it's not.
+
+                    So, today we'll skip it all and just say thank you, and welcome.
                 <p class="lead">
                     <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
                 </p>
+                
+                {% endif %}
             </main>
             <footer class="mt-auto text-white-50">
                 <p>
