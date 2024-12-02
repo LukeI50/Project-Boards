@@ -97,7 +97,7 @@
                 </div>
             </header>
 
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated or request.path == signup_url %}
             <main class="px-3">
                 {% block content %}
 
@@ -176,7 +176,7 @@
 
 
 
-
+    {% if user.is_authenticated != True %}
     <!-- Code for Bootstrap Signup Modal -->
     <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -202,6 +202,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
 
 
 
