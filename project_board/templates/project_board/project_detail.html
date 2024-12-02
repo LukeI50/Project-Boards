@@ -13,6 +13,13 @@
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
             </div>
+            <h5>List of tasks</h5>
+
+            <p>
+                {% for task in tasks %}
+                {{ task }}
+                {% endfor %}
+            </p>
         </div>
     </div>
 </div>

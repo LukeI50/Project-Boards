@@ -1,4 +1,4 @@
-from .models import Project
+from .models import Project, Note, Task
 from django import forms
 
 class NewProjectForm(forms.ModelForm):

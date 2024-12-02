@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .forms import NewProjectForm
 
-from .models import Project
+from .models import Project, Task, Note
 
 # Create your views here.
 class ProjectsList(generic.ListView):
@@ -14,7 +14,7 @@ class ProjectsList(generic.ListView):
         if self.request.user.is_anonymous:
             return "None"
         else:
-            return Project.objects.filter(owner=self.request.user)
+            return Project.objects.filter(owner=self.request.user).order_by('date_created')
 
     queryset = get_queryset
 
@@ -25,6 +25,15 @@ class ProjectsList(generic.ListView):
             new_project.owner = request.user
             new_project.last_edited_by = request.user
             new_project.save()
+
+            # Automatically create a Note for the new project
+            # Note model has a OneToOneField, so it requires an associated project
+            Note.objects.create(
+                Notes_from=new_project,    # Associating with new project
+                short = "Default short description",
+                essay="This is a default essay for the new project."
+            )
+
             return redirect('home')
         else:
             context = self.get_context_data()
@@ -56,11 +65,19 @@ def project_detail(request, slug):
     :template:`project_board/project_detail.html`
     """
 
-    queryset = Project.objects.all()
-    project = get_object_or_404(queryset, slug = slug)
+    project = get_object_or_404(Project, slug = slug)
+
+    note = Note.objects.filter(Notes_from=project).first()
+
+    tasks = Task.objects.filter(associated_project = project).select_related('associated_project')
+
 
     return render(
         request,
         "project_board/project_detail.html",
-        {"project": project},
+        {
+            "project": project,
+            "note": note,
+            "tasks": tasks,
+        },
     )

@@ -35,8 +35,8 @@
     {% if user.is_authenticated %}
     <nav class="d-flex flex-nowrap">
 
-        <div class="d-flex flex-column flex-shrink-0 p-sm-0 p-md-3 text-bg-dark">
-            <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 p-sm-3 p-md-0 me-md-auto text-white text-decoration-none">
+        <div class="d-flex flex-column flex-shrink-0 p-sm-n2 p-md-3 text-bg-dark">
+            <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 p-sm-0 p-md-3 me-md-auto text-white text-decoration-none">
                 <svg class="bi pe-none me-2" width="40" height = "32">
                     <use xlink:href="#bootstrap"></use>
                 </svg>
@@ -47,13 +47,13 @@
                 <li class="nav-item">
                     <a href="{% url 'home' %}" class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page">
                         <svg class="bi pe-none me-2" width="16" height="16"></svg>
-                        <span class="d-none d-md-inline">Home</span>
+                        <span class="d-none d-md-inline">Projects</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link text-white">
                         <svg class="bi pe-none me-2" width="16" height="16"></svg>
-                        <span class="d-none d-md-inline">About</span>
+                        <span class="d-none d-md-inline">Collaborator</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -104,7 +104,7 @@
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header class="mb-auto">
                 <div>
-                    <h3 class="float-md-start mb-0">Cover</h3>
+                    <h3 class="float-md-start mb-0">{% if request.path == home_url %}Your Projects{% endif %}</h3>
                     <nav class="nav nav-masthead justify-content-canter float-md-end">
                         <a href="#" class="nav-link fw-bold py-1 px-0 active">Home</a>
                         <a href="#" class="nav-link fw-bold py-1 px-0">Features</a>
