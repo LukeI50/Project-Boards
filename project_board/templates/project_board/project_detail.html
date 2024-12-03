@@ -20,7 +20,7 @@
                 <small class="text-body-secondary">{{ task.date_created }}</small>
             </div>
             <div class="toast-body">
-                {{ task.content }}
+                {{ task.content | striptags }}
             </div>
         </div>
         {% endfor %}
@@ -34,13 +34,13 @@
                 <small class="text-body-secondary">{{ task.date_created }}</small>
             </div>
             <div class="toast-body">
-                {{ task.content }}
+                {{ task.content | striptags }}
             </div>
         </div>
         {% endfor %}
     </div>
     <div class="toast-container position-static" data-task-status="Done">
-        {% for task in done %}
+        {% for task in tasks_done %}
         <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img src="..." class="rounded me-2" alt="...">
@@ -48,7 +48,7 @@
                 <small class="text-body-secondary">{{ task.date_created }}</small>
             </div>
             <div class="toast-body">
-                {{ task.content }}
+                {{ task.content | striptags }}
             </div>
         </div>
         {% endfor %}
