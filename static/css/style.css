@@ -1,5 +1,35 @@
+/* ----------CSS Reset Section---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* variables follwing <--variableName: value;> */
+    --test: red;
+}
+
 body {
     min-height: 100vh;
     max-height: 100%;
     width: 100vw;
 }
+
+
+
+/* ----------Container---------- */
+
+
+
+
+/* ----------Content---------- */
+
+
+
+/* ----------Structure---------- */
+
+
+
+
+/* ----------Skins---------- */
