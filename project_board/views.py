@@ -8,7 +8,7 @@ from .models import Project, Task, Note
 # Create your views here.
 class ProjectsList(generic.ListView):
     template_name = 'project_board/index.html'
-    paginate_by = 6
+    paginate_by = 4
 
 
     def get_queryset(self):
@@ -48,8 +48,8 @@ class ProjectsList(generic.ListView):
 
 
 class CollaboratorList(generic.ListView):
-    template_name = 'project_board/collaborator_index.html'
-    paginate_by = 6
+    template_name = 'project_board/index.html'
+    paginate_by = 4
 
     def get_queryset(self):
         if self.request.user.is_anonymous:

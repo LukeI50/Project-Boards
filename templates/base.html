@@ -3,6 +3,7 @@
 
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
+{% url 'collaborator' as collaborator_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -45,13 +46,13 @@
             <hr>
             <ul class="nav nav-pills nav-flush flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="{% url 'home' %}" class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page">
+                    <a href="{% url 'home' %}" class="nav-link text-white {% if request.path == home_url %}active{% endif %}" aria-current="page">
                         <i class="fa-solid fa-diagram-project bi pe-none me-2" width="16" height="16"></i>
                         <span class="d-none d-md-inline">Projects</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-white">
+                    <a href="{% url 'collaborator' %}" class="nav-link text-white {% if request.path == collaborator_url %}active{% endif %}">
                         <i class="fa-solid fa-people-group bi pe-none me-2" width="16" height="16"></i>
                         <span class="d-none d-md-inline">Collaborator</span>
                     </a>
@@ -104,7 +105,7 @@
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header class="mb-auto">
                 <div>
-                    <h3 class="float-md-start mb-3 mt-3 mx-4">{% if request.path == home_url %}Your Projects{% endif %}</h3>
+                    <h3 class="float-md-start mb-3 mt-3 mx-4">{% block Title %}{% endblock %}</h3>
                 </div>
             </header>
 
