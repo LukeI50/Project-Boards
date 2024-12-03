@@ -43,6 +43,20 @@ You're a Collaborator on...
         </div>
     </div>
 
+    <div class="grid entries-grid">
+        {% for project in project_list %}
+        <div class="project-card bg-light">
+            <a href="{% url 'project_detail' project.slug %}" class="text-decoration-none bg-light">
+                <header>
+                    <h5>{{ project.title }}</h5>
+                    <span>{{ project.date_created }}</span>
+                </header>
+                <p>{{ project.description }}</p>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
 
     <!-- <div class="grid"></div> -->
     {% if is_paginated %}

@@ -7,29 +7,57 @@
 
 :root {
     /* variables follwing <--variableName: value;> */
-    --test: red;
+    --primary: #dab14b;
+    --text: #443a3b;
+    --dark-accent: #b1784d;
+    --light-accent: #9cafb4;
+    --light-shades: #f8f5f5;
+
 }
 
 body {
     min-height: 100vh;
     max-height: 100%;
     width: 100vw;
+    color: var(--text);
 }
 
+a {
+    text-decoration: none;
+}
 
-
-/* ----------Container---------- */
-
-
+/* Containers to be made Content */
 
 
 /* ----------Content---------- */
 
 
-
 /* ----------Structure---------- */
+.project-card {
+    border-radius: 6px;
+    width: 400px;
+    height: 220px;
+}
 
+.grid {
+    display: grid;
+}
+
+.entries-grid{
+    grid-template-columns: repeat(400px, 1fr);
+}
 
 
 
 /* ----------Skins---------- */
+/* animations */
+.bg-dark {
+    background-color: var(--text);
+    color: var(--light-accent);
+}
+
+.bg-light {
+    background-color: var(--light-accent);
+    color: var(--text);
+}
+

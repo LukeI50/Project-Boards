@@ -1,9 +1,54 @@
+/* ----------CSS Reset Section---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* variables follwing <--variableName: value;> */
+    --primary: #dab14b;
+    --text: #443a3b;
+    --dark-accent: #b1784d;
+    --light-accent: #9cafb4;
+    --light-shades: #f8f5f5;
+
+}
+
 body {
     min-height: 100vh;
     max-height: 100%;
     width: 100vw;
+    color: var(--text);
 }
 
-.toast {
-    autohide: false;
+a {
+    text-decoration: none;
 }
+
+/* Containers to be made Content */
+
+
+/* ----------Content---------- */
+
+
+/* ----------Structure---------- */
+.project-card {
+    border-radius: 6px;
+    background-color: ;
+}
+
+
+
+/* ----------Skins---------- */
+/* animations */
+.bg-dark {
+    background-color: var(--text);
+    color: var(--light-accent);
+}
+
+.bg-light {
+    background-color: var(--light-accent);
+    color: var(--text);
+}
+
