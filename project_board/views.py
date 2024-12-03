@@ -82,6 +82,10 @@ def project_detail(request, slug):
     note = Note.objects.filter(Notes_from=project).first()
 
     tasks = Task.objects.filter(associated_project = project).select_related('associated_project')
+    tasks_backlog = tasks.filter(status=0).select_related('status')
+    tasks_todo = tasks.filter(status=1).select_related('status')
+    tasks_in_progress = tasks.filter(status=2).select_related('status')
+    tasks_done = tasks.filter(status=3).select_related('status')
 
 
     return render(
@@ -90,6 +94,9 @@ def project_detail(request, slug):
         {
             "project": project,
             "note": note,
-            "tasks": tasks,
+            "tasks_backlog": tasks_backlog,
+            "tasks_todo": tasks_todo,
+            "tasks_in_progress": tasks_in_progress,
+            "tasks_done": tasks_done,
         },
     )

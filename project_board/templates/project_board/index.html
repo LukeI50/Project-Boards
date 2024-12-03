@@ -6,7 +6,7 @@
 
 <!-- Setting page title dependant on specific view -->
 {% block Title %}
-{% if request.path == home_url and user.is_authenticaed %}
+{% if request.path == home_url and user.is_authenticated %}
 Your Projects
 {% elif request.path == collaborator_url and user.is_authenticated %}
 You're a Collaborator on...
