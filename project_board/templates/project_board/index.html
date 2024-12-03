@@ -5,15 +5,13 @@
 {% url 'home' as home_url %}
 
 <!-- Setting page title dependant on specific view -->
- {% if user.is_authenticated %}
-    {% block Title %}
-    {% if request.path == home_url %}
-    Your Projects
-    {% elif request.path == collaborator_url %}
-    You're a Collaborator on...
-    {% endif %}
-    {% endblock %}
+{% block Title %}
+{% if request.path == home_url and user.is_authenticaed %}
+Your Projects
+{% elif request.path == collaborator_url and user.is_authenticated %}
+You're a Collaborator on...
 {% endif %}
+{% endblock %}
 
 {% block content %}
 
