@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 from django.contrib.auth.models import User, Permission
 from django.contrib.auth import get_user_model
 
@@ -23,10 +24,15 @@ class Project(models.Model):
     last_updated_by = models.ForeignKey(User, on_delete=models.SET(dud_user), blank=True, null=True, name='last_updated_by')
     # A Many to Many Field creates a sub table that links the relevant objects in their own table.
     # Technically this table is called project_board_authorised_editors
-    authorised_editors = models.ManyToManyField(User, blank=True, related_name='authorised_editor')
+    authorised_editor = models.ManyToManyField(User, blank=True, related_name='authorised_editor')
 
     def __str__(self):
         return f"{self.title}"
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 
 class Task(models.Model):
