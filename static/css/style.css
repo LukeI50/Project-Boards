@@ -35,17 +35,22 @@ a {
 /* ----------Structure---------- */
 .project-card {
     border-radius: 6px;
-    width: 400px;
-    height: 220px;
+    width: 360px;
+    height: 180px;
+    background-color: rgba(68, 58, 59, 0.1);
 }
 
 .grid {
     display: grid;
+    gap: 3.5%;
 }
 
 .entries-grid{
-    grid-template-columns: repeat(400px, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: space-evenly;
 }
+
+
 
 
 
@@ -61,3 +66,10 @@ a {
     color: var(--text);
 }
 
+
+.bx-shadow-l {
+    box-shadow: var(--text) -2px 5px 4px 0.5px;
+}
+.bx-shadow-r {
+    box-shadow: var(--text) 20px 50px 4px 50px;
+}

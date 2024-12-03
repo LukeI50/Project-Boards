@@ -35,8 +35,21 @@ a {
 /* ----------Structure---------- */
 .project-card {
     border-radius: 6px;
-    background-color: ;
+    width: 400px;
+    height: 220px;
+    background-color: rgba(34, 175, 180, 03);
 }
+
+.grid {
+    display: grid;
+}
+
+.entries-grid{
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: space-evenly;
+}
+
+
 
 
 
