@@ -102,7 +102,7 @@
 
 
     <div class="d-flex flex-column w-100 text-center text-bg-light">
-        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column bx-shadow-l">
             <header class="mb-auto">
                 <div>
                     <h3 class="float-md-start mb-3 mt-3 mx-4">{% block Title %}{% endblock %}</h3>
@@ -110,7 +110,7 @@
             </header>
 
             {% if user.is_authenticated or request.path == signup_url or request.path == login_url %}
-            <main class="px-3">
+            <main class="px-3 h-100">
                 {% block content %}
 
                 {% endblock %}

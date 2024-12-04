@@ -1,6 +1,91 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
 
+<!-- Basic Project Detail View -->
+ <!-- will consist of three panels that contain the tasks
+  relevant to the pertinant data-status-column value. -->
+
+<!-- I am going to use toast containers to facilitate this -->
+
+
+<!-- TODO panel -->
+
+<div class="grid grid-cols-3">
+    <div class="toast-container position-static py-3" data-task-status="todo">
+        {% for task in tasks_todo %}
+        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong>{{ task.author }}</strong>
+                <small class="text-body-secondary">{{ task.date_created }}</small>
+            </div>
+            <div class="toast-body">
+                {{ task.content | striptags }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="toast-container position-static py-3" data-task-status="In progress">
+        {% for task in tasks_in_progress %}
+        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong>{{ task.author }}</strong>
+                <small class="text-body-secondary">{{ task.date_created }}</small>
+            </div>
+            <div class="toast-body">
+                {{ task.content | striptags }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="toast-container position-static py-3" data-task-status="Done">
+        {% for task in tasks_done %}
+        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong>{{ task.author }}</strong>
+                <small class="text-body-secondary">{{ task.date_created }}</small>
+            </div>
+            <div class="toast-body">
+                {{ task.content | striptags }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- <div class="masthead">
     <div class="container">
         <div class="row g-0">
