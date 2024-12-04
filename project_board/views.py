@@ -6,20 +6,14 @@ from .models import Project, Task, Note
 
 
 
-def get_device_resolution(request):
-    screen_width = request.COOKIES.get('screenWidth', 0)
-    screen_height = request.COOKIES.get('screenHeight', 0)
-    return screen_width, screen_height
-
-
-
 # Create your views here.
 class ProjectsList(generic.ListView):
     paginate_by = 4
+    template_name = 'project_board/index.html' # default template
 
     def get_queryset(self):
         if self.request.user.is_anonymous:
-            return "None"
+            return Project.objects.none() # return empty queryset for anonymous user
         else:
             return Project.objects.filter(owner=self.request.user).order_by('date_created')
 
@@ -27,19 +21,19 @@ class ProjectsList(generic.ListView):
   
   
     # Render different templates based on resolution of device
-    def my_view(request):
-        screen_width, screen_height = get_device_resolution(request)
+    def get_template_names(self):
+        screen_width, screen_height = self.get_device_resolution()
 
         if int(screen_width) < 768:
             # Load the mobile-optimised template
-            template = 'project_board/mobile_index.html'
+            return ['project_board/mobile_index.html']
         else:
-            template = 'project_board/index.html'
+            return ['project_board/index.html']
 
-        return template
-        
-    template_name = my_view
-
+    def get_device_resolution(request):
+        screen_width = request.COOKIES.get('screenWidth', 0)
+        screen_height = request.COOKIES.get('screenHeight', 0)
+        return screen_width, screen_height
 
 
     def post(self, request, *args, **kwargs):
@@ -63,7 +57,7 @@ class ProjectsList(generic.ListView):
             context = self.get_context_data()
             context['project_form'] = form
             return self.render_to_response(context)
-
+        
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
         context['project_form'] = NewProjectForm()
