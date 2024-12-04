@@ -11,7 +11,7 @@
 <!-- TODO panel -->
 
 <div class="grid grid-cols-3">
-    <div class="toast-container position-static py-3" data-task-status="todo">
+    <div class="toast-container position-static py-3 bx-shadow-r" data-task-status="todo">
         {% for task in tasks_todo %}
         <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
@@ -25,7 +25,7 @@
         </div>
         {% endfor %}
     </div>
-    <div class="toast-container position-static py-3" data-task-status="In progress">
+    <div class="toast-container position-static py-3 bx-shadow-r" data-task-status="In progress">
         {% for task in tasks_in_progress %}
         <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
@@ -39,7 +39,7 @@
         </div>
         {% endfor %}
     </div>
-    <div class="toast-container position-static py-3" data-task-status="Done">
+    <div class="toast-container position-static py-3 bx-shadow-r" data-task-status="Done">
         {% for task in tasks_done %}
         <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
@@ -112,29 +112,5 @@
         </div>
     </div>
 </div> -->
-
-
-<div class="position-relative" arial-live="polite" aria-atomic="true">
-    <div class="toast-container top-0 end-0 p-3">
-
-
-        <!-- Toast Template // Task Template -->
-        {% for task in tasks %}
-        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <img src="..." class="rounded me-2" alt="...">
-                <strong class="me-auto">{{ task.author }}</strong>
-                <small class="text-body-secondary">{{ task.date_created }}</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-                {{ task.title | striptags }}
-            </div>
-        </div>
-        {% endfor %}
-        <!-- End of Toast Template // Task Template -->
-
-    </div>
-</div>
 
 {% endblock content %}

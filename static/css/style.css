@@ -74,10 +74,11 @@ a {
     box-shadow: var(--text) -2px 5px 4px 0.5px;
 }
 .bx-shadow-r {
-    box-shadow: var(--text) 20px 50px 4px 50px;
+    box-shadow: var(--text) 2px 0px 2px 0.3px;
 }
 
 
 .toast-container {
     background-color: var(--primary);
+    border-radius: 6px;
 }
