@@ -6,6 +6,16 @@ from .models import Project, Task, Note
 
 
 
+
+def determineView(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        return render(
+            request,
+            template_name="project_board/greeting.html"
+        )
+
 # Create your views here.
 class ProjectsList(generic.ListView):
     paginate_by = 4
