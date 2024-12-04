@@ -14,8 +14,12 @@
 <head>
     <script>
         // Set screen size cookies as soon as possible
-        document.cookie = "screenWidth=" + window.innerWidth + "; path=/";
-        document.cookie = "screenHeight=" + window.innerHeight + "; path=/";
+        document.cookie = "screenWidth=" + window.innerWidth + "; path=/; Secure; SameSite=None";
+        if (window.innerWidth < 768) {
+            document.cookie = 'currentMode=' + "small" + "; path=/; Secure; SameSite=None";
+        } else {
+            document.cookie = 'currentMode=' + 'default' + "; path=/; Secure; SameSite=None";
+        }
     </script>
     
     <title>CodeStar Blog</title>

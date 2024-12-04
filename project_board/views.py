@@ -22,7 +22,7 @@ class ProjectsList(generic.ListView):
   
     # Render different templates based on resolution of device
     def get_template_names(self):
-        screen_width, screen_height = self.get_device_resolution()
+        screen_width = self.get_device_resolution()
 
         if int(screen_width) < 768:
             # Load the mobile-optimised template
@@ -32,8 +32,7 @@ class ProjectsList(generic.ListView):
 
     def get_device_resolution(self):
         screen_width = self.request.COOKIES.get('screenWidth', 0)
-        screen_height = self.request.COOKIES.get('screenHeight', 0)
-        return screen_width, screen_height
+        return screen_width
 
 
     def post(self, request, *args, **kwargs):

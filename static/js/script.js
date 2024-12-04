@@ -1,20 +1,21 @@
 // Ensure the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-    let initialWidth = window.innerWidth;
     const breakpoints = [768, 1024]
-    let currentMode = null
+    const currentMode = document.cookie
+        .split('; ')
+        .find((row) => row.startsWith('currentMode='))
+        ?.split("=")[1]
+
+    console.log(currentMode)
     
-    function diff(a, b) {return Math.abs(a-b)}
+    function diff(a, b) {return (a-b)}
 
     window.addEventListener("resize", () => {
         let currentWidth = window.innerWidth;
 
-        if (diff(currentWidth, breakpoints[1]) != true && currentMode != 'small') {
-            // set current mode to avoid refreshing within same breakpoint
-            currentMode = 'small'
-
+        if (diff(currentWidth, breakpoints[1]) < 0 && currentMode == 'default') {
             // Set the cookie to the new screenWidth
-            document.cookie = "screenWidth=" + window.innerWidth + "; path=/";
+            document.cookie = "screenWidth=" + window.innerWidth + "; path=/; Secure; SameSite=None";
 
             // Reload the window with the new screenWidth cookie value
             window.location.reload();
