@@ -5,29 +5,41 @@ document.addEventListener("DOMContentLoaded", () => {
     const breakpoints = {default: 1024, small: 768};
 
     // Get the value stored in the currentMode cookie
-    const currentMode = document.cookie
+    let currentMode = document.cookie
         .split('; ')
         .find((row) => row.startsWith('currentMode='))
         ?.split("=")[1];
+
+    console.log(currentMode)
     
     // set the cookie values for the screen width and mode
-    function setScreenValues(currentWidth, mode) {
-        document.cookie = "screenWidth=" + `${currentWidth}` + "; path=/; Secure; SameSite=None";
+    function setScreenMode(mode) {
+        // document.cookie = "screenWidth=" + `${currentWidth}` + "; path=/; Secure; SameSite=None";
         document.cookie = "currentMode=" + `${mode}` + "; path=/; Secure; SameSite=None";
-        window.location.reload();
     }
 
+    let resizeTimeout;
 
-    
     window.addEventListener("resize", () => {
-        const currentWidth = window.innerWidth;
+        clearTimeout(resizeTimeout);
 
-        // Set screen width logic
-        if (currentWidth < breakpoints.small && currentMode !== 'small') {
-            setScreenValues(currentWidth, "small");
-        } else if (currentWidth >= breakpoints.small && currentWidth < breakpoints.default && currentMode !== "default") {
-            setScreenValues(currentWidth, 'default');
-        } 
-    })
+        resizeTimeout = setTimeout(() => {
+            const currentWidth = window.innerWidth;
+            let newMode = "";
 
+            if (currentWidth < breakpoints.small) {
+                newMode = "small";
+            } else if (currentWidth >= breakpoints.small) {
+                newMode = "default";
+            }
+
+            if (currentMode !== newMode) {
+                setScreenMode(newMode); 
+                currentMode = newMode;
+
+                window.location.reload();
+            }
+
+        }, 150);
+    });
 });
