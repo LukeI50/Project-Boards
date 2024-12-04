@@ -76,3 +76,8 @@ a {
 .bx-shadow-r {
     box-shadow: var(--text) 20px 50px 4px 50px;
 }
+
+
+.toast-container {
+    background-color: var(--primary);
+}
