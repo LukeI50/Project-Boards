@@ -7,6 +7,7 @@ from .models import Project, Task, Note
 
 # Create your views here.
 class ProjectsList(generic.ListView):
+
     template_name = 'project_board/index.html'
     paginate_by = 4
 

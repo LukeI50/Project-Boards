@@ -1,8 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // If the carousel element it present within DOM, then initialise the variable.
-    if (document.getElementById('myCarousel')) {
-        const myCarousel = bootstrap.Carousel.getInstance('#myCarousel');
-    }
+    // Detect the screens resolution
+    let screenWidth = window.innerWidth;
+    let screenHeight = window.innerHeight;
+
+
+    // Send info to Django
+    document.cookie = "screenWidth=" + screenWidth + "; path=/"
+    document.cookie = "screenHeight=" + screenHeight + "; path=/"
 
 })
