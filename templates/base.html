@@ -46,7 +46,7 @@
 <button class="btn btn-toggle nav-link d-inlin-flex align-items-center rounded border-0" data-bs-toggle="collapse" data-bs-target=""></button>
 <body class="d-flex w-100">
 
-
+    {% if user.is_authenticated %}
     <nav class="d-flex flex-nowrap">
 
         <div class="d-flex flex-column flex-shrink-0 p-sm-n2 p-md-3 text-bg-dark">
@@ -111,6 +111,7 @@
         </div>
 
     </nav>
+    {% endif %}
 
 
 
@@ -201,33 +202,6 @@
 
 
     <!-- Modals and Shit -->
-    {% if user.is_authenticated != True %}
-    <!-- Code for Bootstrap Signup Modal -->
-    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="signupModal">User Agreement</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        We know what you're thinking... "40 pages? That sounds like a real page-turner!"
-                        <br>
-                        So, we've condensed all that thrilling legalese into one simple paragraph:
-                    </p>
-                    <p>
-                        "You agree to let us do whatever we want with your data. Yeah." Just click the sign up button below 
-                        an we'll all pretend you read the actual thing.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up!</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endif %}
     {% if user.is_authenticated %}
     <!-- Modal for New Projects Form -->
     <div class="modal fade" id="new-project" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="new-projectLabel" aria-hidden="true">
