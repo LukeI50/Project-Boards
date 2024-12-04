@@ -7,13 +7,15 @@
 
 <!-- I am going to use toast containers to facilitate this -->
 
+<!-- lookinto django templates based on screensize!!! -->
 
 <!-- TODO panel -->
 
-<div class="grid grid-cols-3">
+<div class="grid grid-cols-3 justify-items-evenly">
     <div class="toast-container position-static py-3 bx-shadow-r" data-task-status="todo">
+        <h5>todo's</h5>
         {% for task in tasks_todo %}
-        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast fade show mt-3" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img src="..." class="rounded me-2" alt="...">
                 <strong>{{ task.author }}</strong>
@@ -26,8 +28,9 @@
         {% endfor %}
     </div>
     <div class="toast-container position-static py-3 bx-shadow-r" data-task-status="In progress">
+        <h5>In progress</h5>
         {% for task in tasks_in_progress %}
-        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast fade show mt-3" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img src="..." class="rounded me-2" alt="...">
                 <strong>{{ task.author }}</strong>
@@ -40,8 +43,9 @@
         {% endfor %}
     </div>
     <div class="toast-container position-static py-3 bx-shadow-r" data-task-status="Done">
+        <h5>Done</h5>
         {% for task in tasks_done %}
-        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast fade show mt-3" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <img src="..." class="rounded me-2" alt="...">
                 <strong>{{ task.author }}</strong>
