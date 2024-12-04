@@ -7,6 +7,7 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+{% url 'project_detail' as project_url %}
 
 <!DOCTYPE html>
 <!-- <html class="h-100" lang="en"> -->
@@ -42,10 +43,10 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
-
+<button class="btn btn-toggle nav-link d-inlin-flex align-items-center rounded border-0" data-bs-toggle="collapse" data-bs-target=""></button>
 <body class="d-flex w-100">
 
-    {% if user.is_authenticated %}
+
     <nav class="d-flex flex-nowrap">
 
         <div class="d-flex flex-column flex-shrink-0 p-sm-n2 p-md-3 text-bg-dark">
@@ -53,7 +54,7 @@
                 <svg class="bi pe-none me-2" width="40" height = "32">
                     <use xlink:href="#bootstrap"></use>
                 </svg>
-                <span class="fs-4 d-none d-md-inline">Sidebar</span>
+                <span class="fs-4 d-none d-md-inline">Boards</span>
             </a>
             <hr>
             <ul class="nav nav-pills nav-flush flex-column mb-auto">
@@ -110,7 +111,7 @@
         </div>
 
     </nav>
-    {% endif %}
+
 
 
     <div class="d-flex flex-column w-100 text-center text-bg-light">
