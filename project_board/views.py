@@ -13,13 +13,9 @@ def get_device_resolution(request):
 
 
 
-
 # Create your views here.
 class ProjectsList(generic.ListView):
-
-    template_name = 'project_board/index.html'
     paginate_by = 4
-
 
     def get_queryset(self):
         if self.request.user.is_anonymous:
@@ -28,6 +24,23 @@ class ProjectsList(generic.ListView):
             return Project.objects.filter(owner=self.request.user).order_by('date_created')
 
     queryset = get_queryset
+  
+  
+    # Render different templates based on resolution of device
+    def my_view(request):
+        screen_width, screen_height = get_device_resolution(request)
+
+        if int(screen_width) < 768:
+            # Load the mobile-optimised template
+            template = 'project_board/mobile_index.html'
+        else:
+            template = 'project_board/index.html'
+
+        return template
+        
+    template_name = my_view
+
+
 
     def post(self, request, *args, **kwargs):
         form = NewProjectForm(request.POST)
