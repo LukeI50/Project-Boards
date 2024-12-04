@@ -5,6 +5,15 @@ from .forms import NewProjectForm
 from .models import Project, Task, Note
 
 
+
+def get_device_resolution(request):
+    screen_width = request.COOKIES.get('screenWidth', 0)
+    screen_height = request.COOKIES.get('screenHeight', 0)
+    return screen_width, screen_height
+
+
+
+
 # Create your views here.
 class ProjectsList(generic.ListView):
 
