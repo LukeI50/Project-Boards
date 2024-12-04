@@ -10,15 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
     
     function diff(a, b) {return (a-b)}
 
+    function setScreenValues(currentWidth, mode) {
+        document.cookie = "screenWidth=" + `${currentWidth}` + "; path=/; Secure; SameSite=None";
+        document.cookie = "currentMode=" + `${mode}` + "; path=/; Secure; SameSite=None";
+        window.location.reload();
+    }
+
     window.addEventListener("resize", () => {
         let currentWidth = window.innerWidth;
 
-        if (diff(currentWidth, breakpoints[1]) < 0 && currentMode == 'default') {
+        if (diff(currentWidth, breakpoints[0]) < 0 && currentMode != 'small') {
             // Set the cookie to the new screenWidth
-            document.cookie = "screenWidth=" + window.innerWidth + "; path=/; Secure; SameSite=None";
+            setScreenValues(currentWidth, "small");
 
-            // Reload the window with the new screenWidth cookie value
-            window.location.reload();
+        } else if (diff(currentWidth, breakpoints[1]) < 0 && currentMode != 'default') {
+            setScreenValues(currentWidth, "default");
+
         }
 
 
