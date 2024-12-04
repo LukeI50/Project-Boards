@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% url 'collaborator' as collaborator_url %}
+{% url 'home' as home_url %}
+
+<!-- Setting page title dependant on specific view -->
+{% block Title %}
+{% if request.path == home_url and user.is_authenticated %}
+Your Projects
+{% elif request.path == collaborator_url and user.is_authenticated %}
+You're a Collaborator on...
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- index.html content ends here -->
+{% endblock %}
+
+{% block copyright %}
+    Copyright 2024 Luke Isotta
+{% endblock %}

@@ -5,19 +5,34 @@ from .forms import NewProjectForm
 from .models import Project, Task, Note
 
 
+
 # Create your views here.
 class ProjectsList(generic.ListView):
-    template_name = 'project_board/index.html'
     paginate_by = 4
-
+    # default template
 
     def get_queryset(self):
         if self.request.user.is_anonymous:
-            return "None"
+            return Project.objects.none() # return empty queryset for anonymous user
         else:
             return Project.objects.filter(owner=self.request.user).order_by('date_created')
 
     queryset = get_queryset
+  
+  
+    # Render different templates based on resolution of device
+    def get_template_names(self):
+        screen_size = self.get_screen_size()
+
+        if screen_size == "small":
+            return ['project_board/mobile_index.html']
+        else:
+            return ['project_board/index.html']
+
+    def get_screen_size(self):
+        screen_size = self.request.COOKIES.get('currentMode', 0)
+        return screen_size
+
 
     def post(self, request, *args, **kwargs):
         form = NewProjectForm(request.POST)
@@ -40,7 +55,7 @@ class ProjectsList(generic.ListView):
             context = self.get_context_data()
             context['project_form'] = form
             return self.render_to_response(context)
-
+        
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
         context['project_form'] = NewProjectForm()
