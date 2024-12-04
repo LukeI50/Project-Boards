@@ -15,22 +15,6 @@ You're a Collaborator on...
 
 {% block content %}
 
-<!-- index.html content starts here -->
-<div class="container-fluid">
-        <!-- Blog Entries Column -->
-    <div class="grid entries-grid">
-        {% for project in project_list %}
-        <a href="{% url 'project_detail' project.slug %}" class="text-decoration-none bg-light">
-            <div class="project-card bx-shadow-l">
-                <div class="d-flex justify-content-between">
-                    <h5>{{ project.title }}</h5>
-                    <span>{{ project.date_created }}</span>
-                </div>
-                <p class="pt-3">{{ project.description | striptags }}</p>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
 
 <!-- index.html content ends here -->
 {% endblock %}

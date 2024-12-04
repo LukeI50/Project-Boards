@@ -9,7 +9,7 @@ from .models import Project, Task, Note
 # Create your views here.
 class ProjectsList(generic.ListView):
     paginate_by = 4
-    template_name = 'project_board/index.html' # default template
+    # default template
 
     def get_queryset(self):
         if self.request.user.is_anonymous:
@@ -30,9 +30,9 @@ class ProjectsList(generic.ListView):
         else:
             return ['project_board/index.html']
 
-    def get_device_resolution(request):
-        screen_width = request.COOKIES.get('screenWidth', 0)
-        screen_height = request.COOKIES.get('screenHeight', 0)
+    def get_device_resolution(self):
+        screen_width = self.request.COOKIES.get('screenWidth', 0)
+        screen_height = self.request.COOKIES.get('screenHeight', 0)
         return screen_width, screen_height
 
 
