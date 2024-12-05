@@ -33,23 +33,23 @@
 </div>
 
 {% endblock content %}
-<div class="modal fade" id="project-actions" tabindex="-1" aria-labelledby="project-actionsLabel" aria-hidden="true">
+
+
+{% block modals %}
+<div class="modal fade" id="project-actions-add-task" tabindex="-1" aria-labelledby="project-actions-add-taskLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form>
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>body text</p>
-                </div>
-                <div class="modal-footer"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        </form>
+            <div class="modal-body">
+                {{ task_form }}
+                {% csrf_token %}
+            </div>
+        </div>
     </div>
 </div>
-{% block modals %}
-
+{% endblock %}
 
 
