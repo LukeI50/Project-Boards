@@ -7,7 +7,6 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
-{% url 'project_detail' as project_url %}
 
 <!DOCTYPE html>
 <!-- <html class="h-100" lang="en"> -->
@@ -46,10 +45,10 @@
 <button class="btn btn-toggle nav-link d-inlin-flex align-items-center rounded border-0" data-bs-toggle="collapse" data-bs-target=""></button>
 <body class="d-flex w-100">
 
-
+    {% if user.is_authenticated %}
     <nav class="d-flex flex-nowrap">
 
-        <div class="d-flex flex-column flex-shrink-0 p-sm-n2 p-md-3 text-bg-dark">
+        <div class="d-flex flex-column flex-shrink-0 p-sm-2 p-md-3 p-lg-4 text-bg-dark">
             <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 p-sm-0 p-md-3 me-md-auto text-white text-decoration-none">
                 <svg class="bi pe-none me-2" width="40" height = "32">
                     <use xlink:href="#bootstrap"></use>
@@ -59,10 +58,13 @@
             <hr>
             <ul class="nav nav-pills nav-flush flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="{% url 'home' %}" class="nav-link text-white {% if request.path == home_url %}active{% endif %}" aria-current="page">
+                    <a href="{% url 'home' %}" class="nav-link text-white {% if request.path == home_url %}active {% endif %}{% if is_project_detail %}active {% endif %}" aria-current="page">
                         <i class="fa-solid fa-diagram-project bi pe-none me-2" width="16" height="16"></i>
                         <span class="d-none d-md-inline">Projects</span>
                     </a>
+                    {% if is_project_detail %}
+                    {% include './project_board/Options/project_options.html' %}
+                    {% endif %}
                 </li>
                 <li class="nav-item">
                     <a href="{% url 'collaborator' %}" class="nav-link text-white {% if request.path == collaborator_url %}active{% endif %}">
@@ -111,6 +113,7 @@
         </div>
 
     </nav>
+    {% endif %}
 
 
 
@@ -201,33 +204,6 @@
 
 
     <!-- Modals and Shit -->
-    {% if user.is_authenticated != True %}
-    <!-- Code for Bootstrap Signup Modal -->
-    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="signupModal">User Agreement</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        We know what you're thinking... "40 pages? That sounds like a real page-turner!"
-                        <br>
-                        So, we've condensed all that thrilling legalese into one simple paragraph:
-                    </p>
-                    <p>
-                        "You agree to let us do whatever we want with your data. Yeah." Just click the sign up button below 
-                        an we'll all pretend you read the actual thing.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up!</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endif %}
     {% if user.is_authenticated %}
     <!-- Modal for New Projects Form -->
     <div class="modal fade" id="new-project" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="new-projectLabel" aria-hidden="true">
