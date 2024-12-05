@@ -95,18 +95,7 @@ class CollaboratorList(generic.ListView):
 
 
 def project_detail(request, slug):
-    """
-    Display an individual :model:`project_board.Project`
 
-    **Context**
-
-    ``project``
-        An instance of :model:`project_board.Project`.
-    
-    **Template**
-
-    :template:`project_board/project_detail.html`
-    """
 
     project = get_object_or_404(Project, slug = slug)
 
@@ -137,6 +126,26 @@ def project_detail(request, slug):
 
 
 class ProjectDetailView(generic.DetailView):
+        """
+    Amalgamate all models associated to a single instance of 
+    a project board :model:`project_board.Project`.
+
+    **Context**
+
+    ``project``
+        An instance of :model:`project_board.Project`.
+    ``note``
+        An instance of :model:`project_board.Note`.
+    ``tasks``
+        get all task instances linked to project :model:`project_board.Task`.
+
+    
+    **Template**
+
+    :template:`project_board/project_detail.html`
+    """
+
+
     model = Project
     template_name = 'project_board/project_detail.html'
     context_object_name = 'project'
