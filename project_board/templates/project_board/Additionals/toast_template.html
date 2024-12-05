@@ -2,7 +2,7 @@
     <div class="toast-header">
         <img src="..." class="rounded me-2" alt="...">
         <strong>{{ task.author }}</strong>
-        <button type="button" class="btn btn-link">Edit</button>
+        <button type="button" class="btn btn-link" tast_id ="{{ task.id }}">Edit</button>
     </div>
     <div class="toast-body">
         {{ task.content | striptags }}
