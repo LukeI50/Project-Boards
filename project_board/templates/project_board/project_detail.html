@@ -11,50 +11,23 @@
 
 <!-- TODO panel -->
 
-<div class="grid grid-cols-3 justify-items-evenly">
-    <div class="toast-container position-static py-3 bx-shadow-r" data-task-status="todo">
+<div class="grid grid-cols-3 mx-auto justify-items-center">
+    <div class="toast-container position-static py-3 bx-shadow-r width-200" data-task-status="todo">
         <h5>todo's</h5>
         {% for task in tasks_todo %}
-        <div class="toast fade show mt-3" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <img src="..." class="rounded me-2" alt="...">
-                <strong>{{ task.author }}</strong>
-                <small class="text-body-secondary">{{ task.date_created }}</small>
-            </div>
-            <div class="toast-body">
-                {{ task.content | striptags }}
-            </div>
-        </div>
+        {% include "./Additionals/toast_template.html" %}
         {% endfor %}
     </div>
-    <div class="toast-container position-static py-3 bx-shadow-r" data-task-status="In progress">
+    <div class="toast-container position-static py-3 bx-shadow-r width-200" data-task-status="In progress">
         <h5>In progress</h5>
         {% for task in tasks_in_progress %}
-        <div class="toast fade show mt-3" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <img src="..." class="rounded me-2" alt="...">
-                <strong>{{ task.author }}</strong>
-                <small class="text-body-secondary">{{ task.date_created }}</small>
-            </div>
-            <div class="toast-body">
-                {{ task.content | striptags }}
-            </div>
-        </div>
+        {% include "./Additionals/toast_template.html" %}
         {% endfor %}
     </div>
-    <div class="toast-container position-static py-3 bx-shadow-r" data-task-status="Done">
+    <div class="toast-container position-static py-3 bx-shadow-r width-200" data-task-status="Done">
         <h5>Done</h5>
         {% for task in tasks_done %}
-        <div class="toast fade show mt-3" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <img src="..." class="rounded me-2" alt="...">
-                <strong>{{ task.author }}</strong>
-                <small class="text-body-secondary">{{ task.date_created }}</small>
-            </div>
-            <div class="toast-body">
-                {{ task.content | striptags }}
-            </div>
-        </div>
+        {% include "./Additionals/toast_template.html" %}
         {% endfor %}
     </div>
 </div>
