@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 
-
-from .forms import NewProjectForm, NewTaskForm
+from .forms import NewProjectForm, NewTaskForm, EditShortNotes
 from .models import Project, Task, Note
 
 
@@ -135,6 +135,8 @@ class ProjectDetailView(generic.DetailView):
 
         projectForm = NewProjectForm(request.POST)
         taskForm = NewTaskForm(request.POST)
+        noteForm = EditShortNotes(data=request.POST, instance=project)
+
 
         if projectForm.is_valid():
             new_project = projectForm.save(commit=False)
@@ -172,13 +174,26 @@ class ProjectDetailView(generic.DetailView):
             )
 
             return redirect('project_detail', slug = project.slug)
+        
+        elif noteForm.is_valid():
+            note, created = Note.objects.get_or_create(Notes_from=project)
+            note.short = noteForm.cleaned_data['short']
+            note.save()
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Note successfully updated.'
+            )
 
+            return redirect('project_detail', slug = project.slug)
 
         else:
             context = self.get_context_data(project=project)
             context['project_form'] = projectForm
             context['task_form'] = taskForm
+            context['edit_short_notes'] = noteForm
             return self.render_to_response(context)
+
 
     def get_context_data(self, **kwargs):
         """
@@ -207,5 +222,6 @@ class ProjectDetailView(generic.DetailView):
 
         context['project_form'] = NewProjectForm()
         context['task_form'] = NewTaskForm()
+        context['edit_short_notes'] = EditShortNotes(instance=note)
 
         return context
