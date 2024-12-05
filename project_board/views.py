@@ -24,6 +24,35 @@ def determineView(request):
         )
 
 
+def task_edit(request, slug, task_id):
+    """
+    View to edit tasks
+    """
+    if request.method == "POST":
+
+        queryset = Project.object.all()
+        project = get_object_or_404(queryset, slug=slug)
+        task = get_object_or_404(Task, pk=task_id)
+        task_form = NewTaskForm(data=request.POST, instance=task)
+
+        if task_form.is_valid():
+            task = task_form.save(commit=False)
+            task.save()
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                "Task Updated!",
+            )
+        else:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                "Error updating task!"
+            )
+            
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
 class ProjectsList(generic.ListView):
     paginate_by = 4
     # default template
