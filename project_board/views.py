@@ -1,13 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
-from .forms import NewProjectForm
 
+
+from .forms import NewProjectForm, NewTaskForm
 from .models import Project, Task, Note
 
 
 
+# Create your views here.
 
 def determineView(request):
+    """
+    Redirects user to projects page/home if they are authenticated, 
+    otherwise it renders the welcome page.
+    """
     if request.user.is_authenticated:
         return redirect('home')
     else:
@@ -16,7 +22,7 @@ def determineView(request):
             template_name="project_board/greeting.html"
         )
 
-# Create your views here.
+
 class ProjectsList(generic.ListView):
     paginate_by = 4
     # default template
@@ -126,3 +132,16 @@ def project_detail(request, slug):
             "is_project_detail": True,
         },
     )
+
+class ProjectDetailView(generic.DetailView):
+    model = Project
+    template_name = 'project_board/project_detail.html'
+    context_object_name = 'project'
+
+    def get_object(self, queryset=None):
+        """
+        Get the project from the Project model based on the slug passed.
+        """
+        slug = self.kwargs.get('slug')
+        return get_object_or_404(Project, slug=slug)
+    
