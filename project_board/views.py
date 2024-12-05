@@ -133,6 +133,9 @@ def project_detail(request, slug):
         },
     )
 
+
+
+
 class ProjectDetailView(generic.DetailView):
     model = Project
     template_name = 'project_board/project_detail.html'
