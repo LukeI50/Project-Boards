@@ -130,10 +130,11 @@ class ProjectDetailView(generic.DetailView):
         return get_object_or_404(Project, slug=slug)
     
     def post(self, request, *args, **kwargs):
+        slug = self.kwargs.get('slug')
+        project = get_object_or_404(Project, slug=slug)
+
         projectForm = NewProjectForm(request.POST)
         taskForm = NewTaskForm(request.POST)
-
-        project = self.get_object()
 
         if projectForm.is_valid():
             new_project = projectForm.save(commit=False)
@@ -156,7 +157,7 @@ class ProjectDetailView(generic.DetailView):
                 essay="This is a default essay for the new project."
             )
 
-            return redirect('/')
+            return redirect('project_detail', slug=project.slug)
         
         elif taskForm.is_valid():
             add_task = taskForm.save(commit=False)
@@ -170,7 +171,7 @@ class ProjectDetailView(generic.DetailView):
                 'Successfully created new task'
             )
 
-            return redirect('/')
+            return redirect('project_detail', slug = project.slug)
 
 
         else:
