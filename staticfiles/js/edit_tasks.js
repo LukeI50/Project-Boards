@@ -2,7 +2,7 @@ const editButtons = document.getElementsByClassName("btn-task-edit");
 const taskText = document.getElementById("id_body");
 const taskForm = document.getElementById("taskForm");
 const submitButton = document.getElementById("submitButton");
-console.log("task edit script successfully loaded")
+
 /**
  * Initialises edit functionality for the provided edit buttons.
  * 
