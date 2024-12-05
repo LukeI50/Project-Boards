@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const tastText = document.getElementById('id_content');
     const taskForm = document.getElementById("taskForm");
     const addTaskModal = new bootstrap.Modal("#AddTaskModal");
-    const modalTitle = document.getElementById('TaskModelTitle');
+    const modalTitle = document.getElementById('AddTaskModalTitle');
+    console.log(modalTitle);
 
     const submitButton = document.getElementById("submitButton");
 
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(title)
             console.log(testel)
 
-            modalTitle.innerText = title;
+            modalTitle.innerText = "Edit Task";
             submitButton.innerText = "Update";
             taskForm.action = `${window.location.pathname}edit_task/${taskId}`;
 

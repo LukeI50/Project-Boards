@@ -9,6 +9,12 @@ from .models import Project, Task, Note
 
 # Create your views here.
 
+def task_delete(request, slug, task_id):
+    """
+    View to delete tasks
+    """
+
+
 def task_edit(request, slug, task_id):
     """
     View to edit tasks

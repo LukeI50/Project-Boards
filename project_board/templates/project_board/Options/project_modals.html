@@ -1,10 +1,27 @@
 {% load crispy_forms_tags %}
+<!-- Delete Task Modal -->
+<div class="modal fade" id="DeleteTaskModal" tabindex="-1" aria-labelledby="project-actions-delete-taskLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body">
 
+                <!-- <button id="submitButton" type="submit" class="btn btn-signup btn-lg btn-primary">Create New Task...</button> -->
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+<!-- Create Task Modal // Edit Task Modal -->
 <div class="modal fade" id="AddTaskModal" tabindex="-1" aria-labelledby="project-actions-add-taskLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="TaskModelTitle" class="modal-title"></h5>
+                <h5 id="AddTaskModalTitle" class="modal-title">Adding task</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -17,6 +34,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- Short notes offcanvas bottom -->
 <div id="shortNotesEdit" class="offcanvas offcanvas-bottom" tabindex="-1">
