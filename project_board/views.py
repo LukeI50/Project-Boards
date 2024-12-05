@@ -137,6 +137,13 @@ class ProjectDetailView(generic.DetailView):
             new_project.last_edited_by = request.user
             new_project.save()
 
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'New Project successfully created'
+            )
+
+
             # Automatically create a Note for the new project
             # Note model has a OneToOneField, so it requires an associated project
             Note.objects.create(
