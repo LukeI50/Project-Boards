@@ -30,6 +30,10 @@ class Project(models.Model):
         return f"{self.title}"
     
     def save(self, *args, **kwargs):
+        """
+        Ensures the slugification process has taken place
+        in the event a slug did not populate automatically.
+        """
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
