@@ -47,4 +47,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }, 150);
     });
+
+    document.getElementById('AddProjectButton').addEventListener('click', () => {
+        if (document.getElementsByClassName('toast-container')) {
+            let toastContainers = document.getElementsByClassName('toast-container');
+
+            for (let container in toastContainers) {
+                toastContainers[container].classList.add("d-none");
+            }
+        }
+    });
+
+    document.getElementById("AddProjectButton-Close").addEventListener('click', () => {
+        if (document.getElementsByClassName('toast-container')) {
+            let toastContainers = document.getElementsByClassName('toast-container');
+
+            for (let container in toastContainers) {
+                toastContainers[container].classList.remove('d-none');
+            }
+        }
+    })
+
+
 });
