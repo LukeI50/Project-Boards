@@ -100,7 +100,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(opx, -34px);" data-popper-placement="top-start">
                     <li>
-                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#new-project">New Project...</button>
+                        <button id="AddProjectButton" type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#new-project">New Project...</button>
                     </li>
                     <li>
                         <a href="#" class="dropdown-item">Settings</a>
@@ -211,7 +211,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="new-projectLabel">Creating New Project...</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button id="AddProjectButton-Close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="new-project-form" method="post" style="margin-top: 1.3em;">
