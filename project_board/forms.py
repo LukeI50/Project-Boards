@@ -9,11 +9,11 @@ class NewProjectForm(forms.ModelForm):
             'description',
         )
 
-class NewTaskForm(forms.ModelForm):
+class NewTaskForm(forms.ModelForm):    
     class Meta:
         model = Task
         fields = (
-            'title',
+            'taskTitle',
             'content',
             'status',
         )

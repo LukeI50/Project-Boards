@@ -7,21 +7,36 @@ from .forms import NewProjectForm, NewTaskForm, EditShortNotes
 from .models import Project, Task, Note
 
 
-
 # Create your views here.
 
-def determineView(request):
+def task_edit(request, slug, task_id):
     """
-    Redirects user to projects page/home if they are authenticated, 
-    otherwise it renders the welcome page.
+    View to edit tasks
     """
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
-        return render(
-            request,
-            template_name="project_board/greeting.html"
-        )
+
+    if request.method == "POST":
+
+        queryset = Project.objects.all()
+        project = get_object_or_404(queryset, slug=slug)
+        task = get_object_or_404(Task, pk=task_id)
+        task_form = NewTaskForm(data=request.POST, instance=task)
+
+        if task_form.is_valid():
+            task = task_form.save(commit=False)
+            task.save()
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                "Task Updated!",
+            )
+        else:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                "Error updating task!"
+            )
+
+    return HttpResponseRedirect(reverse('project_detail', args=[slug]))
 
 
 class ProjectsList(generic.ListView):
