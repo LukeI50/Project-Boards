@@ -3,7 +3,7 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 
-from .forms import NewProjectForm, NewTaskForm
+from .forms import NewProjectForm, NewTaskForm, EditShortNotes
 from .models import Project, Task, Note
 
 
@@ -135,6 +135,8 @@ class ProjectDetailView(generic.DetailView):
 
         projectForm = NewProjectForm(request.POST)
         taskForm = NewTaskForm(request.POST)
+        noteForm = EditShortNotes(data=request.POST, instance=project)
+
 
         if projectForm.is_valid():
             new_project = projectForm.save(commit=False)
@@ -207,5 +209,6 @@ class ProjectDetailView(generic.DetailView):
 
         context['project_form'] = NewProjectForm()
         context['task_form'] = NewTaskForm()
+        context['edit_short_notes'] = EditShortNotes()
 
         return context

@@ -18,10 +18,9 @@ class NewTaskForm(forms.ModelForm):
             'status',
         )
 
-class NotesForm(forms.ModelForm):
+class EditShortNotes(forms.ModelForm):
     class Meta:
         model = Note
         fields = (
             'short',
-            'essay',
         )

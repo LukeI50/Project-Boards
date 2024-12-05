@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <form method="post">
-                    {{ task_form }}
+                    {{ task_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg btn-primary">Create New Task...</button>
                 </form>
@@ -23,6 +23,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body small">
-        ...
+        {{ edit_short_notes | crispy }}
+        {% csrf_token %}
     </div>
 </div>
