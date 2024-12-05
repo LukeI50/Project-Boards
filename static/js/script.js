@@ -2,7 +2,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // const breakpoints = [768, 1024]
-    const breakpoints = {default: 1024, small: 768};
+    const breakpoints = {
+        large: 1560,
+        default: 1024,
+        small: 768,
+    };
 
     // Get the value stored in the currentMode cookie
     let currentMode = document.cookie
@@ -22,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimeout);
+        console.log(window.innerWidth)
 
         resizeTimeout = setTimeout(() => {
             const currentWidth = window.innerWidth;

@@ -89,44 +89,10 @@ class CollaboratorList(generic.ListView):
             return Project.objects.filter(authorised_editor = self.request.user)
     
     queryset = get_queryset
-        
-
-
-
-
-def project_detail(request, slug):
-
-
-    project = get_object_or_404(Project, slug = slug)
-
-    note = Note.objects.filter(Notes_from=project).first()
-
-    tasks = Task.objects.filter(associated_project = project).select_related('associated_project')
-    tasks_backlog = tasks.filter(status=0)
-    tasks_todo = tasks.filter(status=1)
-    tasks_in_progress = tasks.filter(status=2)
-    tasks_done = tasks.filter(status=3)
-
-
-    return render(
-        request,
-        "project_board/project_detail.html",
-        {
-            "project": project,
-            "note": note,
-            "tasks_backlog": tasks_backlog,
-            "tasks_todo": tasks_todo,
-            "tasks_in_progress": tasks_in_progress,
-            "tasks_done": tasks_done,
-            "is_project_detail": True,
-        },
-    )
-
-
 
 
 class ProjectDetailView(generic.DetailView):
-        """
+    """
     Amalgamate all models associated to a single instance of 
     a project board :model:`project_board.Project`.
 
@@ -145,7 +111,6 @@ class ProjectDetailView(generic.DetailView):
     :template:`project_board/project_detail.html`
     """
 
-
     model = Project
     template_name = 'project_board/project_detail.html'
     context_object_name = 'project'
@@ -157,6 +122,27 @@ class ProjectDetailView(generic.DetailView):
         slug = self.kwargs.get('slug')
         return get_object_or_404(Project, slug=slug)
     
+    def post(self, request, *args, **kwargs):
+        form = NewProjectForm(request.POST)
+        if form.is_valid():
+            new_project = form.save(commit=False)
+            new_project.owner = request.user
+            new_project.last_edited_by = request.user
+            new_project.save()
+
+            # Automatically create a Note for the new project
+            # Note model has a OneToOneField, so it requires an associated project
+            Note.objects.create(
+                Notes_from=new_project,    # Associating with new project
+                short = "Default short description",
+                essay="This is a default essay for the new project."
+            )
+
+            return redirect('/')
+        else:
+            context = self.get_context_data()
+            context['project_form'] = form
+            return self.render_to_response(context)
 
     def get_context_data(self, **kwargs):
         """
@@ -182,5 +168,7 @@ class ProjectDetailView(generic.DetailView):
         context['tasks_in_progress'] = tasks_in_progress
         context['tasks_done'] = tasks_done
         context['is_project_detail'] = True
+
+        context['project_form'] = NewProjectForm()
 
         return context
