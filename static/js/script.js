@@ -50,21 +50,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById('AddProjectButton').addEventListener('click', () => {
         if (document.getElementsByClassName('toast-container')) {
-            let toastContainers = document.getElementsByClassName('toast-container');
+            let toastContainers = document.querySelectorAll('.toast-container');
 
-            for (let container in toastContainers) {
-                toastContainers[container].classList.add("d-none");
-            }
+            toastContainers.forEach(container => {
+                container.classList.add('d-none');
+            })
         }
     });
 
     document.getElementById("AddProjectButton-Close").addEventListener('click', () => {
         if (document.getElementsByClassName('toast-container')) {
-            let toastContainers = document.getElementsByClassName('toast-container');
+            let toastContainers = document.querySelectorAll('.toast-container');
 
-            for (let container in toastContainers) {
-                toastContainers[container].classList.remove('d-none');
-            }
+            toastContainers.forEach(container => {
+                const show = setInterval(() => {
+                    container.classList.remove('d-none');
+                    if (toastContainers[1].classList.contains('d-none') == false) {
+                        clearInterval(show);
+                    }
+                }, 250)
+            });
+
         }
     })
 
