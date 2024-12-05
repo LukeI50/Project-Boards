@@ -1,3 +1,5 @@
+{% load crispy_forms_tags %}
+
 <div class="modal fade" id="project-actions-add-task" tabindex="-1" aria-labelledby="project-actions-add-taskLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -23,7 +25,10 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body small">
-        {{ edit_short_notes | crispy }}
-        {% csrf_token %}
+        <form method="post">
+            {{ edit_short_notes | crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-signup btn-lg btn-primary">Update short notes...</button>
+        </form>
     </div>
 </div>

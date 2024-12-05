@@ -174,13 +174,26 @@ class ProjectDetailView(generic.DetailView):
             )
 
             return redirect('project_detail', slug = project.slug)
+        
+        elif noteForm.is_valid():
+            note, created = Note.objects.get_or_create(Notes_from=project)
+            note.short = noteForm.cleaned_data['short']
+            note.save()
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Note successfully updated.'
+            )
 
+            return redirect('project_detail', slug = project.slug)
 
         else:
             context = self.get_context_data(project=project)
             context['project_form'] = projectForm
             context['task_form'] = taskForm
+            context['edit_short_notes'] = noteForm
             return self.render_to_response(context)
+
 
     def get_context_data(self, **kwargs):
         """
@@ -209,6 +222,6 @@ class ProjectDetailView(generic.DetailView):
 
         context['project_form'] = NewProjectForm()
         context['task_form'] = NewTaskForm()
-        context['edit_short_notes'] = EditShortNotes()
+        context['edit_short_notes'] = EditShortNotes(instance=note)
 
         return context
