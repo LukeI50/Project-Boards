@@ -145,3 +145,30 @@ class ProjectDetailView(generic.DetailView):
         slug = self.kwargs.get('slug')
         return get_object_or_404(Project, slug=slug)
     
+
+    def get_context_data(self, **kwargs):
+        """
+        Add the additional context data for the tasks and notes to the template by
+        passing them into the context.
+        """
+        context = super().get_context_data()
+        project = context['project']
+
+
+        note = Note.objects.filter(Notes_from=project).first()
+
+        tasks = Task.objects.filter(associated_project=project).select_related('associated_project')
+        tasks_backlog = tasks.filter(status=0)
+        tasks_todo = tasks.filter(status=1)
+        tasks_in_progress = tasks.filter(status=2)
+        tasks_done = tasks.filter(status=3)
+
+
+        context['note'] = note
+        context['tasks_backlog'] = tasks_backlog
+        context['tasks_todo'] = tasks_todo
+        context['tasks_in_progress'] = tasks_in_progress
+        context['tasks_done'] = tasks_done
+        context['is_project_detail'] = True
+
+        return context
