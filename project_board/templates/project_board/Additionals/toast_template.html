@@ -1,10 +1,11 @@
 <div id="task{{ task.id }}" class="toast fade show mt-3 mx-auto" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
         <img src="..." class="rounded me-2" alt="...">
-        <strong>{{ task.author }}</strong>
-        <button type="button" class="btn btn-link btn-task-edit" task_id ="{{ task.id }}">Edit</button>
+        <strong data-task-info="author">{{ task.author }}</strong>
+        <button type="button" class="btn btn-task-edit" task_id ="{{ task.id }}">Edit</button>
     </div>
-    <div class="toast-body">
-        {{ task.content | striptags }}
+    <div data-task-info="content" class="toast-body">
+        <p data-task-status="{{ task.status }}">{{ task.taskTitle }}</p>
+        <p class="d-none">{{ task.content }}</p>
     </div>
 </div>

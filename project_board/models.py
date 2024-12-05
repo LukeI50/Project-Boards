@@ -55,7 +55,7 @@ class Task(models.Model):
     status = models.PositiveBigIntegerField(choices=TaskStatus.choices, default=TaskStatus.BACKLOG)
 
     project = models.ForeignKey(Project, on_delete=models.CASCADE, name='associated_project')
-    title = models.CharField(max_length=200)
+    taskTitle = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)
     date_created = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.SET(dud_user))
@@ -70,11 +70,11 @@ class Task(models.Model):
         ordering = ["date_created"]
     
     def __str__(self):
-        return f"{self.title} | {self.author} Created on {self.date_created}"
+        return f"{self.taskTitle} | {self.author} Created on {self.date_created}"
     
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
+            self.slug = slugify(self.taskTitle)
         super().save(*args, **kwargs)
 
 

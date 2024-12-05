@@ -16,7 +16,7 @@ def task_edit(request, slug, task_id):
 
     if request.method == "POST":
 
-        queryset = Project.object.all()
+        queryset = Project.objects.all()
         project = get_object_or_404(queryset, slug=slug)
         task = get_object_or_404(Task, pk=task_id)
         task_form = NewTaskForm(data=request.POST, instance=task)
@@ -36,7 +36,7 @@ def task_edit(request, slug, task_id):
                 "Error updating task!"
             )
 
-    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    return HttpResponseRedirect(reverse('project_detail', args=[slug]))
 
 
 class ProjectsList(generic.ListView):
