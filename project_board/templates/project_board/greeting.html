@@ -1,54 +1,10 @@
-{% load static %}
-
-<!DOCTYPE html>
-<!-- <html class="h-100" lang="en"> -->
-
-<head>
-    <script>
-        // Set screen size cookies as soon as possible
-        // document.cookie = "screenWidth=" + window.innerWidth + "; path=/; Secure; SameSite=None";
-        if (document.cookie.split('; ').find((row) => row.startsWith('currentMode='))?.split("=")[1] != true) {
-            if (window.innerWidth < 768) {
-                document.cookie = "currentMode=" + "small" + "; path=/; Secure; SameSite=None";
-            } else {
-                document.cookie = "currentMode=" + "default" + "; path=/; Secure; SameSite=None";
-            }
-        }
-    </script>
-    
-    <title>CodeStar Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Google Fonts CSS -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet"> -->
-
-    <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" type="text/css"/>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
-    <!-- Static CSS File Link -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-</head>
-<body class="d-flex w-100">
-    <div class="d-flex flex-column w-100 text-center text-bg-light">
-        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column bx-shadow-l">
-            <header class="mb-auto">
-                <div>
-                    <h3 class="float-md-start mb-3 mt-3 mx-4">{% block Title %}{% endblock %}</h3>
-                </div>
-            </header>
-            <main class="px-3">
-
-                <!-- Hero section/greeting -->
-                <div id="hero" class="px-4 py-5 my-5 text-center">
-                    <h1 class="display-5 fw-bold text-body-emphasis">Introducing Boards!</h1>
-                    <div class="col-lg-6 mx-auto">
-                        <p class="lead mb-4">
+{% block content %}
+<main class="px-3">
+    <!-- Hero section/greeting -->
+    <div id="hero" class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold text-body-emphasis">Introducing Boards!</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">
                             Imagine a world where you can create project trackers, task lists, and group projects - 
                             but all at the cost of your soul! Welcome to Boards, where we'll ask for all your secrets, 
                             store them in a database that's probably not super secure, and then pretend like it's no 
@@ -96,51 +52,33 @@
                         </div>
                     </div>
                 </div>
-
             </main>
-
-
-
-            <footer class="mt-auto text-white-50">
-                <p>
-                    <a href="#" class="text-white">Made with Bootstrap</a>
-                </p>
-            </footer>
-        </div>
-    </div>
-
-
-    <!-- Code for Bootstrap Signup Modal -->
-    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="signupModal">User Agreement</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        We know what you're thinking... "40 pages? That sounds like a real page-turner!"
-                        <br>
-                        So, we've condensed all that thrilling legalese into one simple paragraph:
-                    </p>
-                    <p>
-                        "You agree to let us do whatever we want with your data. Yeah." Just click the sign up button below 
-                        an we'll all pretend you read the actual thing.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up!</a>
+                {% endblock %}
+                
+                {% block modals %}
+                <!-- Bootstrap Signup Modal -->
+                <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="signupModal">User Agreement</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    We know what you're thinking... "40 pages? That sounds like a real page-turner!"
+                                    <br>
+                                    So, we've condensed all that thrilling legalese into one simple paragraph:
+                                </p>
+                                <p>
+                                    "You agree to let us do whatever we want with your data. Yeah." Just click the sign up button below 
+                                    an we'll all pretend you read the actual thing.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up!</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Script imports -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <script src="{% static 'js/script.js' %}"></script>
-</body>
-
-
-</html>
+{% endblock %}

@@ -1,6 +1,6 @@
 {% load crispy_forms_tags %}
 
-<div class="modal fade" id="project-actions-add-task" tabindex="-1" aria-labelledby="project-actions-add-taskLabel" aria-hidden="true">
+<div class="modal fade" id="AddTaskModal" tabindex="-1" aria-labelledby="project-actions-add-taskLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,7 +11,7 @@
                 <form id="taskForm" method="post">
                     {{ task_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg btn-primary">Create New Task...</button>
+                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg btn-primary">Create New Task...</button>
                 </form>
             </div>
         </div>
