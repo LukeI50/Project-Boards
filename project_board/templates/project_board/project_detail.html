@@ -1,16 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
 
-<!-- Basic Project Detail View -->
- <!-- will consist of three panels that contain the tasks
-  relevant to the pertinant data-status-column value. -->
-
-<!-- I am going to use toast containers to facilitate this -->
-
-<!-- lookinto django templates based on screensize!!! -->
-
-<!-- TODO panel -->
-
+<!-- Essentially a kanban type board, setup with three divs denoting todo, in progress, done -->
 <div class="grid grid-cols-3 mx-auto h-100">
     <div class="toast-container position-static py-3 bx-shadow-r width-200" data-task-status="todo">
         <h5>todo's</h5>

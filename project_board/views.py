@@ -1,13 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
-from .forms import NewProjectForm
 
+
+from .forms import NewProjectForm, NewTaskForm
 from .models import Project, Task, Note
 
 
 
+# Create your views here.
 
 def determineView(request):
+    """
+    Redirects user to projects page/home if they are authenticated, 
+    otherwise it renders the welcome page.
+    """
     if request.user.is_authenticated:
         return redirect('home')
     else:
@@ -16,7 +22,7 @@ def determineView(request):
             template_name="project_board/greeting.html"
         )
 
-# Create your views here.
+
 class ProjectsList(generic.ListView):
     paginate_by = 4
     # default template
@@ -89,18 +95,7 @@ class CollaboratorList(generic.ListView):
 
 
 def project_detail(request, slug):
-    """
-    Display an individual :model:`project_board.Project`
 
-    **Context**
-
-    ``project``
-        An instance of :model:`project_board.Project`.
-    
-    **Template**
-
-    :template:`project_board/project_detail.html`
-    """
 
     project = get_object_or_404(Project, slug = slug)
 
@@ -126,3 +121,66 @@ def project_detail(request, slug):
             "is_project_detail": True,
         },
     )
+
+
+
+
+class ProjectDetailView(generic.DetailView):
+        """
+    Amalgamate all models associated to a single instance of 
+    a project board :model:`project_board.Project`.
+
+    **Context**
+
+    ``project``
+        An instance of :model:`project_board.Project`.
+    ``note``
+        An instance of :model:`project_board.Note`.
+    ``tasks``
+        get all task instances linked to project :model:`project_board.Task`.
+
+    
+    **Template**
+
+    :template:`project_board/project_detail.html`
+    """
+
+
+    model = Project
+    template_name = 'project_board/project_detail.html'
+    context_object_name = 'project'
+
+    def get_object(self, queryset=None):
+        """
+        Get the project from the Project model based on the slug passed.
+        """
+        slug = self.kwargs.get('slug')
+        return get_object_or_404(Project, slug=slug)
+    
+
+    def get_context_data(self, **kwargs):
+        """
+        Add the additional context data for the tasks and notes to the template by
+        passing them into the context.
+        """
+        context = super().get_context_data()
+        project = context['project']
+
+
+        note = Note.objects.filter(Notes_from=project).first()
+
+        tasks = Task.objects.filter(associated_project=project).select_related('associated_project')
+        tasks_backlog = tasks.filter(status=0)
+        tasks_todo = tasks.filter(status=1)
+        tasks_in_progress = tasks.filter(status=2)
+        tasks_done = tasks.filter(status=3)
+
+
+        context['note'] = note
+        context['tasks_backlog'] = tasks_backlog
+        context['tasks_todo'] = tasks_todo
+        context['tasks_in_progress'] = tasks_in_progress
+        context['tasks_done'] = tasks_done
+        context['is_project_detail'] = True
+
+        return context
