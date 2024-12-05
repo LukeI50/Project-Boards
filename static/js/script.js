@@ -48,6 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 150);
     });
 
+
+    // following two listeners are made to hide toast-containers when new project form model is loaded.
+    // Otherwise, model is placed behind the toast containers.
     document.getElementById('AddProjectButton').addEventListener('click', () => {
         if (document.getElementsByClassName('toast-container')) {
             let toastContainers = document.querySelectorAll('.toast-container');
