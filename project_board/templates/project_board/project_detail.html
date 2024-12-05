@@ -18,13 +18,13 @@
         {% include "./Additionals/toast_template.html" %}
         {% endfor %}
     </div>
-    <div class="toast-container position-static py-3 bx-shadow-r width-200" data-task-status="In progress">
+    <div class="position-static py-3 bx-shadow-r width-200" data-task-status="In progress">
         <h5>In progress</h5>
         {% for task in tasks_in_progress %}
         {% include "./Additionals/toast_template.html" %}
         {% endfor %}
     </div>
-    <div class="toast-container position-static py-3 bx-shadow-r width-200" data-task-status="Done">
+    <div class="position-static py-3 bx-shadow-r width-200" data-task-status="Done">
         <h5>Done</h5>
         {% for task in tasks_done %}
         {% include "./Additionals/toast_template.html" %}
