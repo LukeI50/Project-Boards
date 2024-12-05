@@ -1,0 +1,25 @@
+<div class="modal fade" id="project-actions-add-task" tabindex="-1" aria-labelledby="project-actions-add-taskLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{ task_form }}
+                {% csrf_token %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Short notes offcanvas bottom -->
+<div id="shortNotesEdit" class="offcanvas offcanvas-bottom" tabindex="-1">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="shortNotesEditLabel">Short notes...</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body small">
+        ...
+    </div>
+</div>
