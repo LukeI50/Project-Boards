@@ -89,40 +89,6 @@ class CollaboratorList(generic.ListView):
             return Project.objects.filter(authorised_editor = self.request.user)
     
     queryset = get_queryset
-        
-
-
-
-
-def project_detail(request, slug):
-
-
-    project = get_object_or_404(Project, slug = slug)
-
-    note = Note.objects.filter(Notes_from=project).first()
-
-    tasks = Task.objects.filter(associated_project = project).select_related('associated_project')
-    tasks_backlog = tasks.filter(status=0)
-    tasks_todo = tasks.filter(status=1)
-    tasks_in_progress = tasks.filter(status=2)
-    tasks_done = tasks.filter(status=3)
-
-
-    return render(
-        request,
-        "project_board/project_detail.html",
-        {
-            "project": project,
-            "note": note,
-            "tasks_backlog": tasks_backlog,
-            "tasks_todo": tasks_todo,
-            "tasks_in_progress": tasks_in_progress,
-            "tasks_done": tasks_done,
-            "is_project_detail": True,
-        },
-    )
-
-
 
 
 class ProjectDetailView(generic.DetailView):
