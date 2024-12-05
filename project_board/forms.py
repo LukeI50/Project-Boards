@@ -17,3 +17,11 @@ class NewTaskForm(forms.ModelForm):
             'content',
             'status',
         )
+
+class NotesForm(forms.ModelForm):
+    class Meta:
+        model = Note
+        fields = (
+            'short',
+            'essay',
+        )
