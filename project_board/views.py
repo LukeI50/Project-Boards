@@ -123,5 +123,6 @@ def project_detail(request, slug):
             "tasks_todo": tasks_todo,
             "tasks_in_progress": tasks_in_progress,
             "tasks_done": tasks_done,
+            "is_project_detail": True,
         },
     )
