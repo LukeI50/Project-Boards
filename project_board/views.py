@@ -133,6 +133,8 @@ class ProjectDetailView(generic.DetailView):
         projectForm = NewProjectForm(request.POST)
         taskForm = NewTaskForm(request.POST)
 
+        project = self.get_object()
+
         if projectForm.is_valid():
             new_project = projectForm.save(commit=False)
             new_project.owner = request.user
@@ -154,15 +156,12 @@ class ProjectDetailView(generic.DetailView):
                 essay="This is a default essay for the new project."
             )
 
-            context = self.get_context_data()
-            context['project_form'] = projectForm
-            context['task_form'] = taskForm
-            return self.render_to_response(context)
+            return redirect('/')
         
         elif taskForm.is_valid():
             add_task = taskForm.save(commit=False)
             add_task.author = request.user
-            add_task.associated_project = self.get_object()
+            add_task.associated_project = project
             add_task.save()
 
             messages.add_message(
@@ -171,14 +170,11 @@ class ProjectDetailView(generic.DetailView):
                 'Successfully created new task'
             )
 
-            context = self.get_context_data()
-            context['project_form'] = projectForm
-            context['task_form'] = taskForm
-            return self.render_to_response(context)
+            return redirect('/')
 
 
         else:
-            context = self.get_context_data()
+            context = self.get_context_data(project=project)
             context['project_form'] = projectForm
             context['task_form'] = taskForm
             return self.render_to_response(context)
