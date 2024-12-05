@@ -94,3 +94,7 @@ a {
     background-color: var(--primary);
     border-radius: 6px;
 }
+
+.text-green {
+    color: greenyellow;
+}

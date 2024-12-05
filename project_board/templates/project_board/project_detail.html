@@ -1,21 +1,30 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+
+
+{% block notifications %}
+{% include './Additionals/toasty_notifications.html' %}
+{% endblock %}
+
+
+{% block content %}
 {% load static %}
 
 <!-- Essentially a kanban type board, setup with three divs denoting todo, in progress, done -->
 <div class="grid grid-cols-3 mx-auto h-100">
-    <div class="toast-container position-static py-3 bx-shadow-r width-200" data-task-status="todo">
+    <div class="position-static py-3 bx-shadow-r width-200" data-task-status="todo">
         <h5>todo's</h5>
         {% for task in tasks_todo %}
         {% include "./Additionals/toast_template.html" %}
         {% endfor %}
     </div>
-    <div class="toast-container position-static py-3 bx-shadow-r width-200" data-task-status="In progress">
+    <div class="position-static py-3 bx-shadow-r width-200" data-task-status="In progress">
         <h5>In progress</h5>
         {% for task in tasks_in_progress %}
         {% include "./Additionals/toast_template.html" %}
         {% endfor %}
     </div>
-    <div class="toast-container position-static py-3 bx-shadow-r width-200" data-task-status="Done">
+    <div class="position-static py-3 bx-shadow-r width-200" data-task-status="Done">
         <h5>Done</h5>
         {% for task in tasks_done %}
         {% include "./Additionals/toast_template.html" %}
@@ -24,3 +33,11 @@
 </div>
 
 {% endblock content %}
+
+
+{% block modals %}
+{% include './Options/project_modals.html' %}
+{% endblock %}
+
+
+

@@ -130,9 +130,14 @@ class ProjectDetailView(generic.DetailView):
         return get_object_or_404(Project, slug=slug)
     
     def post(self, request, *args, **kwargs):
-        form = NewProjectForm(request.POST)
-        if form.is_valid():
-            new_project = form.save(commit=False)
+        slug = self.kwargs.get('slug')
+        project = get_object_or_404(Project, slug=slug)
+
+        projectForm = NewProjectForm(request.POST)
+        taskForm = NewTaskForm(request.POST)
+
+        if projectForm.is_valid():
+            new_project = projectForm.save(commit=False)
             new_project.owner = request.user
             new_project.last_edited_by = request.user
             new_project.save()
@@ -152,10 +157,27 @@ class ProjectDetailView(generic.DetailView):
                 essay="This is a default essay for the new project."
             )
 
-            return redirect('/')
+            return redirect('project_detail', slug=project.slug)
+        
+        elif taskForm.is_valid():
+            add_task = taskForm.save(commit=False)
+            add_task.author = request.user
+            add_task.associated_project = project
+            add_task.save()
+
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Successfully created new task'
+            )
+
+            return redirect('project_detail', slug = project.slug)
+
+
         else:
-            context = self.get_context_data()
-            context['project_form'] = form
+            context = self.get_context_data(project=project)
+            context['project_form'] = projectForm
+            context['task_form'] = taskForm
             return self.render_to_response(context)
 
     def get_context_data(self, **kwargs):
@@ -184,5 +206,6 @@ class ProjectDetailView(generic.DetailView):
         context['is_project_detail'] = True
 
         context['project_form'] = NewProjectForm()
+        context['task_form'] = NewTaskForm()
 
         return context

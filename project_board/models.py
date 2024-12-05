@@ -30,6 +30,10 @@ class Project(models.Model):
         return f"{self.title}"
     
     def save(self, *args, **kwargs):
+        """
+        Ensures the slugification process has taken place
+        in the event a slug did not populate automatically.
+        """
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
@@ -67,6 +71,11 @@ class Task(models.Model):
     
     def __str__(self):
         return f"{self.title} | {self.author} Created on {self.date_created}"
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 
 

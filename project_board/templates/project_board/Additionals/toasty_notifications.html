@@ -1,0 +1,16 @@
+<!-- displaying Django messages -->
+<div class="position-fixed bottom-0 end-0 p-3">
+    {% for message in messages %}
+    <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="fa-solid fa-circle-dot text-green" height="16" width="16"></i>
+            <strong class="me-auto mx-2">Notification</strong>
+            <small>Success</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            {{ message | safe }}
+        </div>
+    </div>
+    {% endfor %}
+</div>

@@ -15,4 +15,5 @@ class NewTaskForm(forms.ModelForm):
         fields = (
             'title',
             'content',
+            'status',
         )
