@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
+from django.contrib import messages
 
 
 from .forms import NewProjectForm, NewTaskForm
@@ -57,6 +58,12 @@ class ProjectsList(generic.ListView):
             new_project.owner = request.user
             new_project.last_edited_by = request.user
             new_project.save()
+
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'New Project successfully created'
+            )
 
             # Automatically create a Note for the new project
             # Note model has a OneToOneField, so it requires an associated project
