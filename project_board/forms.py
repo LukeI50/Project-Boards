@@ -24,3 +24,12 @@ class EditShortNotes(forms.ModelForm):
         fields = (
             'short',
         )
+
+class TaskEditForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = (
+            'title',
+            'content',
+            'status',
+        )
