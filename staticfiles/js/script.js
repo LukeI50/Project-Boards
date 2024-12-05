@@ -2,7 +2,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // const breakpoints = [768, 1024]
-    const breakpoints = {default: 1024, small: 768};
+    const breakpoints = {
+        large: 1560,
+        default: 1024,
+        small: 768,
+    };
 
     // Get the value stored in the currentMode cookie
     let currentMode = document.cookie
@@ -22,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimeout);
+        console.log(window.innerWidth)
 
         resizeTimeout = setTimeout(() => {
             const currentWidth = window.innerWidth;
@@ -42,4 +47,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }, 150);
     });
+
+
+    // following two listeners are made to hide toast-containers when new project form model is loaded.
+    // Otherwise, model is placed behind the toast containers.
+    document.getElementById('AddProjectButton').addEventListener('click', () => {
+        if (document.getElementsByClassName('toast-container')) {
+            let toastContainers = document.querySelectorAll('.toast-container');
+
+            toastContainers.forEach(container => {
+                container.classList.add('d-none');
+            })
+        }
+    });
+
+    document.getElementById("AddProjectButton-Close").addEventListener('click', () => {
+        if (document.getElementsByClassName('toast-container')) {
+            let toastContainers = document.querySelectorAll('.toast-container');
+
+            toastContainers.forEach(container => {
+                const show = setInterval(() => {
+                    container.classList.remove('d-none');
+                    if (toastContainers[1].classList.contains('d-none') == false) {
+                        clearInterval(show);
+                    }
+                }, 250)
+            });
+
+        }
+    })
+
+
 });
