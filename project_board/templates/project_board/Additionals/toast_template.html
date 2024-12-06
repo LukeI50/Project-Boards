@@ -1,6 +1,12 @@
 <div id="task{{ task.id }}" class="toast fade show mt-3 mx-auto" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-        <img src="..." class="rounded me-2" alt="...">
+        {% if task.status == 1 %}
+        <i class="fa-regular fa-circle rounded me-2"></i>
+        {% elif task.status == 2 %}
+        <i class="fa-regular fa-circle-dot rounded me-2"></i>
+        {% elif task.status == 3 %}
+        <i class="fa-solid fa-check rounded me-2"></i>
+        {% endif %}
         <strong data-task-info="author">{{ task.author }}</strong>
         <button type="button" class="btn btn-task-edit" task_id ="{{ task.id }}">Edit</button>
     </div>
