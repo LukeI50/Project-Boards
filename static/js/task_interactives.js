@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("task edit script successfully loaded")
 
 
-    // Initialise edit buttons
+    // Initialise edit buttons 
     for (let button of editButtons){
         button.addEventListener("click", (e) => {
             const taskId = e.target.getAttribute('task_id');
@@ -42,6 +42,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
             addTaskModal.show();
 
+        })
+
+        // Initialise makeshift on hover function
+        button.addEventListener("mouseover", () => {
+            console.log("mousedover")
+            hovertime = setTimeout(() => {
+                console.log("start hovertimer")
+                button.classList.add("bg-danger")
+                console.log(button.innerHTML)
+
+                const result = "Delete";
+                let count = 0;
+
+                button.innerHTML = "";
+                console.log("emtied html?", button.innerHTML)
+                let valueToUpdate = ["", ""];
+
+                const deleteStyle = setInterval(() => {
+                    console.log("in deleting style")
+                    if (button.innerText == "Delete") {
+                        clearInterval(deleteStyle);
+                    } else {
+                        console.log("count =", count)
+                        console.log(`letter to be added ${result[count]}`)
+                        valueToUpdate[1] = result[count];
+
+                        button.innerText = valueToUpdate.join("")
+                        valueToUpdate[0] = valueToUpdate.join("")
+                        count++;
+                    }
+                }, 75);
+
+            }, 2500)
+
+            initialHtml = '<i task_id="{{ task.id }}" class="fa-solid fa-pencil"></i>';
+
+            button.addEventListener("mouseout", () => {
+                console.log("mousedout")
+                clearTimeout(hovertime)
+                if (button.classList.contains('bg-danger')) {
+                    button.classList.remove('bg-danger')
+                }
+                button.innerText = "";
+                button.innerHTML = initialHtml;
+            })
         })
     }
 

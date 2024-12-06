@@ -114,3 +114,9 @@ a {
 .text-green {
     color: greenyellow;
 }
+
+.btn-task-edit {
+    height: 25%;
+    padding-left: 10px;
+    position: static;
+}
