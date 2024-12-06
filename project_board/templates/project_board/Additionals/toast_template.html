@@ -5,9 +5,9 @@
         {% elif task.status == 2 %}
         <i class="fa-regular fa-circle-dot rounded me-2"></i>
         {% elif task.status == 3 %}
-        <i class="fa-solid fa-check rounded me-2"></i>
+        <i class="fa-solid fa-circle rounded me-2"></i>
         {% endif %}
-        <strong data-task-info="author">{{ task.author }}</strong>
+        <strong class="me-auto" data-task-info="author">{{ task.author }}</strong>
         <button type="button" class="btn btn-task-edit" task_id ="{{ task.id }}"><i task_id="{{ task.id }}" class="fa-solid fa-pencil"></i></button>
     </div>
     <div data-task-info="content" class="toast-body">

@@ -99,6 +99,18 @@ a {
     border-radius: 6px;
 }
 
+.scroll-y {
+    overflow-y: scroll;
+}
+
+.h-100vh {
+    height: 100vh;
+}
+
+.h-90vh {
+    height: 90vh;
+}
+
 .text-green {
     color: greenyellow;
 }
