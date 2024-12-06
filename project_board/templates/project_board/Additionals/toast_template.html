@@ -1,8 +1,15 @@
 <div id="task{{ task.id }}" class="toast fade show mt-3 mx-auto" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-        <img src="..." class="rounded me-2" alt="...">
-        <strong data-task-info="author">{{ task.author }}</strong>
-        <button type="button" class="btn btn-task-edit" task_id ="{{ task.id }}">Edit</button>
+        {% if task.status == 1 %}
+        <i class="fa-regular fa-circle rounded me-2"></i>
+        {% elif task.status == 2 %}
+        <i class="fa-regular fa-circle-dot rounded me-2"></i>
+        {% elif task.status == 3 %}
+        <i class="fa-solid fa-circle rounded me-2"></i>
+        {% endif %}
+        <strong class="me-auto" data-task-info="author">{{ task.author }}</strong>
+        <button type="button" class="btn btn-task-edit bg-info" task_id ="{{ task.id }}"><i task_id="{{ task.id }}" class="fa-solid fa-pencil"></i></button>
+        <button type="button" class="btn btn-task-delete btn-delete bg-danger" task_id ="{{ task.id }}"><i task_id="{{ task.id }}" class="fa-solid fa-trash"></i></button>
     </div>
     <div data-task-info="content" class="toast-body">
         <p data-task-status="{{ task.status }}">{{ task.taskTitle }}</p>
