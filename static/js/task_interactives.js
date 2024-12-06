@@ -45,45 +45,104 @@ document.addEventListener("DOMContentLoaded", () => {
         })
 
         // Initialise makeshift on hover function
+        // button.addEventListener("mouseover", () => {
+        //     console.log("mousedover")
+        //     hovertime = setTimeout(() => {
+        //         console.log("start hovertimer")
+        //         button.classList.add("bg-danger")
+        //         console.log(button.innerHTML)
+
+        //         const result = "Delete";
+        //         let count = 0;
+
+        //         button.innerHTML = "";
+        //         console.log("emtied html?", button.innerHTML)
+        //         let valueToUpdate = ["", ""];
+
+        //         const deleteStyle = setInterval(() => {
+        //             console.log("in deleting style")
+        //             if (button.innerText == "Delete") {
+        //                 clearInterval(deleteStyle);
+        //             } else {
+        //                 console.log("count =", count)
+        //                 console.log(`letter to be added ${result[count]}`)
+        //                 valueToUpdate[1] = result[count];
+
+        //                 button.innerText = valueToUpdate.join("")
+        //                 valueToUpdate[0] = valueToUpdate.join("")
+        //                 count++;
+        //             }
+        //         }, 75);
+
+        //     }, 2500)
+
+        //     initialHtml = '<i task_id="{{ task.id }}" class="fa-solid fa-pencil"></i>';
+
+        //     button.addEventListener("mouseout", () => {
+        //         console.log("mousedout")
+        //         clearTimeout(hovertime)
+        //         if (button.classList.contains('bg-danger')) {
+        //             button.classList.remove('bg-danger')
+        //         }
+        //         button.innerText = "";
+        //         button.innerHTML = initialHtml;
+        //     })
+        // })
+
+
         button.addEventListener("mouseover", () => {
-            console.log("mousedover")
-            hovertime = setTimeout(() => {
-                console.log("start hovertimer")
-                button.classList.add("bg-danger")
-                console.log(button.innerHTML)
+            console.log("mousedover");
+
+
+            if (window.hoverTimeout) {
+                clearTimeout(window.hoverTimeout);
+            }
+
+            if (window.deleteInterval) {
+                clearInterval(window.deleteInterval);
+            }
+
+
+            window.hoverTimeout = setTimeout(() => {
+                console.log("start hovertimer");
+                button.classList.add("bg-danger");
+                console.log(button.innerHTML);
+
 
                 const result = "Delete";
                 let count = 0;
 
                 button.innerHTML = "";
-                console.log("emtied html?", button.innerHTML)
-                let valueToUpdate = ["", ""];
 
                 const deleteStyle = setInterval(() => {
-                    console.log("in deleting style")
-                    if (button.innerText == "Delete") {
+                    console.log("in deleting style");
+
+                    if (button.innerText === result) {
                         clearInterval(deleteStyle);
                     } else {
-                        console.log("count =", count)
-                        console.log(`letter to be added ${result[count]}`)
-                        valueToUpdate[1] = result[count];
+                        console.log("count =", count);
+                        console.log(`letter to be added ${result[count]}`);
 
-                        button.innerText = valueToUpdate.join("")
-                        valueToUpdate[0] = valueToUpdate.join("")
+                        button.innerText = result.slice(0, count +1)
                         count++;
                     }
                 }, 75);
 
-            }, 2500)
+                window.deleteInterval = deleteStyle;
+            }, 2500);
 
             initialHtml = '<i task_id="{{ task.id }}" class="fa-solid fa-pencil"></i>';
 
             button.addEventListener("mouseout", () => {
-                console.log("mousedout")
-                clearTimeout(hovertime)
-                if (button.classList.contains('bg-danger')) {
-                    button.classList.remove('bg-danger')
+                console.log("mousedout");
+
+                clearTimeout(window.hoverTimeout);
+                if (window.deleteInterval) {
+                    clearInterval(window.deleteInterval)l
                 }
+
+
+                button.classList.remove("bg-danger");
                 button.innerText = "";
                 button.innerHTML = initialHtml;
             })
