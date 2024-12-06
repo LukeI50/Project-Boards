@@ -13,6 +13,25 @@ def task_delete(request, slug, task_id):
     """
     View to delete tasks
     """
+    queryset = Project.objects.all()
+    project = get_object_or_404(queryset, slug=slug)
+    task = get_object_or_404(Task, pk=task_id)
+
+    if task.author == request.user or project.authorised_editor.contains(request.user):
+        task.delete()
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            "Task successfully deleted!",
+        )
+    else:
+        messages.add_message(
+            request,
+            messages.ERROR,
+            "Unable to delete task!"
+        )
+
+    return HttpResponseRedirect(reverse('project_detail', args=[slug]))
 
 
 def task_edit(request, slug, task_id):
