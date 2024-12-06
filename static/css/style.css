@@ -117,6 +117,10 @@ a {
 
 .btn-task-edit {
     height: 25%;
-    padding-left: 10px;
+    margin-right: 2%;
     position: static;
 }
+
+/* .btn-task-edit:hover {
+    background-color: var();
+} */

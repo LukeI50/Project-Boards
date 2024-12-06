@@ -1,10 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
     const editButtons = document.getElementsByClassName("btn-task-edit");
+    const deleteButtons = document.getElementsByClassName('btn-delete');
 
     const tastText = document.getElementById('id_content');
     const taskForm = document.getElementById("taskForm");
     const addTaskModal = new bootstrap.Modal("#AddTaskModal");
+
+    const deleteTaskModal = new bootstrap.Modal("#DeleteTaskModal");
+    const deleteConfirm = document.getElementById("deleteConfirm");
+
     const modalTitle = document.getElementById('AddTaskModalTitle');
+    const toastHeaders = document.getElementsByClassName('toast-header')
     console.log(modalTitle);
 
     const submitButton = document.getElementById("submitButton");
@@ -43,14 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
             addTaskModal.show();
 
         })
-
+        
         // Initialise makeshift on hover function
         // button.addEventListener("mouseover", () => {
         //     console.log("mousedover")
         //     hovertime = setTimeout(() => {
-        //         console.log("start hovertimer")
-        //         button.classList.add("bg-danger")
-        //         console.log(button.innerHTML)
+        //         console.log("start hovertimer");
+        //         button.classList.remove('bg-info');
+        //         button.classList.add("bg-danger");
+        //         console.log(button.innerHTML);
 
         //         const result = "Delete";
         //         let count = 0;
@@ -72,80 +79,39 @@ document.addEventListener("DOMContentLoaded", () => {
         //                 valueToUpdate[0] = valueToUpdate.join("")
         //                 count++;
         //             }
-        //         }, 75);
+        //         }, 50);
 
+                
+                
+                
         //     }, 2500)
-
+        //     // might be able to trap it in a whileloop that way.
+            
         //     initialHtml = '<i task_id="{{ task.id }}" class="fa-solid fa-pencil"></i>';
-
+            
+        //     // maybe try creating a while loop in which the mouseout can exist
         //     button.addEventListener("mouseout", () => {
         //         console.log("mousedout")
         //         clearTimeout(hovertime)
         //         if (button.classList.contains('bg-danger')) {
-        //             button.classList.remove('bg-danger')
+        //             button.classList.remove('bg-danger');
+        //             button.classList.add('bg-info');
         //         }
-        //         button.innerText = "";
+        //         button.innerText = "Edit";
         //         button.innerHTML = initialHtml;
         //     })
+            
         // })
 
+    }
 
-        button.addEventListener("mouseover", () => {
-            console.log("mousedover");
-
-
-            if (window.hoverTimeout) {
-                clearTimeout(window.hoverTimeout);
-            }
-
-            if (window.deleteInterval) {
-                clearInterval(window.deleteInterval);
-            }
-
-
-            window.hoverTimeout = setTimeout(() => {
-                console.log("start hovertimer");
-                button.classList.add("bg-danger");
-                console.log(button.innerHTML);
-
-
-                const result = "Delete";
-                let count = 0;
-
-                button.innerHTML = "";
-
-                const deleteStyle = setInterval(() => {
-                    console.log("in deleting style");
-
-                    if (button.innerText === result) {
-                        clearInterval(deleteStyle);
-                    } else {
-                        console.log("count =", count);
-                        console.log(`letter to be added ${result[count]}`);
-
-                        button.innerText = result.slice(0, count +1)
-                        count++;
-                    }
-                }, 75);
-
-                window.deleteInterval = deleteStyle;
-            }, 2500);
-
-            initialHtml = '<i task_id="{{ task.id }}" class="fa-solid fa-pencil"></i>';
-
-            button.addEventListener("mouseout", () => {
-                console.log("mousedout");
-
-                clearTimeout(window.hoverTimeout);
-                if (window.deleteInterval) {
-                    clearInterval(window.deleteInterval)l
-                }
-
-
-                button.classList.remove("bg-danger");
-                button.innerText = "";
-                button.innerHTML = initialHtml;
-            })
+    for (let button of deleteButtons) {
+        button.addEventListener("click", (e) => {
+            console.log("delete clicked")
+            let taskId = e.target.getAttribute("task_id");
+            console.log(taskId)
+            deleteConfirm.href = `${window.location.pathname}delete_task/${taskId}`;
+            deleteTaskModal.show();
         })
     }
 
