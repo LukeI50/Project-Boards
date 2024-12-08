@@ -16,6 +16,19 @@ You're a Collaborator on...
 {% block content %}
 
 
+<div class="row">
+    <div class="col-12 mb-3 mb-sm-0">
+        {% for project in project_list %}
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">{{ project.title }}</div>
+                <div class="card-text">{{ project.content | truncatechars:150 }}</div>
+                <a href="#" class="btn btn-primary">Open Project</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 
 <!-- index.html content ends here -->
