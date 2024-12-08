@@ -161,6 +161,20 @@ class ProjectDetailView(generic.DetailView):
     template_name = 'project_board/project_detail.html'
     context_object_name = 'project'
 
+    def get_template_names(self):
+        screen_size = self.get_screen_size()
+
+        if screen_size == "small":
+            return ['project_board/project_detail_small.html']
+        elif screen_size == "default":
+            return ["project_board/project_detail_default.html"]
+        else:
+            return ['project_board/project_detail_large.html']
+
+    def get_screen_size(self):
+        screen_size = self.request.COOKIES.get('currentMode', 0)
+        return screen_size
+
     def get_object(self, queryset=None):
         """
         Get the project from the Project model based on the slug passed.
