@@ -111,6 +111,10 @@ a {
     height: 90vh;
 }
 
+.h-80vh {
+    height: 80vh;
+}
+
 .text-green {
     color: greenyellow;
 }

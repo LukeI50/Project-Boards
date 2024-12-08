@@ -65,7 +65,6 @@ def task_edit(request, slug, task_id):
 
 
 class ProjectsList(generic.ListView):
-    paginate_by = 4
     # default template
 
     def get_queryset(self):

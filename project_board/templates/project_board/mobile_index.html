@@ -22,15 +22,17 @@ You're a Collaborator on...
 
 <div class="row">
     <div class="col-12 mb-3 mb-sm-0">
-        {% for project in project_list %}
-        <div class="card mb-2">
-            <div class="card-body">
-                <h5 class="card-title">{{ project.title | title }}</h5>
-                <div class="card-text">{{ project.description | truncatechars:200 }}</div>
-                <a href="{% url 'project_detail' project.slug %}" class="btn btn-primary">Open Project</a>
+        <div class="scroll-y h-80vh">
+            {% for project in project_list %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title | title }}</h5>
+                    <div class="card-text">{{ project.description | truncatechars:200 }}</div>
+                    <a href="{% url 'project_detail' project.slug %}" class="btn btn-primary">Open Project</a>
+                </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </div>
 
