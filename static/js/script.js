@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (currentWidth >= breakpoints.large) {
                 newMode = "large";
             }
+            console.log("current mode is", currentMode)
+            console.log("breakpoints are", breakpoints)
+            console.log("new mode is", newMode)
 
             if (currentMode !== newMode) {
                 setScreenMode(newMode); 

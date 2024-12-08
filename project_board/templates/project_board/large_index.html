@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% url 'collaborator' as collaborator_url %}
+{% url 'home' as home_url %}
+
+<!-- Setting page title dependant on specific view -->
+{% block Title %}
+{% if request.path == home_url and user.is_authenticated %}
+Your Projects
+{% elif request.path == collaborator_url and user.is_authenticated %}
+You're a Collaborator on...
+{% endif %}
+{% endblock %}
+
+{% block notifications %}
+{% include './Additionals/toasty_notifications.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- index.html content starts here -->
+<div class="container-fluid">
+        <!-- Blog Entries Column -->
+    <div class="grid entries-grid">
+        {% for project in project_list %}
+        <a href="{% url 'project_detail' project.slug %}" class="text-decoration-none bg-light">
+            <div class="project-card bx-shadow-l">
+                <div class="d-flex justify-content-between">
+                    <h5>{{ project.title }}</h5>
+                    <span>{{ project.date_created }}</span>
+                </div>
+                <p class="pt-3">{{ project.description | striptags | truncatechars:200 }}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+
+    <!-- <div class="grid"></div> -->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">PREVIOUS &laquo;</a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+<!-- index.html content ends here -->
+{% endblock %}
+
+{% block copyright %}
+    Copyright 2024 Luke Isotta
+{% endblock %}
