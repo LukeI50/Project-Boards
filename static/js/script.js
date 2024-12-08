@@ -34,8 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (currentWidth < breakpoints.small) {
                 newMode = "small";
-            } else if (currentWidth >= breakpoints.small) {
+            } else if (currentWidth >= breakpoints.small && currentWidth < breakpoints.large ) {
                 newMode = "default";
+            } else if (currentWidth >= breakpoints.large) {
+                newMode = "large";
             }
 
             if (currentMode !== newMode) {
