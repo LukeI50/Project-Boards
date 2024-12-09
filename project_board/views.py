@@ -73,7 +73,6 @@ class ProjectsList(generic.ListView):
         else:
             return Project.objects.filter(owner=self.request.user).order_by('date_created')
 
-    queryset = get_queryset
   
   
     # Render different templates based on resolution of device
@@ -91,6 +90,26 @@ class ProjectsList(generic.ListView):
         screen_size = self.request.COOKIES.get('currentMode', 0)
         return screen_size
 
+
+    # AI generated code: //with alterations to make fit better
+    def get_paginate_by(self, queryset):
+        screen_size = self.get_screen_size()
+
+        if screen_size:
+            try:
+                screen_size = str(screen_size)
+
+                if screen_size == "small":
+                    pagination = None
+                elif screen_size == "default":
+                    pagination = 8
+                else:
+                    pagination = None
+            except ValueError:
+                pagination = None
+
+        return pagination
+    # end of AI code
 
     def post(self, request, *args, **kwargs):
         form = NewProjectForm(request.POST)
@@ -125,6 +144,7 @@ class ProjectsList(generic.ListView):
         context['project_form'] = NewProjectForm()
         return context
 
+    queryset = get_queryset
 
 class CollaboratorList(generic.ListView):
     template_name = 'project_board/index.html'
