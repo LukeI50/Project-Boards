@@ -72,8 +72,6 @@ class ProjectsList(generic.ListView):
             return Project.objects.none() # return empty queryset for anonymous user
         else:
             return Project.objects.filter(owner=self.request.user).order_by('date_created')
-
-  
   
     # Render different templates based on resolution of device
     def get_template_names(self):
@@ -89,7 +87,6 @@ class ProjectsList(generic.ListView):
     def get_screen_size(self):
         screen_size = self.request.COOKIES.get('currentMode', 0)
         return screen_size
-
 
     # AI generated code: //with alterations to make fit better
     def get_paginate_by(self, queryset):
