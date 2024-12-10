@@ -24,10 +24,15 @@ You're a Collaborator on...
     <div class="col-12 mb-3 mb-sm-0">
         <div class="scroll-y h-80vh">
             {% for project in project_list %}
-            <div class="card mb-2">
-                <div class="card-body">
+            <div class="card project-card mb-4 mx-auto">
+                <div class="card-header">
                     <h5 class="card-title">{{ project.title | title }}</h5>
+                    <span>{{ project.date_created }}</span>
+                </div>
+                <div class="card-body">
                     <div class="card-text">{{ project.description | truncatechars:200 }}</div>
+                </div>
+                <div class="card-footer">
                     <a href="{% url 'project_detail' project.slug %}" class="btn btn-primary">Open Project</a>
                 </div>
             </div>

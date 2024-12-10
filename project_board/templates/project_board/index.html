@@ -25,7 +25,7 @@ You're a Collaborator on...
         <!-- Blog Entries Column -->
     <div class="grid entries-grid">
         {% for project in project_list %}
-        <div class="card mb-2">
+        <div class="card project-card mb-2">
             <div class="card-header d-flex justify-content-between">
                 <h5 class="card-title px-5">{{ project.title | title }}</h5>
                 <span>{{ project.date_created }}</span>

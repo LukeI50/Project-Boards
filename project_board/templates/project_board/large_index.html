@@ -23,7 +23,7 @@ You're a Collaborator on...
 <!-- index.html content starts here -->
 <div class="container-fluid">
         <!-- Blog Entries Column -->
-    <div class="grid entries-grid">
+    <div class="grid grid-cols-3">
         {% for project in project_list %}
         <a href="{% url 'project_detail' project.slug %}" class="text-decoration-none bg-light">
             <div class="project-card bx-shadow-l">

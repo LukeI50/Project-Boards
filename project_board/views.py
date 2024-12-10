@@ -73,7 +73,7 @@ class ProjectsList(generic.ListView):
         else:
             return Project.objects.filter(owner=self.request.user).order_by('date_created')
   
-    # Render different templates based on resolution of device
+    # Render different templates based on width of window
     def get_template_names(self):
         screen_size = self.get_screen_size()
 
