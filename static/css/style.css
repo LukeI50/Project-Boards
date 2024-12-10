@@ -34,11 +34,10 @@ a {
 
 /* ----------Structure---------- */
 .project-card {
-    border-radius: 6px;
-    width: 360px;
-    height: 180px;
-    background-color: rgba(68, 58, 59, 0.1);
+    max-width: 50%%;
 }
+
+
 
 .grid {
     display: grid;
