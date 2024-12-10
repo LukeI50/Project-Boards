@@ -25,15 +25,18 @@ You're a Collaborator on...
         <!-- Blog Entries Column -->
     <div class="grid entries-grid">
         {% for project in project_list %}
-        <a href="{% url 'project_detail' project.slug %}" class="text-decoration-none bg-light">
-            <div class="project-card bx-shadow-l">
-                <div class="d-flex justify-content-between">
-                    <h5>{{ project.title }}</h5>
-                    <span>{{ project.date_created }}</span>
-                </div>
-                <p class="pt-3">{{ project.description | striptags | truncatechars:180 }}</p>
+        <div class="card mb-2">
+            <div class="card-header d-flex justify-content-between">
+                <h5 class="card-title px-5">{{ project.title | title }}</h5>
+                <span>{{ project.date_created }}</span>
             </div>
-        </a>
+            <div class="card-body">
+                <div class="card-text">{{ project.description | truncatechars:180 }}</div>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'project_detail' project.slug %}" class="btn btn-primary">Open Project</a>
+            </div>
+        </div>
         {% endfor %}
     </div>
 
