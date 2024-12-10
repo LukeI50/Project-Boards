@@ -18,7 +18,7 @@ class Project(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.CharField(max_length=200, unique=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="project_owner")
-    description = models.TextField()
+    description = models.TextField(max_length=180)
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
     last_updated_by = models.ForeignKey(User, on_delete=models.SET(dud_user), blank=True, null=True, name='last_updated_by')
