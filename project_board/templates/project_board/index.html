@@ -31,7 +31,7 @@ You're a Collaborator on...
                     <h5>{{ project.title }}</h5>
                     <span>{{ project.date_created }}</span>
                 </div>
-                <p class="pt-3">{{ project.description | striptags }}</p>
+                <p class="pt-3">{{ project.description | striptags | truncatechars:180 }}</p>
             </div>
         </a>
         {% endfor %}
