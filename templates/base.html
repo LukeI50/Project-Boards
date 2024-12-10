@@ -12,17 +12,17 @@
 <!-- <html class="h-100" lang="en"> -->
 
 <head>
-    <script>
+    <!-- <script>
         // Set screen size cookies as soon as possible
         // document.cookie = "screenWidth=" + window.innerWidth + "; path=/; Secure; SameSite=None";
-        if (document.cookie.split('; ').find((row) => row.startsWith('currentMode='))?.split("=")[1] != true) {
-            if (window.innerWidth < 768) {
-                document.cookie = "currentMode=" + "small" + "; path=/; Secure; SameSite=None";
-            } else {
-                document.cookie = "currentMode=" + "default" + "; path=/; Secure; SameSite=None";
-            }
-        }
-    </script>
+        // if (document.cookie.split('; ').find((row) => row.startsWith('currentMode='))?.split("=")[1] != true) {
+        //     if (window.innerWidth < 768) {
+        //         document.cookie = "currentMode=" + "small" + "; path=/; Secure; SameSite=None";
+        //     } else {
+        //         document.cookie = "currentMode=" + "default" + "; path=/; Secure; SameSite=None";
+        //     }
+        // }
+    </script> -->
     
     <title>CodeStar Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -129,6 +129,8 @@
 
 
             <footer class="mt-auto text-white-50">
+                {% block pagination %}
+                {% endblock %}
                 <p>
                     <a href="#" class="text-white">Made with Bootstrap</a>
                 </p>
