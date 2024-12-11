@@ -99,7 +99,7 @@ class ProjectsList(generic.ListView):
                 if screen_size == "small":
                     pagination = None
                 elif screen_size == "default":
-                    pagination = 8
+                    pagination = 6
                 else:
                     pagination = 12
             except ValueError:
