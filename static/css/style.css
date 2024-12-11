@@ -54,6 +54,14 @@ a {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.grid-cols-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.row-gap-10p {
+    row-gap: 15%;
+}
+
 .width-200 {
     width: 400px;
 }
