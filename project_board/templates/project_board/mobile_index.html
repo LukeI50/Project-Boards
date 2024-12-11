@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% url 'collaborator' as collaborator_url %}
 {% url 'home' as home_url %}
@@ -47,4 +48,8 @@ You're a Collaborator on...
 
 {% block copyright %}
     Copyright 2024 Luke Isotta
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/refresh_window_by_display.js' %}"></script>
 {% endblock %}

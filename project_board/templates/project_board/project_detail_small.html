@@ -20,7 +20,7 @@
         </h2>
         <div class="accordion-collapse collapse show" id="TodosCollapse" data-bs-parent="#taskStatusAccordion">
             <div class="accordion-body scroll-y max-h-80vh">
-                <div class="grid grid-cols-tasks">
+                <div class="grid">
                     {% for task in tasks_todo %}
                     {% include "./Additionals/toast_template.html" %}
                     {% endfor %}
@@ -38,7 +38,7 @@
         </h2>
         <div class="accordion-collapse collapse" id="InProgressCollapse" data-bs-parent="#taskStatusAccordion">
             <div class="accordion-body scroll-y max-h-80vh">
-                <div class="grid grid-cols-tasks">
+                <div class="grid">
                     {% for task in tasks_in_progress %}
                     {% include "./Additionals/toast_template.html" %}
                     {% endfor %}
@@ -56,7 +56,7 @@
         </h2>
         <div class="accordion-collapse collapse" id="DoneCollapse" data-bs-parent="#taskStatusAccordion">
             <div class="accordion-body scroll-y max-h-80vh">
-                <div class="grid grid-cols-tasks">
+                <div class="grid">
                     {% for task in tasks_done %}
                     {% include "./Additionals/toast_template.html" %}
                     {% endfor %}

@@ -73,39 +73,20 @@ class ProjectsList(generic.ListView):
         else:
             return Project.objects.filter(owner=self.request.user).order_by('date_created')
   
-    # Render different templates based on width of window
+    # Render different templates based on width of display
     def get_template_names(self):
         screen_size = self.get_screen_size()
 
         if screen_size == "small":
             return ['project_board/mobile_index.html']
-        elif screen_size == "default":
-            return ['project_board/index.html']
         else:
-            return ['project_board/large_index.html']
+            return ['project_board/index.html']
 
     def get_screen_size(self):
         screen_size = self.request.COOKIES.get('currentMode', 0)
         return screen_size
 
     # AI generated code: //with alterations to make fit better
-    def get_paginate_by(self, queryset):
-        screen_size = self.get_screen_size()
-
-        if screen_size:
-            try:
-                screen_size = str(screen_size)
-
-                if screen_size == "small":
-                    pagination = None
-                elif screen_size == "default":
-                    pagination = 6
-                else:
-                    pagination = 12
-            except ValueError:
-                pagination = None
-
-        return pagination
     # end of AI code
 
     def post(self, request, *args, **kwargs):

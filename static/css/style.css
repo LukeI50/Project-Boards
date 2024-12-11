@@ -122,8 +122,16 @@ a {
     height: 90vh;
 }
 
+.h-85vh {
+    height: 85vh;
+}
+
 .h-80vh {
     height: 80vh;
+}
+
+.max-h-80vh {
+    max-height: 80vh;
 }
 
 .text-green {
@@ -139,3 +147,12 @@ a {
 /* .btn-task-edit:hover {
     background-color: var();
 } */
+
+
+
+@media screen and (min-width: 1000px) {
+    .grid-cols-tasks {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
