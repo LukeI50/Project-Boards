@@ -122,8 +122,6 @@ class ProjectsList(generic.ListView):
         context['project_form'] = NewProjectForm()
         return context
 
-    queryset = get_queryset
-
 class CollaboratorList(generic.ListView):
     def get_template_names(self):
         screen_size = self.get_screen_size()
@@ -142,8 +140,6 @@ class CollaboratorList(generic.ListView):
             return Project.objects.none()
         else:
             return Project.objects.filter(authorised_editor = self.request.user)
-    
-    queryset = get_queryset
 
 
 class ProjectDetailView(generic.DetailView):
