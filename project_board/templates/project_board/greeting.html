@@ -1,84 +1,89 @@
 {% block content %}
-<main class="px-3">
-    <!-- Hero section/greeting -->
-    <div id="hero" class="px-4 py-5 my-5 text-center">
-        <h1 class="display-5 fw-bold text-body-emphasis">Introducing Boards!</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">
-                            Imagine a world where you can create project trackers, task lists, and group projects - 
-                            but all at the cost of your soul! Welcome to Boards, where we'll ask for all your secrets, 
-                            store them in a database that's probably not super secure, and then pretend like it's no 
-                            big deal when our lawyers try to explain it to you.
-                        </p>
-                        <p>
-                            Please proceed through the following information before registering as a new user!
-                        </p>
-                    </div>
-                </div>
+<!-- Hero section/greeting -->
+<div class="my-auto">
+    <div class="container my-4">
+        <div class="p-5 text-center text-bg-dark rounded-3 my-5">
+            <h1 class="display-5 fw-bold">Introducing Boards!</h1>
+            <hr>
+            <p class="lead">
+                Imagine a world where you can create project trackers, task lists, and group projects - 
+                but all at the cost of your soul! Welcome to Boards, where we'll ask for all your secrets, 
+                store them in a database that's probably not super secure, and then pretend like it's no 
+                big deal when our lawyers try to explain it to you.
+            </p>
+            <p>
+                Please proceed through the following information before registering as a new user!
+            </p>
+        </div>
+    </div>
 
-                <!-- Jumbotron on data collection -->
-                <div class="container my-5">
-                    <div class="p-5 text-start bg-body-tertiary rounded-3 text-black">
-                        <h1 class="text-body-emphasis">Data</h1>
-                        <p class="lead">
-                            At Boards, we're all about transparency - except for our data collection practices, which will probably make your eyes water.
-                            Join us today and experience the thrill of handing over your personal info to a company that's only vaguely sure what it's doing with it.
-                        </p>
-                    </div>
+    <!-- Jumbotron on data collection -->
+    <div class="container py-4">
+        <div class="px-5 text-start bg-body-tertiary rounded-3 text-black">
+            <h1 class="text-body-emphasis">Data</h1>
+            <hr>
+            <p class="lead">
+                At Boards, we're all about transparency - except for our data collection practices, which will probably make your eyes water.
+                Join us today and experience the thrill of handing over your personal info to a company that's only vaguely sure what it's doing with it.
+            </p>
+        </div>
+    </div>
+        
+    <div id="jumbo" class="container py-4">
+        <!-- Jumbos, side by side -->
+        <div class="row align-items-md-stretch">
+            <div class="col-md-6 my-5">
+                <div class="h-100 p-5 text-bg-dark rounded-3">
+                    <h2>Security</h2>
+                    <hr>
+                    <p>
+                        Our insistence upon taking your name, address, emails, likes, dislikes, and whatever else we can think of, 
+                        means we take your data security seriously.
+                    </p>
+                    <p>
+                        We swear to keep it safe. How? We'll never really say. But go ahead and read the 40 page long User Agreement anyway. 
+                        We'll both pretend that we know what it says!
+                    </p>
                 </div>
-                    
-                <div id="jumbo" class="container py-4">
-                    <!-- Jumbos, side by side -->
-                    <div class="row align-items-md-stretch">
-                        <div class="col-md-6">
-                            <div class="h-100 p-5 text-bg-dark rounded-3">
-                                <h2>Security</h2>
-                                <p>
-                                    Our insistence upon taking your name, address, emails, likes, dislikes, and whatever else we can think of, 
-                                    means we take your data security seriously.
-                                </p>
-                                <p>
-                                    We swear to keep it safe. How? We'll never really say. But go ahead and read the 40 page long User Agreement anyway. 
-                                    We'll both pretend that we know what it says!
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="h-100 p-5 text-bg-dark rounded-3">
-                                <h2>User Agreement</h2>
-                                <p>Please make sure to read through the entire User Agreement thoroughly before proceeding to signup.</p>
-                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#signupModal">Agreement</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-                {% endblock %}
-                
-                {% block modals %}
-                <!-- Bootstrap Signup Modal -->
-                <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="signupModal">User Agreement</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    We know what you're thinking... "40 pages? That sounds like a real page-turner!"
-                                    <br>
-                                    So, we've condensed all that thrilling legalese into one simple paragraph:
-                                </p>
-                                <p>
-                                    "You agree to let us do whatever we want with your data. Yeah." Just click the sign up button below 
-                                    an we'll all pretend you read the actual thing.
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up!</a>
+            </div>
+            <div class="col-md-6 my-5">
+                <div class="h-100 p-5 text-bg-dark rounded-3">
+                    <h2>User Agreement</h2>
+                    <hr>
+                    <p>Please make sure to read through the entire User Agreement thoroughly before proceeding to signup.</p>
+                    <br>
+                    <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#signupModal">Agreement</button>
                 </div>
             </div>
         </div>
     </div>
+    {% endblock %}
+
+    {% block modals %}
+    <!-- Bootstrap Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="signupModal">User Agreement</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        We know what you're thinking... "40 pages? That sounds like a real page-turner!"
+                        <br>
+                        So, we've condensed all that thrilling legalese into one simple paragraph:
+                    </p>
+                    <p>
+                        "You agree to let us do whatever we want with your data. Yeah." Just click the sign up button below 
+                        an we'll all pretend you read the actual thing.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

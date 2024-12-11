@@ -68,6 +68,10 @@ a {
     width: 400px;
 }
 
+.max-w-740px {
+    max-width: 740px;
+}
+
 .padding-x-3 {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -145,6 +149,12 @@ a {
     height: 25%;
     margin-right: 2%;
     position: static;
+}
+
+.authentication-cards {
+    margin-top: auto;
+    margin-bottom: auto;
+    transform: translateY(-25%);
 }
 
 /* .btn-task-edit:hover {

@@ -43,7 +43,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
-<button class="btn btn-toggle nav-link d-inlin-flex align-items-center rounded border-0" data-bs-toggle="collapse" data-bs-target=""></button>
 <body class="d-flex w-100">
 
     {% if user.is_authenticated %}
@@ -111,11 +110,13 @@
 
     <div class="d-flex flex-column w-100 text-center text-bg-light">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column bx-shadow-l">
+            {% if user.is_authenticated %}
             <header class="mb-auto {% if request.path == project_detail_url %}d-sm-none{% endif %}">
                 <div>
                     <h3 class="float-md-start mb-3 mt-3 mx-4">{% block Title %}{% endblock %}</h3>
                 </div>
             </header>
+            {% endif %}
 
             {% if user.is_authenticated or request.path == signup_url or request.path == login_url %}
             <main class="px-3 h-100">
@@ -126,16 +127,6 @@
             {% else %}
             {% include './project_board/greeting.html' %}
             {% endif %}
-
-
-
-            <footer class="mt-auto text-white-50 {% if request.path == project_detail_url %}d-sm-none{% endif %}">
-                {% block pagination %}
-                {% endblock %}
-                <p>
-                    <a href="#" class="text-white">Made with Bootstrap</a>
-                </p>
-            </footer>
         </div>
     </div>
 
@@ -171,7 +162,9 @@
 
     <!-- Script imports -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/refresh_window_by_display.js' %}"></script>
     {% block scripts %}
+    
     {% endblock %}
     
 </body>
