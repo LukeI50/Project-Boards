@@ -21,7 +21,11 @@
         </h2>
         <div class="accordion-collapse collapse show" id="TodosCollapse" data-bs-parent="#taskStatusAccordion">
             <div class="accordion-body">
-                Todo's
+                <div class="grid grid-cols-2">
+                    {% for task in tasks_todo %}
+                    {% include "./Additionals/toast_template.html" %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
