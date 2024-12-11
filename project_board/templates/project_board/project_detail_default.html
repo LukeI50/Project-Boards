@@ -19,7 +19,7 @@
             </button>
         </h2>
         <div class="accordion-collapse collapse show" id="TodosCollapse" data-bs-parent="#taskStatusAccordion">
-            <div class="accordion-body scroll-y max-h-80vh">
+            <div class="accordion-body scroll-y max-h-80vh bg-yell">
                 <div class="grid grid-cols-tasks">
                     {% for task in tasks_todo %}
                     {% include "./Additionals/toast_template.html" %}
@@ -37,7 +37,7 @@
             </button>
         </h2>
         <div class="accordion-collapse collapse" id="InProgressCollapse" data-bs-parent="#taskStatusAccordion">
-            <div class="accordion-body scroll-y max-h-80vh">
+            <div class="accordion-body scroll-y max-h-80vh bg-yell">
                 <div class="grid grid-cols-tasks">
                     {% for task in tasks_in_progress %}
                     {% include "./Additionals/toast_template.html" %}
@@ -55,7 +55,7 @@
             </button>
         </h2>
         <div class="accordion-collapse collapse" id="DoneCollapse" data-bs-parent="#taskStatusAccordion">
-            <div class="accordion-body scroll-y max-h-80vh">
+            <div class="accordion-body scroll-y max-h-80vh bg-yell">
                 <div class="grid grid-cols-tasks">
                     {% for task in tasks_done %}
                     {% include "./Additionals/toast_template.html" %}

@@ -104,12 +104,6 @@ a {
     box-shadow: var(--text) 2px 0px 2px 0.3px;
 }
 
-
-.toast-container {
-    background-color: var(--primary);
-    border-radius: 6px;
-}
-
 .scroll-y {
     overflow-y: scroll;
 }
