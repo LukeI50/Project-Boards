@@ -23,22 +23,31 @@ You're a Collaborator on...
 <!-- index.html content starts here -->
 <div class="container-fluid">
         <!-- Blog Entries Column -->
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-4 row-gap-10p h-100">
         {% for project in project_list %}
-        <a href="{% url 'project_detail' project.slug %}" class="text-decoration-none bg-light">
-            <div class="project-card bx-shadow-l">
-                <div class="d-flex justify-content-between">
-                    <h5>{{ project.title }}</h5>
-                    <span>{{ project.date_created }}</span>
-                </div>
-                <p class="pt-3">{{ project.description | striptags | truncatechars:200 }}</p>
+        <div class="card project-card w-100 h-100">
+            <div class="card-header d-flex justify-content-between">
+                <h5 class="card-title px-5">{{ project.title | title }}</h5>
+                <span>{{ project.date_created }}</span>
             </div>
-        </a>
+            <div class="card-body">
+                <div class="card-text">{{ project.description | truncatechars:180 }}</div>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'project_detail' project.slug %}" class="btn btn-primary">Open Project</a>
+            </div>
+        </div>
         {% endfor %}
     </div>
+</div>
 
 
     <!-- <div class="grid"></div> -->
+    
+    <!-- index.html content ends here -->
+    {% endblock %}
+
+{% block pagination %}
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
@@ -51,11 +60,8 @@ You're a Collaborator on...
         </ul>
     </nav>
     {% endif %}
-</div>
-
-<!-- index.html content ends here -->
 {% endblock %}
-
-{% block copyright %}
+    
+    {% block copyright %}
     Copyright 2024 Luke Isotta
 {% endblock %}
