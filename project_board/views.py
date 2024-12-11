@@ -164,9 +164,7 @@ class ProjectDetailView(generic.DetailView):
     def get_template_names(self):
         screen_size = self.get_screen_size()
 
-        if screen_size == "small":
-            return ['project_board/project_detail_small.html']
-        elif screen_size == "default":
+        if screen_size == "small" or screen_size == "default":
             return ["project_board/project_detail_default.html"]
         else:
             return ['project_board/project_detail_large.html']
