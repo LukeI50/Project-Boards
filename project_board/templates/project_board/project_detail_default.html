@@ -57,34 +57,15 @@
         </h2>
         <div class="accordion-collapse collapse" id="DoneCollapse" data-bs-parent="#taskStatusAccordion">
             <div class="accordion-body">
-                Done
+                <div class="grid grid-cols-2">
+                    {% for task in tasks_done %}
+                    {% include "./Additionals/toast_template.html" %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-
-<div class="grid grid-cols-3 mx-auto h-100vh">
-    <div class="card bg-yell position-static py-3 bx-shadow-r width-200 scroll-y h-90vh" data-task-status="todo">
-        <h5>todo's</h5>
-        {% for task in tasks_todo %}
-        {% include "./Additionals/toast_template.html" %}
-        {% endfor %}
-    </div>
-    <div class="card bg-yell position-static py-3 bx-shadow-r width-200 scroll-y h-90vh" data-task-status="In progress">
-        <h5>In progress</h5>
-        {% for task in tasks_in_progress %}
-        {% include "./Additionals/toast_template.html" %}
-        {% endfor %}
-    </div>
-    <div class="card bg-yell position-static py-3 bx-shadow-r width-200 scroll-y h-90vh" data-task-status="Done">
-        <h5>Done</h5>
-        {% for task in tasks_done %}
-        {% include "./Additionals/toast_template.html" %}
-        {% endfor %}
-    </div>
-</div>
-
 {% endblock content %}
 
 
