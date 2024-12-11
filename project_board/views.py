@@ -125,8 +125,17 @@ class ProjectsList(generic.ListView):
     queryset = get_queryset
 
 class CollaboratorList(generic.ListView):
-    template_name = 'project_board/index.html'
-    paginate_by = 4
+    def get_template_names(self):
+        screen_size = self.get_screen_size()
+
+        if screen_size == "small":
+            return ['project_board/index_small.html']
+        else:
+            return ['project_board/index_default.html']
+
+    def get_screen_size(self):
+        screen_size = self.request.COOKIES.get('currentMode', 0)
+        return screen_size
 
     def get_queryset(self):
         if self.request.user.is_anonymous:
