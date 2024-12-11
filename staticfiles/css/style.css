@@ -34,11 +34,10 @@ a {
 
 /* ----------Structure---------- */
 .project-card {
-    border-radius: 6px;
-    width: 360px;
-    height: 180px;
-    background-color: rgba(68, 58, 59, 0.1);
+    max-width: 380px;
 }
+
+
 
 .grid {
     display: grid;
@@ -51,8 +50,20 @@ a {
     justify-content: space-evenly;
 }
 
+.grid-cols-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
 .grid-cols-3 {
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid-cols-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.row-gap-10p {
+    row-gap: 15%;
 }
 
 .width-200 {
@@ -111,6 +122,18 @@ a {
     height: 90vh;
 }
 
+.h-85vh {
+    height: 85vh;
+}
+
+.h-80vh {
+    height: 80vh;
+}
+
+.max-h-80vh {
+    max-height: 80vh;
+}
+
 .text-green {
     color: greenyellow;
 }
@@ -124,3 +147,12 @@ a {
 /* .btn-task-edit:hover {
     background-color: var();
 } */
+
+
+
+@media screen and (min-width: 1000px) {
+    .grid-cols-tasks {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
