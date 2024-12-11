@@ -40,7 +40,7 @@
         <div class="accordion-collapse collapse" id="InProgressCollapse" data-bs-parent="#taskStatusAccordion">
             <div class="accordion-body">
                 <div class="grid grid-cols-2">
-                    {% for task in tasks_todo %}
+                    {% for task in tasks_in_progress %}
                     {% include "./Additionals/toast_template.html" %}
                     {% endfor %}
                 </div>
