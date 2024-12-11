@@ -78,9 +78,9 @@ class ProjectsList(generic.ListView):
         screen_size = self.get_screen_size()
 
         if screen_size == "small":
-            return ['project_board/mobile_index.html']
+            return ['project_board/index_small.html']
         else:
-            return ['project_board/index.html']
+            return ['project_board/index_default.html']
 
     def get_screen_size(self):
         screen_size = self.request.COOKIES.get('currentMode', 0)
@@ -122,19 +122,24 @@ class ProjectsList(generic.ListView):
         context['project_form'] = NewProjectForm()
         return context
 
-    queryset = get_queryset
-
 class CollaboratorList(generic.ListView):
-    template_name = 'project_board/index.html'
-    paginate_by = 4
+    def get_template_names(self):
+        screen_size = self.get_screen_size()
+
+        if screen_size == "small":
+            return ['project_board/index_small.html']
+        else:
+            return ['project_board/index_default.html']
+
+    def get_screen_size(self):
+        screen_size = self.request.COOKIES.get('currentMode', 0)
+        return screen_size
 
     def get_queryset(self):
         if self.request.user.is_anonymous:
             return Project.objects.none()
         else:
             return Project.objects.filter(authorised_editor = self.request.user)
-    
-    queryset = get_queryset
 
 
 class ProjectDetailView(generic.DetailView):
@@ -164,9 +169,7 @@ class ProjectDetailView(generic.DetailView):
     def get_template_names(self):
         screen_size = self.get_screen_size()
 
-        if screen_size == "small":
-            return ['project_board/project_detail_small.html']
-        elif screen_size == "default":
+        if screen_size == "small" or screen_size == "default":
             return ["project_board/project_detail_default.html"]
         else:
             return ['project_board/project_detail_large.html']
@@ -247,7 +250,6 @@ class ProjectDetailView(generic.DetailView):
             context['edit_short_notes'] = noteForm
             return self.render_to_response(context)
 
-
     def get_context_data(self, **kwargs):
         """
         Add the additional context data for the tasks and notes to the template by
@@ -264,7 +266,6 @@ class ProjectDetailView(generic.DetailView):
         tasks_todo = tasks.filter(status=1)
         tasks_in_progress = tasks.filter(status=2)
         tasks_done = tasks.filter(status=3)
-
 
         context['note'] = note
         context['tasks_backlog'] = tasks_backlog
