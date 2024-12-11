@@ -78,9 +78,9 @@ class ProjectsList(generic.ListView):
         screen_size = self.get_screen_size()
 
         if screen_size == "small":
-            return ['project_board/mobile_index.html']
+            return ['project_board/index_small.html']
         else:
-            return ['project_board/index.html']
+            return ['project_board/index_default.html']
 
     def get_screen_size(self):
         screen_size = self.request.COOKIES.get('currentMode', 0)
@@ -244,7 +244,6 @@ class ProjectDetailView(generic.DetailView):
             context['task_form'] = taskForm
             context['edit_short_notes'] = noteForm
             return self.render_to_response(context)
-
 
     def get_context_data(self, **kwargs):
         """
