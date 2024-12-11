@@ -104,7 +104,7 @@ a {
     color: var(--primary);
     border: solid 2px var(--primary);
     border-radius: 25%;
-    padding: 15%;
+    padding: 10%;
     transition: 0.4s ease-out;
 }
 
