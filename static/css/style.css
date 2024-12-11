@@ -143,3 +143,12 @@ a {
 /* .btn-task-edit:hover {
     background-color: var();
 } */
+
+
+
+@media screen and (min-width: 1000px) {
+    .grid-cols-tasks {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
