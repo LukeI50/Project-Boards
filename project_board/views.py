@@ -89,23 +89,6 @@ class ProjectsList(generic.ListView):
         return screen_size
 
     # AI generated code: //with alterations to make fit better
-    def get_paginate_by(self, queryset):
-        screen_size = self.get_screen_size()
-
-        if screen_size:
-            try:
-                screen_size = str(screen_size)
-
-                if screen_size == "small":
-                    pagination = None
-                elif screen_size == "default":
-                    pagination = 6
-                else:
-                    pagination = 12
-            except ValueError:
-                pagination = None
-
-        return pagination
     # end of AI code
 
     def post(self, request, *args, **kwargs):
