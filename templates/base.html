@@ -43,7 +43,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
-<button class="btn btn-toggle nav-link d-inlin-flex align-items-center rounded border-0" data-bs-toggle="collapse" data-bs-target=""></button>
 <body class="d-flex w-100">
 
     {% if user.is_authenticated %}
@@ -128,16 +127,6 @@
             {% else %}
             {% include './project_board/greeting.html' %}
             {% endif %}
-
-
-
-            <footer class="mt-auto text-white-50 {% if request.path == project_detail_url %}d-sm-none{% endif %}">
-                {% block pagination %}
-                {% endblock %}
-                <p>
-                    <a href="#" class="text-white">Made with Bootstrap</a>
-                </p>
-            </footer>
         </div>
     </div>
 
