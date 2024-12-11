@@ -21,12 +21,12 @@ You're a Collaborator on...
 {% block content %}
 
 <!-- index.html content starts here -->
-<div class="container-fluid">
+<div class="container-fluid scroll-y max-h-80vh">
         <!-- Blog Entries Column -->
     <div class="grid entries-grid">
         {% for project in project_list %}
-        <div class="card project-card mb-2">
-            <div class="card-header d-flex justify-content-between">
+        <div class="card project-card mb-2 w-100">
+            <div class="card-header">
                 <h5 class="card-title px-5">{{ project.title | title }}</h5>
                 <span>{{ project.date_created }}</span>
             </div>
@@ -39,10 +39,6 @@ You're a Collaborator on...
         </div>
         {% endfor %}
     </div>
-
-
-    <!-- <div class="grid"></div> -->
-
 </div>
 <!-- index.html content ends here -->
 {% endblock %}
