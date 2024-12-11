@@ -267,7 +267,6 @@ class ProjectDetailView(generic.DetailView):
         tasks_in_progress = tasks.filter(status=2)
         tasks_done = tasks.filter(status=3)
 
-
         context['note'] = note
         context['tasks_backlog'] = tasks_backlog
         context['tasks_todo'] = tasks_todo
