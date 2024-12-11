@@ -79,10 +79,8 @@ class ProjectsList(generic.ListView):
 
         if screen_size == "small":
             return ['project_board/mobile_index.html']
-        elif screen_size == "default":
-            return ['project_board/index.html']
         else:
-            return ['project_board/large_index.html']
+            return ['project_board/index.html']
 
     def get_screen_size(self):
         screen_size = self.request.COOKIES.get('currentMode', 0)
