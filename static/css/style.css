@@ -37,8 +37,6 @@ a {
     max-width: 380px;
 }
 
-
-
 .grid {
     display: grid;
     justify-items: center;
@@ -94,6 +92,20 @@ a {
 
 .color-accent {
     color: var(--light-accent);
+}
+
+.project-option {
+    background-color: transparent;
+    border: solid 2px transparent;
+    border-radius: 15%;
+}
+
+.project-option :hover{
+    color: var(--primary);
+    border: solid 2px var(--primary);
+    border-radius: 25%;
+    padding: 15%;
+    transition: 0.4s ease-out;
 }
 
 
