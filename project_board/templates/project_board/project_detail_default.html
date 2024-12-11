@@ -11,6 +11,22 @@
 {% load static %}
 
 <!-- Essentially a kanban type board, setup with three divs denoting todo, in progress, done -->
+<div class="accordion" id="taskStatusAccordion">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#TodosCollapse" aria-expanded="true" aria-controls="collapseTodos">
+                Todo's
+            </button>
+        </h2>
+        <div class="accordion-collapse collapse show" id="TodosCollapse" data-bs-parent="#taskStatusAccordion">
+            <div class="accordion-body">
+                Todo's
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="grid grid-cols-3 mx-auto h-100vh">
     <div class="card bg-yell position-static py-3 bx-shadow-r width-200 scroll-y h-90vh" data-task-status="todo">
         <h5>todo's</h5>
