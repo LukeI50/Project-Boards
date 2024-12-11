@@ -111,11 +111,13 @@
 
     <div class="d-flex flex-column w-100 text-center text-bg-light">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column bx-shadow-l">
+            {% if user.is_authenticated %}
             <header class="mb-auto {% if request.path == project_detail_url %}d-sm-none{% endif %}">
                 <div>
                     <h3 class="float-md-start mb-3 mt-3 mx-4">{% block Title %}{% endblock %}</h3>
                 </div>
             </header>
+            {% endif %}
 
             {% if user.is_authenticated or request.path == signup_url or request.path == login_url %}
             <main class="px-3 h-100">
