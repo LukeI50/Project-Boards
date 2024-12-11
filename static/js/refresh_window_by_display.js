@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // const breakpoints = [768, 1024]
     const breakpoints = {
+        large: 1560,
         default: 1024,
         small: 768,
     };
@@ -33,10 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (currentWidth < breakpoints.small) {
                 newMode = "small";
-            } else {
+            } else if (currentWidth >= breakpoints.small && currentWidth < breakpoints.large ) {
                 newMode = "default";
-            } 
-
+            } else if (currentWidth >= breakpoints.large) {
+                newMode = "large";
+            }
             console.log("current mode is", currentMode)
             console.log("breakpoints are", breakpoints)
             console.log("new mode is", newMode)

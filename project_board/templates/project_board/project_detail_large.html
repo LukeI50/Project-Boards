@@ -8,7 +8,6 @@
 
 
 {% block content %}
-{% load static %}
 
 <!-- Essentially a kanban type board, setup with three divs denoting todo, in progress, done -->
 <div class="grid grid-cols-3 mx-auto h-85vh">
@@ -41,7 +40,7 @@
 
 
 {% block scripts %}
-<script src="{% static 'js/task_interactives.js' %}"></script>
+{% include './Additionals/detail_scripts_include.html' %}
 {% endblock %}
 
 
