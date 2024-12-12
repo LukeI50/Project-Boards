@@ -90,9 +90,38 @@ The strategy behind this app was to utilise the Agile Methodologies learnt, and 
 
 Acceptance Criteria:
 1. User can register account
+    - [ ] allauth is installed as dependancy
     - [ ] can access registration page
     - [ ] can use form
     - [ ] can submit form
+2. User is able to login
+    - [ ] using submitted account creation details
+    - [ ] login form works
+3. User is able to see created Project Boards
+    - [ ] user is displayed a list of their created projects
+
+
+**User Story:** As a **User** I would like to be able to **Create a Project and Tasks** so that I can **Keep Track of Ongoing Tasks and their Progress**.
+
+Acceptance Criteria:
+1. User is able to create new tasks by pressing add task button.
+    - [ ] Add task button populates relevant kanban section
+2. User is able to create project board by clicking the new project button.
+    - [ ] New Project... button allows user to fill out form to create new project
+
+
+**User Story:** As a **User** I would like to be able to **See the Tasks I have Completed in a Project** so that I can **Track my Progress.**
+
+Acceptance Criteria:
+1. User is able to see a list of all their projects.
+    - [ ] list of owned projects
+2. User is able to select a project that they want to see.
+    - [ ] projects linked to each relevant instance of project model
+3. User is able to see information containerd within the relevant project.
+    - [ ] templates load object of project model into view
+4. Project board has a list of tasks sorted by their status.
+    - [ ] user is able to read the title of the tasks
+    - [ ] user is able to open task and read additional info
 
 
 **Design**
