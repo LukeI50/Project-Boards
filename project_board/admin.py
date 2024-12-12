@@ -3,6 +3,7 @@ from .models import Project, Task, Note
 from django_summernote.admin import SummernoteModelAdmin
 from guardian.admin import GuardedModelAdmin
 
+
 @admin.register(Project)
 class ProjectAdmin(SummernoteModelAdmin, GuardedModelAdmin):
     list_display = ('title', 'slug', 'date_created')
@@ -11,9 +12,15 @@ class ProjectAdmin(SummernoteModelAdmin, GuardedModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('description',)
 
+
 @admin.register(Task)
 class TaskAdmin(SummernoteModelAdmin):
-    list_display = ('taskTitle', 'status', 'last_updated', 'associated_project',)
+    list_display = (
+        'taskTitle',
+        'status',
+        'last_updated',
+        'associated_project',
+    )
     search_fields = ['taskTitle']
     list_filter = ('status',)
     prepopulated_fields = {'slug': ('taskTitle',)}
@@ -25,6 +32,3 @@ class NoteAdmin(SummernoteModelAdmin):
     list_display = ('Notes_from', 'last_updated')
     search_fields = ['Notes_from']
     summernote_fields = ('short', 'essay',)
-
-
-# Register your models here.
