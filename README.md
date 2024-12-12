@@ -246,7 +246,7 @@ Initial idea for the greeting page is to use bootstrap cards and jumbotrons to a
 
 The Projects Index page is set up in columns, though the actual ammount of columns is something that will be made responsive to device width.
 Each Project will be openable. In case of too many projects on the page at once, an overflow on the y axis will be set to scroll.
-![Project List Desktop](assets/README/wireframes/desktop/projects_list_desktop_wireframe.png)
+![Project List Desktop](assets/README/wireframes/desktop/projects_list_desktop_wireframe.webp)
 
 The Task view will be setup similarly to the kanban board on GitHub. This means that users are able to have tasks in their desired column, and provides a quick overview of the progress made towards the overall project.
 ![Task Board Desktop](assets/README/wireframes/desktop/detail_task_view_desktop_wireframe.png)
