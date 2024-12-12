@@ -101,6 +101,14 @@ Acceptance Criteria:
     - [ ] user is displayed a list of their created projects
 
 
+**User Story:** As a **User** I would like to be able to **Create a Project and Tasks** so that I can **Keep Track of Ongoing Tasks and their Progress**.
+
+Acceptance Criteria:
+1. User is able to create new tasks by pressing add task button.
+    - [ ] Add task button populates relevant kanban section
+2. User is able to create project board by clicking the new project button.
+    - [ ] New Project... button allows user to fill out form to create new project
+
 **Design**
 
 </details>
