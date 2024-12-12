@@ -124,6 +124,31 @@ Acceptance Criteria:
     - [ ] user is able to open task and read additional info
 
 
+**User Story:** As a **User** I would like to be able to **Update the Information on my Project Board** so that I can **Add and Remove Tasks, and Notes Based on Relevance.**
+
+Acceptance Criteria:
+1. User is able to open a project and add tasks to it.
+    - [ ] tasks can be added to project
+    - [ ] tasks are saved to the project
+2. User is able to remove tasks from an opened project.
+    - [ ] tasks can be removed from project
+3. User is able to alter contents of task.
+    - [ ] state of tasks is saved
+4. Upon returning to the project, the users changes are present.
+    - [ ] user is able to retrieve their project from the state in which they left it
+
+
+**User Story:** As a **User** I would like to be able to **Delete my Tasks and their Data** so that I can **Keep my Tasks List Short and Current.**
+
+Acceptance Criteria:
+1. User is able to delete a task from the board.
+    - [ ] user is able to click delete button on relevant task and delete it from board and model
+2. User is asked to confirm their choice and give a warning.
+    - [ ] user is asked to confirm their choice via modal before data is deleted
+3. Users data is deleted, and user is sent back to list of tasks which will no longer contain the deleted item.
+    - [ ] task is deleted from the tasks on the projects Kanban board.
+
+
 **Design**
 
 </details>
