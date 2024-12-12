@@ -533,6 +533,16 @@ All necessary edits were made to fix html here.
 # Deployment
 
 ## Steps to Deploy
+install django
+
+setup database
+
+setup environment
+
+Add WhiteNoise
+
+Configure Heroku
+
 
 # Reflection
 
