@@ -238,6 +238,11 @@ Registered Users
 
 ## Skeleton
 
+<details>
+<summary>Desktop Wireframes</summary>
+![Greeting Page wireframe for desktop](assets/README/wireframes/desktop/greeting_page_desktop_wireframe.png)
+
+
 ## Surface
 
 ## Project Features:
