@@ -365,6 +365,20 @@ The Task view will be setup similarly to the kanban board on GitHub. This means 
 
 ## Surface
 
+### On Design
+I decided to stay simple during the course of this project and stick to tried and tested colour schemes. To do this, I utilised bootstraps generic colour pallete to ensure that the look of the overall site blended together well, and that contrast between elements was good.
+
+The text/fonts on the site were not altered from the default. The most important task at the time was developing a working MVP, so this is what was focused on.
+
+<details>
+<summary>Ideas</summary>
+
+Certain ideas were taken into account during the creation of the layout of the site, most of which were to facilitate an easy user experience.
+
+1. the three click rule
+2. good colour contrast to ensure people can read all text
+3. button stying to ensure buttons stand out
+
 ## Project Features:
 subtitle each section and provide images.
 ## Current Features
