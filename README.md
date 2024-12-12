@@ -124,6 +124,19 @@ Acceptance Criteria:
     - [ ] user is able to open task and read additional info
 
 
+**User Story:** As a **User** I would like to be able to **Update the Information on my Project Board** so that I can **Add and Remove Tasks, and Notes Based on Relevance.**
+
+Acceptance Criteria:
+1. User is able to open a project and add tasks to it.
+    - [ ] tasks can be added to project
+    - [ ] tasks are saved to the project
+2. User is able to remove tasks from an opened project.
+    - [ ] tasks can be removed from project
+3. User is able to alter contents of task.
+    - [ ] state of tasks is saved
+4. Upon returning to the project, the users changes are present.
+    - [ ] user is able to retrieve their project from the state in which they left it
+
 **Design**
 
 </details>
