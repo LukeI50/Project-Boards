@@ -240,8 +240,14 @@ Registered Users
 
 <details>
 <summary>Desktop Wireframes</summary>
-![Greeting Page wireframe for desktop](assets/README/wireframes/desktop/greeting_page_desktop_wireframe.png)
 
+![Greeting Page Desktop](assets/README/wireframes/desktop/greeting_page_desktop_wireframe.png)
+
+![Project List Desktop](assets/README/wireframes/desktop/projects_list_desktop_wireframe.png)
+
+![Task Board Desktop](assets/README/wireframes/desktop/detail_task_view_desktop_wireframe.png)
+
+</summary>
 
 ## Surface
 
