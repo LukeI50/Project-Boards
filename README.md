@@ -184,6 +184,25 @@ Acceptance Criteria:
     - [ ] functional on large displays
 </details>
 
+
+### User Stories: Should Haves
+
+<details>
+<summary>User Story: Intuitive Layout</summary>
+
+As a **User** I would like to be able to **Navigate the Site easily and Intuitively** so that I can get to **Where I Need to Be within Three Clicks of Any Page.**
+
+Acceptance Criteria:
+1. Layout of the site takes into account the three clicks rule.
+    - [ ] create wire frames looking at UI/UX
+2. Site is intuitively navigable for the average user.
+    - [ ] everything is where one would expect to find it
+    - [ ] links go to correct pages, or do not load if they are a future feature
+3. All relevant information is displayed upon clicking any link
+    - [ ] click link takes user to established pages that load relevant info
+
+</details>
+
 ## Scope
 
 Features:
