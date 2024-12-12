@@ -146,7 +146,7 @@ class Note(models.Model):
     Represents a note associated with a project.
 
     Attributes:
-        project (OneToOneField): The project this note is related to. Uses the primary key of the project.
+        project (OneToOneField): The primary key of the project this note is related to.
         short (TextField): A brief note about the project.
         essay (TextField): A detailed note about the project.
         last_updated (DateTimeField): The date and time when the note was last updated.

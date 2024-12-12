@@ -13,8 +13,15 @@ class ProjectAdmin(SummernoteModelAdmin, GuardedModelAdmin):
     utilizing both Summernote and Guardian functionalities. It allows
     users to manage project titles, slugs, creation dates, authorised editors,
     and descriptions with rich text editing capabilities.
+
+    Attributes:
+        list_display (tuple): Fields displayed in the list view of projects.
+        search_fields (list): Fields that can be searched through in the admin interface.
+        list_filter (tuple): Fields by which the project list can be filtered.
+        prepopulated_fields (dict): Fields whose values are automatically generated from other fields.
+        summernote_fields (tuple): Fields for which Summernote rich text editor is enabled.
     """
-    
+
     list_display = ('title', 'slug', 'date_created')
     search_fields = ['title']
     list_filter = ('authorised_editor',)
@@ -31,6 +38,13 @@ class TaskAdmin(SummernoteModelAdmin):
     utilizing Summernote functionalities. It allows users to manage task titles,
     statuses, last updated times, associated projects, and task contents
     with rich text editing capabilities.
+
+    Attributes:
+        list_display (tuple): Fields displayed in the list view of tasks.
+        search_fields (list): Fields that can be searched through in the admin interface.
+        list_filter (tuple): Fields by which the task list can be filtered.
+        prepopulated_fields (dict): Fields whose values are automatically generated from other fields.
+        summernote_fields (tuple): Fields for which Summernote rich text editor is enabled.
     """
 
     list_display = (
@@ -54,6 +68,11 @@ class NoteAdmin(SummernoteModelAdmin):
     utilizing Summernote functionalities. It allows users to manage note sources,
     last updated times, and both short and detailed note contents with rich text
     editing capabilities.
+
+    Attributes:
+        list_display (tuple): Fields displayed in the list view of notes.
+        search_fields (list): Fields that can be searched through in the admin interface.
+        summernote_fields (tuple): Fields for which Summernote rich text editor is enabled.
     """
 
     list_display = ('Notes_from', 'last_updated')
