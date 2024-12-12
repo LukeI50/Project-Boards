@@ -109,6 +109,21 @@ Acceptance Criteria:
 2. User is able to create project board by clicking the new project button.
     - [ ] New Project... button allows user to fill out form to create new project
 
+
+**User Story:** As a **User** I would like to be able to **See the Tasks I have Completed in a Project** so that I can **Track my Progress.**
+
+Acceptance Criteria:
+1. User is able to see a list of all their projects.
+    - [ ] list of owned projects
+2. User is able to select a project that they want to see.
+    - [ ] projects linked to each relevant instance of project model
+3. User is able to see information containerd within the relevant project.
+    - [ ] templates load object of project model into view
+4. Project board has a list of tasks sorted by their status.
+    - [ ] user is able to read the title of the tasks
+    - [ ] user is able to open task and read additional info
+
+
 **Design**
 
 </details>
