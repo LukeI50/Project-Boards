@@ -184,6 +184,55 @@ Acceptance Criteria:
     - [ ] functional on large displays
 </details>
 
+
+### User Stories: Should Haves
+
+<details>
+<summary>User Story: Intuitive Layout</summary>
+
+As a **User** I would like to be able to **Navigate the Site easily and Intuitively** so that I can get to **Where I Need to Be within Three Clicks of Any Page.**
+
+Acceptance Criteria:
+1. Layout of the site takes into account the three clicks rule.
+    - [ ] create wire frames looking at UI/UX
+2. Site is intuitively navigable for the average user.
+    - [ ] everything is where one would expect to find it
+    - [ ] links go to correct pages, or do not load if they are a future feature
+3. All relevant information is displayed upon clicking any link
+    - [ ] click link takes user to established pages that load relevant info
+
+</details>
+
+<details>
+<summary>User Story: Todo Views</summary>
+
+As a **User** I would like to be able to **~See my todo list items as a list and as a kanban Board** so that I am able to **Better see my progress and find items.**
+
+Acceptance Criteria:
+1. User is able to access todo list view
+    - [ ] One longlist of all todo items, not separated by status
+2. User is able to view list as Kanban board
+    - [ ] user is able to toggle between views
+3. User is able to see all todo items in List View.
+
+</details>
+
+<details>
+<summary>User Story: Formatted Notes</summary>
+
+As a **User** I would like to be able to **Format my Notes (i.e., make bold, italic, checkboxed, etc.,)** so that I am able to **Clearly Highlight important information within the notes.**
+
+Acceptance Criteria:
+1. User is able to make text in notes bold.
+    - [ ] summernotes is imported and working
+    - [ ] user is able to make text bold
+2. User is able to add checkboxes to notes.
+    - [ ] user is able to add checkboxes into tex fields
+3. User is able to make text italic.
+    - [ ] user can italicise text
+
+</details>
+
 ## Scope
 
 Features:
@@ -247,7 +296,7 @@ Initial idea for the greeting page is to use bootstrap cards and jumbotrons to a
 
 The Projects Index page is set up in columns, though the actual ammount of columns is something that will be made responsive to device width.
 Each Project will be openable. In case of too many projects on the page at once, an overflow on the y axis will be set to scroll.
-![Project List Desktop](assets/README/wireframes/desktop/projects_list_desktop_wireframe.png)
+![Project List Desktop](assets/README/wireframes/desktop/project_list_desktop_wireframe.png)
 
 The Task view will be setup similarly to the kanban board on GitHub. This means that users are able to have tasks in their desired column, and provides a quick overview of the progress made towards the overall project.
 ![Task Board Desktop](assets/README/wireframes/desktop/detail_task_view_desktop_wireframe.jpg)
