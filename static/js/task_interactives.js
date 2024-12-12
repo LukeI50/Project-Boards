@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function() {
     const editButtons = document.getElementsByClassName("btn-task-edit");
     const deleteButtons = document.getElementsByClassName('btn-delete');
 
@@ -10,28 +10,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const deleteConfirm = document.getElementById("deleteConfirm");
 
     const modalTitle = document.getElementById('AddTaskModalTitle');
-    const toastHeaders = document.getElementsByClassName('toast-header')
-    console.log(modalTitle);
+    const toastHeaders = document.getElementsByClassName('toast-header');
 
     const submitButton = document.getElementById("submitButton");
 
-    console.log("task edit script successfully loaded")
-
-
-    // Initialise edit buttons 
-    for (let button of editButtons){
+    // Initialise edit buttons
+    for (button of editButtons){
         button.addEventListener("click", (e) => {
             const taskId = e.target.getAttribute('data-task_id');
-            console.log("task Id is: " + taskId)
-            console.log("button clicked");
 
             // Identify task area
             const task = document.getElementById(`task${taskId}`);
             // retrieve relevant data
             const title = task.children[1].firstElementChild.textContent;
-            const content = task.querySelector('.toast-body p.d-none').textContent;
-            const status = task.querySelector('.toast-body p:first-child').getAttribute('data-task-status');
-            console.log(title)
+            const content = task
+            .querySelector('.toast-body p.d-none')
+            .textContent;
+            const status = task
+            .querySelector('.toast-body p:first-child')
+            .getAttribute('data-task-status');
 
             // complete form
             document.getElementById('id_taskTitle').value = title;
@@ -50,16 +47,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         })
 
-    }
+    };
 
-    for (let button of deleteButtons) {
+    for (button of deleteButtons) {
         button.addEventListener("click", (e) => {
             console.log("delete clicked")
             let taskId = e.target.getAttribute("data-task_id");
             console.log(taskId)
-            deleteConfirm.href = `${window.location.pathname}delete_task/${taskId}`;
+            deleteConfirm.href = `${window.location.pathname}
+            delete_task/${taskId}`;
             deleteTaskModal.show();
         })
-    }
+    };
 
 })
