@@ -1,4 +1,4 @@
-# Boards
+# Project Overview
 
 Insert responsive image:
 
@@ -28,7 +28,7 @@ It will cater to many different groups, individuals, and teams, across fields. T
 </details>
 
 <details>
-<summary>USPs</summary>
+<summary>Unique Selling Points</summary>
 1. Simplified Agile Project Tracking:
     Boards will provide a user-friendly interface that enables users to effortlessly track projects, tasks, and progress.
 Unlike complex tools like GitHub Projects, Boards will focus on simplicity and ease-of-use without sacrificing essential functionality.
@@ -46,21 +46,43 @@ Tasks can be updated between columns (e.g., To Do, In Progress, Done), providing
 Whether users are working from their laptop, tablet, or mobile phone, Boards ensures they can stay on top of tasks anytime, anywhere.
 </details>
 
-
-
-
-
 <hr>
 
 ## Table of Contents:
 Insert table of contents for easy navigation of readme.
-
+- [Project Overview](#project-overview)
+- [Development Path](#development-path)
+    - [Strategy](#strategy)
+        - [Plan](#plan)
+        - [Scope](#scope)
+        - [Structure](#structure)
+        - [Skeleton](#skeleton)
+        - [Surface](#surface)
+    - [Project Features](#project-features)
+        - [Current Features](#current-features)
+        - [Future Features](#future-features)
+    - [Methodologies](#methodologies)
+        - [Version Control](#version-control)
+        - [Agile Methodology](#agile-methodology)
+        - [Frameworks](#languages--frameworks-utilised)
+    - [Testing & Validation](#testing--validation)
+        - [Bugs](#bugs)
+        - [Manual Tests](#manual-tests)
+        - [Validation](#validation)
+    - [Deployment](#deployment)
+        - [Steps to Deploy](#steps-to-deploy)
+    - [Reflection](#reflection)
+        - [Achievements](#achievements)
+        - [Critical Analysis](#critical-analysis)
+    - [Final Thoughts](#final-thoughts)
 
 # Development Path:
 
 ## Strategy
 <details>
 <summary>
+
+## Plan
 
 ## Scope
 
@@ -72,6 +94,7 @@ Insert table of contents for easy navigation of readme.
 
 # Project Features:
 subtitle each section and provide images.
+## Current Features
 
 ## Future Features
 
@@ -80,7 +103,7 @@ subtitle each section and provide images.
 
 ## Version Control
 
-## Agile
+## Agile Methodology
 
 ## Languages & Frameworks Utilised
 
@@ -98,9 +121,9 @@ subtitle each section and provide images.
 
 # Reflection
 
-## Successes
+## Achievements
 
-## Challeneges
+## Critical Analysis
 
 # Final Thoughts
 
