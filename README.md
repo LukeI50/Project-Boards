@@ -217,7 +217,16 @@ Technologies:
 - Tasks can be updated and deleted by pressing visible buttons on task.
 - Users can see the tasks associated to the selected project and plan accordingly.
 
+</details>
+
 <details>
+<summary>Site Map</summary>
+
+Non-authenticated user starts at greeting page, and is prompted to register an account.
+    - login
+    - signup
+
+Once user is authenticated, 
 
 ## Skeleton
 
