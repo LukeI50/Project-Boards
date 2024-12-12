@@ -28,7 +28,17 @@ It will cater to many different groups, individuals, and teams, across fields. T
 </details>
 
 <details>
-<summary>
+<summary>USPs</summary>
+What is the value in Boards?
+
+Boards aims to provide a simple alternative to the project trackers on GitHub. It aims to provide an uncomplicated UI that is easily navigable to users. 
+
+- Simpler to user that GitHub Projects
+- Allows users to keep track of their tasks relevant to a specific project
+- Allows groups to keep track of work and task completeion
+- Aids in the visualisation of a projects progress
+
+</details>
 
 
 
@@ -43,6 +53,8 @@ Insert table of contents for easy navigation of readme.
 # Development Path:
 
 ## Strategy
+<details>
+<summary>
 
 ## Scope
 
