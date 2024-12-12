@@ -141,7 +141,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://127.0.0.1', 'https://*herokuapp.com'
+    'https://127.0.0.1', 'https://*herokuapp.com', 'https://ui.dev/amiresponsive/*'
 ]
 
 
