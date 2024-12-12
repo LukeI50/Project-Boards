@@ -521,6 +521,14 @@ User can see tasks
 | | 2. tasks are present on the board | tasks should be visible if created | pass |
 
 ## Validation
+HTML validation was done with [W3C](https://validator.w3.org/)
+
+
+![Greeting page errors](assets/README/wireframes/Validation/greeting_page_validation_errors.png)
+All necessary edits were made to fix html here.
+
+![Signup page errors](assets/README/wireframes/Validation/Signup%20page%20html%20validation%20errors.png)
+
 
 # Deployment
 
