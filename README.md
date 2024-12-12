@@ -6,7 +6,22 @@ Insert responsive image:
 link to live project
 
 ## Purpose Statement:
-Brief paragraph defining the goal, who it is for, and what gaps it fills. What is its purpose.
+Boards is a project tracker designed to use the Kanban methodology. It allows it's users to utilise a task system that make the visualisation of one's progress easy. The purpose of this project is to help people from many walks of life keep track of their projects and where they are at with them in regards to the progress of individual items of import.
+
+<details>
+<summary>Target Audience/Demographic</summary>
+Who is this app/project for?
+
+It will cater to many different groups, individuals, and teams, across fields. Though its benefits will primarily be seen by those who have to most need to keep track of their tasks within a team or general life. Demographics likely to benefit at face value are...
+
+- Students
+    - individually they will be able to keep track of their work
+    - groups can keep track of a group project meaning that everyone is up to date no matter what
+- 
+
+
+
+
 
 <hr>
 
