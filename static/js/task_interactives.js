@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialise edit buttons 
     for (let button of editButtons){
         button.addEventListener("click", (e) => {
-            const taskId = e.target.getAttribute('task_id');
+            const taskId = e.target.getAttribute('data-task_id');
             console.log("task Id is: " + taskId)
             console.log("button clicked");
 
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let button of deleteButtons) {
         button.addEventListener("click", (e) => {
             console.log("delete clicked")
-            let taskId = e.target.getAttribute("task_id");
+            let taskId = e.target.getAttribute("data-task_id");
             console.log(taskId)
             deleteConfirm.href = `${window.location.pathname}delete_task/${taskId}`;
             deleteTaskModal.show();
