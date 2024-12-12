@@ -257,6 +257,7 @@ The Task view will be setup similarly to the kanban board on GitHub. This means 
 <summary>Tablet Wireframes</summary>
 
 ![Greeting Page Tablet](assets/README/wireframes/tablet/greetings_page_tablet_wireframe.png)
+<img src = "assets/README/wireframes/tablet/greetings_page_tablet_wireframe.png"></img>
 
 ![Project List Tablet](assets/README/wireframes/tablet/project_list_tablet_wireframe.png)
 
