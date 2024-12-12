@@ -250,7 +250,7 @@ Each Project will be openable. In case of too many projects on the page at once,
 ![Project List Desktop](./assets/README/wireframes/desktop/projects_list_desktop_wireframe.png)
 
 The Task view will be setup similarly to the kanban board on GitHub. This means that users are able to have tasks in their desired column, and provides a quick overview of the progress made towards the overall project.
-![Task Board Desktop](./assets/README/wireframes/desktop/detail_task_view_desktop_wireframe.png)
+![Task Board Desktop](./assets/README/wireframes/desktop/detail_task_view_desktop_wireframe.jpg)
 
 </summary>
 
