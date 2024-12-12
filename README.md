@@ -148,6 +148,18 @@ Acceptance Criteria:
 3. Users data is deleted, and user is sent back to list of tasks which will no longer contain the deleted item.
     - [ ] task is deleted from the tasks on the projects Kanban board.
 
+**User Story:** As a **User** I would like to be able to **User the App on Multiple Devices of Differeing Sizes** so that I am able to **User it on the go and at Home/Work.**
+
+Acceptance Criteria:
+1. Web app uses Bootstrap or Media Queries to adapt to multiple screen sizes.
+    - [ ] bootstrap, media queries, and JavaScript with cookies
+2. App is usable on small screens.
+    - [ ] functional on small displays
+3. App is usable on medium displays.
+    - [ ] function on medium displays
+4. App is usable on laptop/desktop displays.
+    - [ ] functional on large displays
+
 
 **Design**
 
