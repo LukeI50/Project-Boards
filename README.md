@@ -424,10 +424,48 @@ The user, once logged in, is presented with a list of all their projects. They c
 
 ![New Project Modal](assets/README/wireframes/project/projects_list_page/new_project_modal.png)
 
+User options in the bottom left:
+![User options](assets/README/wireframes/project/projects_list_page/user_options.png)
+
+</details>
+
+<details>
+<summary>Kanban View: defaul/small</summary>
+
+The view for the Kanban renders differently dependant on display size. In the defaul/small view the tasks are placed within an accordion that houses each status of a task.
+![Tasks Page](assets/README/wireframes/project/tasks_page/task_page.png)
+
+Each task has a delete button, and an edit button. Both of which raise a relevant modal with a form in to submit changes or deletions.
+
+The edit form allows for addition notes to be added:
+![Edit form](assets/README/wireframes/project/tasks_page/edit_modal.png)
+
+The delete is simple and so well skip it, it just confirms you want to take the action.
+
+In this view, you will also notice that the option to add a task appears in the side navbar. Adding a task creates another modal similar to the edit:
+![New Task Form](assets/README/wireframes/project/tasks_page/new_task.png)
+
+</details>
+
+<details>
+<summary>Kanban View: large</summary>
+
+Some of the information on the large view has already been give, so this will be brief.
+In the large view, the kanban is rendered as three columns that are separate (for more similar to the way GitHub boards do it).
+
+![Kanban Large](assets/README/wireframes/project/tasks_page/kanban_large.png)
+
+This is more readable for the user, and allows them to see all tasks in their relevant section.
+
+If a task is updated, added, or deleted, then a notification will appear to tell the user as much.
+</details>
+
 
 # Methodologies:
 
 ## Version Control
+Git and GitHub were used for version controll in this project. The main branch was protected, and I tried only to work on branches and merge them in so as to avoid major issues.
+For the most part this worked, although there were a couple of times were I had to push to the main branch to update something or attempt to fix a bug.
 
 ## Agile Methodology
 
