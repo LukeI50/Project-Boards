@@ -49,7 +49,7 @@
             <ul class="nav nav-pills nav-flush flex-column mb-auto">
                 <li class="nav-item">
                     <a href="{% url 'home' %}" class="nav-link text-white {% if request.path == home_url %}active {% endif %}{% if is_project_detail %}active {% endif %}" aria-current="page">
-                        <i class="fa-solid fa-diagram-project bi pe-none me-2" width="16" height="16"></i>
+                        <i class="fa-solid fa-diagram-project bi pe-none me-2"></i>
                         <span class="d-none d-md-inline">Projects</span>
                     </a>
                     {% if is_project_detail %}
@@ -58,26 +58,18 @@
                 </li>
                 <li class="nav-item">
                     <a href="{% url 'collaborator' %}" class="nav-link text-white {% if request.path == collaborator_url %}active{% endif %}">
-                        <i class="fa-solid fa-people-group bi pe-none me-2" width="16" height="16"></i>
+                        <i class="fa-solid fa-people-group bi pe-none me-2"></i>
                         <span class="d-none d-md-inline">Collaborator</span>
                     </a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi pe-none me-2" width="16" height="16"></svg>
-                        <span class="d-none d-md-inline">Orders</span>
-                    </a>
-                </li> -->
-
-
             </ul>
             <hr>
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
-                    <i class="fa-solid fa-circle rounded-circle me-2 text-success" width="32" height="32"></i>
+                    <i class="fa-solid fa-circle rounded-circle me-2 text-success"></i>
                     <strong class="d-none d-md-inline">{{ user }}</strong>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(opx, -34px);" data-popper-placement="top-start">
+                <ul id="userOptions" class="dropdown-menu dropdown-menu-dark text-small shadow" data-popper-placement="top-start">
                     <li>
                         <button id="AddProjectButton" type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#new-project">New Project...</button>
                     </li>
@@ -100,7 +92,7 @@
 
     <div class="d-flex flex-column w-100 text-center text-bg-light">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column bx-shadow-l">
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated and is_project_detail != True and request.path != logout_url %}
             <header class="mb-auto {% if request.path == project_detail_url %}d-sm-none{% endif %}">
                 <div>
                     <h3 class="float-md-start mb-3 mt-3 mx-4">{% block Title %}{% endblock %}</h3>
