@@ -281,6 +281,12 @@ Technologies:
 - Version Control: Git and GitHub
 - Deployment: Heroku
 
+### Plan
+To get a clear understanding of the agile methodology used, and the benefits of such a practice, it is worth while referring to this repo's project board here - [Project Board](https://github.com/users/LukeI50/projects/8/settings)
+
+![Project Board Screenshot](assets/README/wireframes/project/project_board.png)
+
+
 ## Structure
 <details>
 <summary>Logic Overview</summary>
