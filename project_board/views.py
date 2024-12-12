@@ -9,7 +9,15 @@ from .models import Project, Task, Note
 
 def task_delete(request, slug, task_id):
     """
-    View to delete tasks
+    View to delete a specific task from a project.
+
+    Args:
+        request: The HTTP request object.
+        slug (str): The slug of the project.
+        task_id (int): The ID of the task to be deleted.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the project detail page after deletion or an error message.
     """
     queryset = Project.objects.all()
     project = get_object_or_404(queryset, slug=slug)
@@ -35,9 +43,16 @@ def task_delete(request, slug, task_id):
 
 def task_edit(request, slug, task_id):
     """
-    View to edit tasks
-    """
+    View to edit a specific task within a project.
 
+    Args:
+        request: The HTTP request object.
+        slug (str): The slug of the project.
+        task_id (int): The ID of the task to be edited.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the project detail page after editing or an error message.
+    """
     if request.method == "POST":
 
         queryset = Project.objects.all()
@@ -59,14 +74,25 @@ def task_edit(request, slug, task_id):
                 messages.ERROR,
                 "Error updating task!"
             )
-
     return HttpResponseRedirect(reverse('project_detail', args=[slug]))
 
 
 class ProjectsList(generic.ListView):
-    # default template
+    """
+    View to list all projects owned by the logged-in user.
+
+    Attributes:
+        model (Model): The Project model.
+        template_name (str): The default template name for rendering the view.
+    """
 
     def get_queryset(self):
+        """
+        Returns a queryset of projects owned by the logged-in user.
+
+        Returns:
+            QuerySet: A filtered queryset of projects.
+        """
         if self.request.user.is_anonymous:
             # return empty queryset for anonymous user
             return Project.objects.none()
@@ -77,6 +103,12 @@ class ProjectsList(generic.ListView):
     # Render different templates based on width of display
     # Override class get_template_names
     def get_template_names(self):
+        """
+        Determines the template to use based on the screen size.
+
+        Returns:
+            list: A list containing the name of the template to be used.
+        """
         screen_size = self.get_screen_size()
 
         if screen_size == "small":
@@ -86,6 +118,12 @@ class ProjectsList(generic.ListView):
 
     # get size of display and return string
     def get_screen_size(self):
+        """
+        Retrieves the screen size from cookies.
+
+        Returns:
+            str: The current mode of the screen (e.g., 'small', 'default').
+        """
         screen_size = self.request.COOKIES.get('currentMode', 0)
         return screen_size
 
@@ -93,6 +131,17 @@ class ProjectsList(generic.ListView):
     # end of AI code
 
     def post(self, request, *args, **kwargs):
+        """
+        Handles POST requests to create a new project.
+
+        Args:
+            request: The HTTP request object.
+            *args: Additional positional arguments.
+            **kwargs: Additional keyword arguments.
+
+        Returns:
+            HttpResponseRedirect: Redirects to the home page after creating a new project.
+        """
         form = NewProjectForm(request.POST)
         if form.is_valid():
             new_project = form.save(commit=False)
@@ -122,13 +171,36 @@ class ProjectsList(generic.ListView):
             return self.render_to_response(context)
 
     def get_context_data(self, **kwargs):
+        """
+        Adds additional context data to the template.
+
+        Args:
+            **kwargs: Additional keyword arguments.
+
+        Returns:
+            dict: The context dictionary for rendering the template.
+        """
         context = super().get_context_data()
         context['project_form'] = NewProjectForm()
         return context
 
 
 class CollaboratorList(generic.ListView):
+    """
+    View to list all projects where the logged-in user is an authorized collaborator.
+
+    Attributes:
+        model (Model): The Project model.
+        template_name (str): The default template name for rendering the view.
+    """
+
     def get_template_names(self):
+        """
+        Determines the template to use based on the screen size.
+
+        Returns:
+            list: A list containing the name of the template to be used.
+        """
         screen_size = self.get_screen_size()
 
         if screen_size == "small":
@@ -137,10 +209,22 @@ class CollaboratorList(generic.ListView):
             return ['project_board/index_default.html']
 
     def get_screen_size(self):
+        """
+        Retrieves the screen size from cookies.
+
+        Returns:
+            str: The current mode of the screen (e.g., 'small', 'default').
+        """
         screen_size = self.request.COOKIES.get('currentMode', 0)
         return screen_size
 
     def get_queryset(self):
+        """
+        Returns a queryset of projects where the logged-in user is an authorized collaborator.
+
+        Returns:
+            QuerySet: A filtered queryset of projects.
+        """
         if self.request.user.is_anonymous:
             return Project.objects.none()
         else:
@@ -149,22 +233,12 @@ class CollaboratorList(generic.ListView):
 
 class ProjectDetailView(generic.DetailView):
     """
-    Amalgamate all models associated to a single instance of
-    a project board :model:`project_board.Project`.
+    View to display details of a specific project, including its tasks and notes.
 
-    **Context**
-
-    ``project``
-        An instance of :model:`project_board.Project`.
-    ``note``
-        An instance of :model:`project_board.Note`.
-    ``tasks``
-        get all task instances linked to project :model:`project_board.Task`.
-
-
-    **Template**
-
-    :template:`project_board/project_detail.html`
+    Attributes:
+        model (Model): The Project model.
+        template_name (str): The default template name for rendering the view.
+        context_object_name (str): The name of the context object containing the project instance.
     """
 
     model = Project
@@ -172,6 +246,12 @@ class ProjectDetailView(generic.DetailView):
     context_object_name = 'project'
 
     def get_template_names(self):
+        """
+        Determines the template to use based on the screen size.
+
+        Returns:
+            list: A list containing the name of the template to be used.
+        """
         screen_size = self.get_screen_size()
 
         if screen_size == "small" or screen_size == "default":
@@ -180,17 +260,37 @@ class ProjectDetailView(generic.DetailView):
             return ['project_board/project_detail_large.html']
 
     def get_screen_size(self):
+        """
+        Retrieves the screen size from cookies.
+
+        Returns:
+            str: The current mode of the screen (e.g., 'small', 'default').
+        """
         screen_size = self.request.COOKIES.get('currentMode', 0)
         return screen_size
 
     def get_object(self, queryset=None):
         """
-        Get the project from the Project model based on the slug passed.
+        Retrieves the project instance based on the slug.
+
+        Returns:
+            Project: The project instance.
         """
         slug = self.kwargs.get('slug')
         return get_object_or_404(Project, slug=slug)
 
     def post(self, request, *args, **kwargs):
+        """
+        Handles POST requests to create a new project or task, or update notes.
+
+        Args:
+            request: The HTTP request object.
+            *args: Additional positional arguments.
+            **kwargs: Additional keyword arguments.
+
+        Returns:
+            HttpResponseRedirect: Redirects back to the project detail page after processing.
+        """
         slug = self.kwargs.get('slug')
         project = get_object_or_404(Project, slug=slug)
 
@@ -256,8 +356,13 @@ class ProjectDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         """
-        Add the additional context data for the tasks and notes to
-        the template by passing them into the context.
+        Adds additional context data to the template.
+
+        Args:
+            **kwargs: Additional keyword arguments.
+
+        Returns:
+            dict: The context dictionary for rendering the template.
         """
         context = super().get_context_data()
         project = context['project']
