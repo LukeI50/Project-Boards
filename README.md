@@ -235,6 +235,7 @@ Registered Users
 3. Navbar present at all times
 4. Form Modals
 5. Toast Notifications
+</details>
 
 ## Skeleton
 
