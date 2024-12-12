@@ -150,7 +150,7 @@ Acceptance Criteria:
     - [ ] state of tasks is saved
 4. Upon returning to the project, the users changes are present.
     - [ ] user is able to retrieve their project from the state in which they left it
-<details>
+</details>
 
 
 <details>
