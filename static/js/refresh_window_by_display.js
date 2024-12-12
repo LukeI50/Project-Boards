@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.cookie = "currentMode=" + `${mode}` + "; path=/; Secure; SameSite=None";
     }
 
+    // Determine the Next Mode for Display size cookie
     function determineNewMode(currentWidth, breakpoints) {
         if (currentWidth < breakpoints.small) {
             return "small";
@@ -34,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // On Loading the page initiate this function as a check to ensure the page is loaded to correct state
     function onLoad(currentWidth, currentMode) {
         console.log(currentWidth);
         let newMode = "";
@@ -44,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         reloadWindow(currentMode, newMode)
     }
 
+    // Reload the window if currentMode and newMode are different
     function reloadWindow(currentMode, newMode) {
         if (currentMode !== newMode) {
             setScreenMode(newMode); 
@@ -55,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let resizeTimeout;
 
+    // trigger event upon window being resized
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimeout);
         console.log(window.innerWidth)
