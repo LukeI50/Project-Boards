@@ -79,7 +79,7 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
-x_FRAME_OPTIONS = 'ALLOWALL'
+X_FRAME_OPTIONS = 'ALLOWALL'
 
 ROOT_URLCONF = 'config.urls'
 
