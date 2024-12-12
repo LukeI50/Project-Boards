@@ -315,6 +315,8 @@ Registered Users
 
 ## Skeleton
 
+### Wireframes
+
 <details>
 <summary>Desktop Wireframes</summary>
 
@@ -352,6 +354,14 @@ The Task view will be setup similarly to the kanban board on GitHub. This means 
 
 </details>
 
+### Database Diagram
+
+<details>
+<summary>Database Relational Diagram</summary>
+
+![erd](assets/README/wireframes/erd/erd.png)
+
+</details>
 
 ## Surface
 
