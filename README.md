@@ -233,6 +233,21 @@ Acceptance Criteria:
 
 </details>
 
+
+### User Stories: Could Haves
+
+<details>
+<summary>User Story: Add Editors</summary>
+
+As a **User** I would like to be able to **Add additional editors to a project** so that I am able to **Collaborate with Classmates/Peers/Colleagues easily.**
+
+Acceptance Criteria:
+1. User is able to see list of authorised editors for each project.
+2. User is able to add editors, by username, to list.
+3. User is able to remove editors, by button, from list.
+
+</details>
+
 ## Scope
 
 Features:
