@@ -88,6 +88,7 @@ The strategy behind this app was to utilise the Agile Methodologies learnt, and 
 
 <details>
 <summary>User Story: Register Account</summary>
+
 **User Story:** As a **User** I would like to be able to **Create an Account** so that I can **Access My Work Spaces Securely.**
 
 Acceptance Criteria:
@@ -107,6 +108,7 @@ Acceptance Criteria:
 
 <details>
 <summary>User Story: Create Data</summary>
+
 **User Story:** As a **User** I would like to be able to **Create a Project and Tasks** so that I can **Keep Track of Ongoing Tasks and their Progress**.
 
 Acceptance Criteria:
@@ -119,6 +121,7 @@ Acceptance Criteria:
 
 <details>
 <summary>User Story: Read Data</summary>
+
 **User Story:** As a **User** I would like to be able to **See the Tasks I have Completed in a Project** so that I can **Track my Progress.**
 
 Acceptance Criteria:
@@ -135,6 +138,7 @@ Acceptance Criteria:
 
 <details>
 <summary>User Story: Update Data</summary>
+
 **User Story:** As a **User** I would like to be able to **Update the Information on my Project Board** so that I can **Add and Remove Tasks, and Notes Based on Relevance.**
 
 Acceptance Criteria:
@@ -152,6 +156,7 @@ Acceptance Criteria:
 
 <details>
 <summary>User Story: Delete Data</summary>
+
 **User Story:** As a **User** I would like to be able to **Delete my Tasks and their Data** so that I can **Keep my Tasks List Short and Current.**
 
 Acceptance Criteria:
@@ -166,6 +171,7 @@ Acceptance Criteria:
 
 <details>
 <summary>User Story: Responsive Design</summary>
+
 **User Story:** As a **User** I would like to be able to **User the App on Multiple Devices of Differeing Sizes** so that I am able to **User it on the go and at Home/Work.**
 
 Acceptance Criteria:
