@@ -266,6 +266,10 @@ The Task view will be setup similarly to the kanban board on GitHub. This means 
 
 </details>
 
+<details>
+<summary>Mobile Wireframes</summary>
+
+
 ## Surface
 
 ## Project Features:
