@@ -217,6 +217,22 @@ Acceptance Criteria:
 
 </details>
 
+<details>
+<summary>User Story: Formatted Notes</summary>
+
+As a **User** I would like to be able to **Format my Notes (i.e., make bold, italic, checkboxed, etc.,)** so that I am able to **Clearly Highlight important information within the notes.**
+
+Acceptance Criteria:
+1. User is able to make text in notes bold.
+    - [ ] summernotes is imported and working
+    - [ ] user is able to make text bold
+2. User is able to add checkboxes to notes.
+    - [ ] user is able to add checkboxes into tex fields
+3. User is able to make text italic.
+    - [ ] user can italicise text
+
+</details>
+
 ## Scope
 
 Features:
