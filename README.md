@@ -29,15 +29,21 @@ It will cater to many different groups, individuals, and teams, across fields. T
 
 <details>
 <summary>USPs</summary>
-What is the value in Boards?
+1. Simplified Agile Project Tracking:
+    Boards will provide a user-friendly interface that enables users to effortlessly track projects, tasks, and progress.
+Unlike complex tools like GitHub Projects, Boards will focus on simplicity and ease-of-use without sacrificing essential functionality.
 
-Boards aims to provide a simple alternative to the project trackers on GitHub. It aims to provide an uncomplicated UI that is easily navigable to users. 
+2. Task Management for Individuals and Teams:
+    Boards will cater to individuals such as students managing multiple projects or Agile development teams with numerous tasks.
+Users will be able to create, edit, assign, and prioritize tasks seamlessly, ensuring everyone remains aligned and progress is visible.
 
-- Simpler to user that GitHub Projects
-- Allows users to keep track of their tasks relevant to a specific project
-- Allows groups to keep track of work and task completeion
-- Aids in the visualisation of a projects progress
+3. Progress Visualization:
+    With Boards' intuitive task board layout, users will be able to instantly see the status of each task.
+Tasks can be updated between columns (e.g., To Do, In Progress, Done), providing an immediate understanding of project progress.
 
+4. Cross-Platform Accessibility:
+    Boards will be designed to be responsive and accessible on various devices and screen sizes.
+Whether users are working from their laptop, tablet, or mobile phone, Boards ensures they can stay on top of tasks anytime, anywhere.
 </details>
 
 
