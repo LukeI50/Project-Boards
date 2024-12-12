@@ -80,8 +80,7 @@ Insert table of contents for easy navigation of readme.
 
 ## Strategy
 
-<details>
-<summary>Plan</summary>
+## Plan
 The strategy behind this app was to utilise the Agile Methodologies learnt, and work towards a User Centered Design.
 
 ### User Stories: Must Haves
@@ -185,14 +184,28 @@ Acceptance Criteria:
     - [ ] functional on large displays
 </details>
 
-
-**Design**
-
-</details>
-
-## Plan
-
 ## Scope
+
+Features:
+- User registration, login, and role-based access (user/admin)
+- Dashboard with a summary of tasks and projects
+- Project creation and management (title, description, date created)
+- Task creation, editing, and deletion within projects
+    - Task types: To Do, In Progress, Completed
+    - Task content: for additional information
+    - Task author: to see creator of task
+- Real-time notifications for task updates and changes
+- Responsive design for accessibility on various devices
+
+Technologies:
+- Back-end: Django (Python)
+- Front-end: HTML5, CSS3 (Bootstrap), JavaScript
+- Database: PostgreSQL with Django ORM
+- Version Control: Git and GitHub
+- Deployment: Heroku
+
+
+Secondary Features:
 
 ## Structure
 
