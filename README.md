@@ -86,6 +86,8 @@ The strategy behind this app was to utilise the Agile Methodologies learnt, and 
 
 ### User Stories: Must Haves
 
+<details>
+<summary>User Story: Register Account</summary>
 **User Story:** As a **User** I would like to be able to **Create an Account** so that I can **Access My Work Spaces Securely.**
 
 Acceptance Criteria:
@@ -100,7 +102,11 @@ Acceptance Criteria:
 3. User is able to see created Project Boards
     - [ ] user is displayed a list of their created projects
 
+</details>
 
+
+<details>
+<summary>User Story: Create Data</summary>
 **User Story:** As a **User** I would like to be able to **Create a Project and Tasks** so that I can **Keep Track of Ongoing Tasks and their Progress**.
 
 Acceptance Criteria:
@@ -109,7 +115,10 @@ Acceptance Criteria:
 2. User is able to create project board by clicking the new project button.
     - [ ] New Project... button allows user to fill out form to create new project
 
+</details>
 
+<details>
+<summary>User Story: Read Data</summary>
 **User Story:** As a **User** I would like to be able to **See the Tasks I have Completed in a Project** so that I can **Track my Progress.**
 
 Acceptance Criteria:
@@ -122,8 +131,10 @@ Acceptance Criteria:
 4. Project board has a list of tasks sorted by their status.
     - [ ] user is able to read the title of the tasks
     - [ ] user is able to open task and read additional info
+</details>
 
-
+<details>
+<summary>User Story: Update Data</summary>
 **User Story:** As a **User** I would like to be able to **Update the Information on my Project Board** so that I can **Add and Remove Tasks, and Notes Based on Relevance.**
 
 Acceptance Criteria:
@@ -136,8 +147,11 @@ Acceptance Criteria:
     - [ ] state of tasks is saved
 4. Upon returning to the project, the users changes are present.
     - [ ] user is able to retrieve their project from the state in which they left it
+<details>
 
 
+<details>
+<summary>User Story: Delete Data</summary>
 **User Story:** As a **User** I would like to be able to **Delete my Tasks and their Data** so that I can **Keep my Tasks List Short and Current.**
 
 Acceptance Criteria:
@@ -147,6 +161,23 @@ Acceptance Criteria:
     - [ ] user is asked to confirm their choice via modal before data is deleted
 3. Users data is deleted, and user is sent back to list of tasks which will no longer contain the deleted item.
     - [ ] task is deleted from the tasks on the projects Kanban board.
+</details>
+
+
+<details>
+<summary>User Story: Responsive Design</summary>
+**User Story:** As a **User** I would like to be able to **User the App on Multiple Devices of Differeing Sizes** so that I am able to **User it on the go and at Home/Work.**
+
+Acceptance Criteria:
+1. Web app uses Bootstrap or Media Queries to adapt to multiple screen sizes.
+    - [ ] bootstrap, media queries, and JavaScript with cookies
+2. App is usable on small screens.
+    - [ ] functional on small displays
+3. App is usable on medium displays.
+    - [ ] function on medium displays
+4. App is usable on laptop/desktop displays.
+    - [ ] functional on large displays
+</details>
 
 
 **Design**
