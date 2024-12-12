@@ -35,10 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('id_content').value = content;
             document.getElementById('id_status').value = status;
 
-            let testel = document.getElementById('id_taskTitle');
-            console.log(title)
-            console.log(testel)
-
             modalTitle.innerText = "Edit Task";
             submitButton.innerText = "Update";
             taskForm.action = `${window.location.pathname}edit_task/${taskId}`;
