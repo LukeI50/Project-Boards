@@ -90,9 +90,15 @@ The strategy behind this app was to utilise the Agile Methodologies learnt, and 
 
 Acceptance Criteria:
 1. User can register account
+    - [ ] allauth is installed as dependancy
     - [ ] can access registration page
     - [ ] can use form
     - [ ] can submit form
+2. User is able to login
+    - [ ] using submitted account creation details
+    - [ ] login form works
+3. User is able to see created Project Boards
+    - [ ] user is displayed a list of their created projects
 
 
 **Design**
