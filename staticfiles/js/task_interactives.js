@@ -1,27 +1,36 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Get all edit buttons by their class name
     const editButtons = document.getElementsByClassName("btn-task-edit");
+    // Get all delete buttons by their class name
     const deleteButtons = document.getElementsByClassName('btn-delete');
 
-    const tastText = document.getElementById('id_content');
+    // Get the task form element
     const taskForm = document.getElementById("taskForm");
+    // Initialize the Bootstrap modal for adding tasks
     const addTaskModal = new bootstrap.Modal("#AddTaskModal");
 
+    // Initialize the Bootstrap modal for deleting tasks
     const deleteTaskModal = new bootstrap.Modal("#DeleteTaskModal");
+    // Get the delete confirmation link element
     const deleteConfirm = document.getElementById("deleteConfirm");
 
+    // Get the modal title element
     const modalTitle = document.getElementById('AddTaskModalTitle');
-    const toastHeaders = document.getElementsByClassName('toast-header');
 
+    // Get the submit button element
     const submitButton = document.getElementById("submitButton");
 
-    // Initialise edit buttons
-    for (button of editButtons){
+    /**
+     * Initialize edit buttons with event listeners.
+     */
+    for (const button of editButtons){
         button.addEventListener("click", (e) => {
+            // Get the task ID from the data attribute
             const taskId = e.target.getAttribute('data-task_id');
 
-            // Identify task area
+            // Identify the task area by its ID
             const task = document.getElementById(`task${taskId}`);
-            // retrieve relevant data
+            // Retrieve relevant data from the task element
             const title = task.children[1].firstElementChild.textContent;
             const content = task
             .querySelector('.toast-body p.d-none')
@@ -30,30 +39,30 @@ document.addEventListener("DOMContentLoaded", function() {
             .querySelector('.toast-body p:first-child')
             .getAttribute('data-task-status');
 
-            // complete form
+            // Complete the form with retrieved data
+
             document.getElementById('id_taskTitle').value = title;
             document.getElementById('id_content').value = content;
             document.getElementById('id_status').value = status;
 
-            let testel = document.getElementById('id_taskTitle');
-            console.log(title)
-            console.log(testel)
-
+            // Set the modal title and submit button text for editing
             modalTitle.innerText = "Edit Task";
             submitButton.innerText = "Update";
             taskForm.action = `${window.location.pathname}edit_task/${taskId}`;
 
+            // Show the add task modal
             addTaskModal.show();
-
         })
 
     };
 
+    /**
+     * Initialize delete buttons with event listeners.
+     */
     for (button of deleteButtons) {
         button.addEventListener("click", (e) => {
-            console.log("delete clicked")
             let taskId = e.target.getAttribute("data-task_id");
-            console.log(taskId)
+            // Set the href attribute of the delete confirmation link
             deleteConfirm.href = `${window.location
                 .pathname}delete_task/${taskId}`;
             deleteTaskModal.show();
