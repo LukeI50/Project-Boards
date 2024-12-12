@@ -248,6 +248,18 @@ Acceptance Criteria:
 
 </details>
 
+<details>
+<summary>User Story: Smooth Task Updates</summary>
+
+As a **User** I would like to be able to **Update the status of a task by Dragging it to the relevant Kanban Section** so that I am able to **Perform the Operation Faster.**
+
+Acceptance Criteria:
+1. User is able to interact with todo items and drag them around the screen
+2. Todo item status is updated by where the user drops the item.
+3. User is able to drop item on bin to delete it.
+
+</details>
+
 ## Scope
 
 Features:
