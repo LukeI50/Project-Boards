@@ -467,11 +467,26 @@ If a task is updated, added, or deleted, then a notification will appear to tell
 Git and GitHub were used for version controll in this project. The main branch was protected, and I tried only to work on branches and merge them in so as to avoid major issues.
 For the most part this worked, although there were a couple of times were I had to push to the main branch to update something or attempt to fix a bug.
 
-## Agile Methodology
-
-## Languages & Frameworks Utilised
-
 # Testing & Validation
+<details>
+<summary>LightHouse</summary>
+
+Lighthouse scores for the Projects list page:
+desktop:
+
+![lighthouse desktop projects](assets/README/wireframes/lighthouse/projects_lighthouse.png)
+
+mobile:
+![lighthouse mobile projects](assets/README/wireframes/lighthouse/project_mobile_lighthouse.png)
+
+Lighthouse scores for Task/Kanban page:
+desktop:
+![taks view kanban lighthouse](assets/README/wireframes/lighthouse/lighthouse_tasks.png)
+
+mobile:
+![tasks view mobile lighthouse](assets/README/wireframes/lighthouse/mobile_task_lighthouse.png)
+
+</details>
 
 ## Bugs
 
