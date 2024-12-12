@@ -79,8 +79,25 @@ Insert table of contents for easy navigation of readme.
 # Development Path:
 
 ## Strategy
+
 <details>
-<summary>
+<summary>Plan</summary>
+The strategy behind this app was to utilise the Agile Methodologies learnt, and work towards a User Centered Design.
+
+### User Stories: Must Haves
+
+**User Story:** As a **User** I would like to be able to **Create an Account** so that I can **Access My Work Spaces Securely.**
+
+Acceptance Criteria:
+1. User can register account
+    - [ ] can access registration page
+    - [ ] can use form
+    - [ ] can submit form
+
+
+**Design**
+
+</details>
 
 ## Plan
 
@@ -92,7 +109,7 @@ Insert table of contents for easy navigation of readme.
 
 ## Surface
 
-# Project Features:
+## Project Features:
 subtitle each section and provide images.
 ## Current Features
 
