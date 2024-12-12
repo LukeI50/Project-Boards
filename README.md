@@ -80,10 +80,10 @@ Insert table of contents for easy navigation of readme.
 
 ## Strategy
 
-## Plan
+### Design
 The strategy behind this app was to utilise the Agile Methodologies learnt, and work towards a User Centered Design.
 
-### User Stories: Must Haves
+#### User Stories: Must Haves
 
 <details>
 <summary>User Story: Register Account</summary>
@@ -188,7 +188,8 @@ Acceptance Criteria:
 
 Features:
 - User registration, login, and role-based access (user/admin)
-- Dashboard with a summary of tasks and projects
+- Dashboard with am index of projects
+- Project board with kanban board of tasks
 - Project creation and management (title, description, date created)
 - Task creation, editing, and deletion within projects
     - Task types: To Do, In Progress, Completed
@@ -203,9 +204,6 @@ Technologies:
 - Database: PostgreSQL with Django ORM
 - Version Control: Git and GitHub
 - Deployment: Heroku
-
-
-Secondary Features:
 
 ## Structure
 
