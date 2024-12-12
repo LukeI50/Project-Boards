@@ -233,6 +233,33 @@ Acceptance Criteria:
 
 </details>
 
+
+### User Stories: Could Haves
+
+<details>
+<summary>User Story: Add Editors</summary>
+
+As a **User** I would like to be able to **Add additional editors to a project** so that I am able to **Collaborate with Classmates/Peers/Colleagues easily.**
+
+Acceptance Criteria:
+1. User is able to see list of authorised editors for each project.
+2. User is able to add editors, by username, to list.
+3. User is able to remove editors, by button, from list.
+
+</details>
+
+<details>
+<summary>User Story: Smooth Task Updates</summary>
+
+As a **User** I would like to be able to **Update the status of a task by Dragging it to the relevant Kanban Section** so that I am able to **Perform the Operation Faster.**
+
+Acceptance Criteria:
+1. User is able to interact with todo items and drag them around the screen
+2. Todo item status is updated by where the user drops the item.
+3. User is able to drop item on bin to delete it.
+
+</details>
+
 ## Scope
 
 Features:
@@ -253,6 +280,12 @@ Technologies:
 - Database: PostgreSQL with Django ORM
 - Version Control: Git and GitHub
 - Deployment: Heroku
+
+### Plan
+To get a clear understanding of the agile methodology used, and the benefits of such a practice, it is worth while referring to this repo's project board here - [Project Board](https://github.com/users/LukeI50/projects/8/settings)
+
+![Project Board Screenshot](assets/README/wireframes/project/project_board.png)
+
 
 ## Structure
 <details>
@@ -287,6 +320,8 @@ Registered Users
 </details>
 
 ## Skeleton
+
+### Wireframes
 
 <details>
 <summary>Desktop Wireframes</summary>
@@ -325,8 +360,30 @@ The Task view will be setup similarly to the kanban board on GitHub. This means 
 
 </details>
 
+### Database Diagram
+
+<details>
+<summary>Database Relational Diagram</summary>
+
+![erd](assets/README/wireframes/erd/erd.png)
+
+</details>
 
 ## Surface
+
+### On Design
+I decided to stay simple during the course of this project and stick to tried and tested colour schemes. To do this, I utilised bootstraps generic colour pallete to ensure that the look of the overall site blended together well, and that contrast between elements was good.
+
+The text/fonts on the site were not altered from the default. The most important task at the time was developing a working MVP, so this is what was focused on.
+
+<details>
+<summary>Ideas</summary>
+
+Certain ideas were taken into account during the creation of the layout of the site, most of which were to facilitate an easy user experience.
+
+1. the three click rule
+2. good colour contrast to ensure people can read all text
+3. button stying to ensure buttons stand out
 
 ## Project Features:
 subtitle each section and provide images.
