@@ -467,15 +467,58 @@ If a task is updated, added, or deleted, then a notification will appear to tell
 Git and GitHub were used for version controll in this project. The main branch was protected, and I tried only to work on branches and merge them in so as to avoid major issues.
 For the most part this worked, although there were a couple of times were I had to push to the main branch to update something or attempt to fix a bug.
 
-## Agile Methodology
-
-## Languages & Frameworks Utilised
-
 # Testing & Validation
+<details>
+<summary>LightHouse</summary>
+
+Lighthouse scores for the Projects list page:
+desktop:
+
+![lighthouse desktop projects](assets/README/wireframes/lighthouse/projects_lighthouse.png)
+
+mobile:
+![lighthouse mobile projects](assets/README/wireframes/lighthouse/project_mobile_lighthouse.png)
+
+Lighthouse scores for Task/Kanban page:
+desktop:
+![taks view kanban lighthouse](assets/README/wireframes/lighthouse/lighthouse_tasks.png)
+
+mobile:
+![tasks view mobile lighthouse](assets/README/wireframes/lighthouse/mobile_task_lighthouse.png)
+
+</details>
 
 ## Bugs
+No major bugs were found, only minor elements needed tweaking as project progressed. This was many around css styling, but nothing big that stood out.
 
 ## Manual Tests
+User Can create an account
+| **Test** | **Steps** | **Expected Result** | **Actual Result** |
+|User can sign up | 1. go to site | greetings page | pass |
+| | 2. click agreement | agreement modal appears | pass |
+| | 3. click sign up | signup page loads | pass |
+| | 4. input credentials | creates user account | pass |
+
+User can create tasks
+| **Test** | **Steps** | **Expected Result** | **Actual Result** |
+| User can create new task| 1. go to task view | loads kanban board| pass |
+| | 2. click add new task button | loads add task modal | pass |
+| | 3. fill out modal and submit | creates new task with notification | pass |
+
+User can delete tasks
+| **Test** | **Steps** | **Expected Result** | **Actual Result** |
+| User can delete tasks | 1. click on delete button on task | confirm delete modal appears | pass |
+| | 2. click confirm | task is deleted and notification appears | pass |
+
+User can update tasks
+| **Test** | **Steps** | **Expected Result** | **Actual Result** |
+| User can update a task| 1. click edit button on task | update task modal appears | pass |
+| | 2. alter the task and click update | task is updated and notification appears | pass |
+
+User can see tasks
+| **Test** | **Steps** | **Expected Result** | **Actual Result** |
+| user can see list of tasks for project | 1. go into project | loads kanban board | pass |
+| | 2. tasks are present on the board | tasks should be visible if created | pass |
 
 ## Validation
 
