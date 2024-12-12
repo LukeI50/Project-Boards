@@ -222,13 +222,26 @@ Technologies:
 <details>
 <summary>Site Map</summary>
 
-Non-authenticated user starts at greeting page, and is prompted to register an account.
-    - login
-    - signup
+New Users
+1. Greeting page
+2. Registration / SignUp page
+3. Navbar not present until user is authorised
+4. Projects Dashboard
+5. Projects Kanban view
 
-Once user is authenticated, 
+Registered Users
+1. Project Index Dashboard
+2. Projects Kanban View
+3. Navbar present at all times
+4. Form Modals
+5. Toast Notifications
 
 ## Skeleton
+
+<details>
+<summary>Desktop Wireframes</summary>
+![Greeting Page wireframe for desktop](assets/README/wireframes/desktop/greeting_page_desktop_wireframe.png)
+
 
 ## Surface
 
