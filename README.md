@@ -203,6 +203,20 @@ Acceptance Criteria:
 
 </details>
 
+<details>
+<summary>User Story: Todo Views</summary>
+
+As a **User** I would like to be able to **~See my todo list items as a list and as a kanban Board** so that I am able to **Better see my progress and find items.**
+
+Acceptance Criteria:
+1. User is able to access todo list view
+    - [ ] One longlist of all todo items, not separated by status
+2. User is able to view list as Kanban board
+    - [ ] user is able to toggle between views
+3. User is able to see all todo items in List View.
+
+</details>
+
 ## Scope
 
 Features:
