@@ -386,15 +386,86 @@ Certain ideas were taken into account during the creation of the layout of the s
 3. button stying to ensure buttons stand out
 
 ## Project Features:
-subtitle each section and provide images.
-## Current Features
 
-## Future Features
+<details>
+<summary>Greetings Page</summary>
+
+The Greetings Page is designed to say hi to our new users. Once registered they likely wont see this page again. At least that's the hope anyway.
+The page greets you with info about the company and the product, with a clear Agreement button placed in the bottom right.
+
+![Greetings Page](assets/README/wireframes/project/greetings_page/greetings_page.png)
+
+![Agreement Modal](assets/README/wireframes/project/greetings_page/agreement_modal.png)
+
+</details>
+
+<details>
+<summary>User Credentials</summary>
+
+The user is able to create an account, before they can access the sites features.
+- Upon registration or sign in a notification will appear to tell the user that it was successful or not.
+- Role based functionality is present as only owners of a project are able to access their projects.
+- The login status of the user is displayed in the bottom right corner of the screen from then on until the user logsout.
+
+Once the sign up button is clicked the user is taken to the registration page:
+![Sign Up Page](assets/README/wireframes/project/authentication_pages/signup_page.png)
+
+or, alternatively, they can login instead:
+![Sign In Page](assets/README/wireframes/project/authentication_pages/signin_page.png)
+
+</details>
+
+<details>
+<summary>Projects List Page</summary>
+
+The user, once logged in, is presented with a list of all their projects. They can either open an existing one, or create a new project by clicking on their name in the bottom left corner and then selecting New Project...
+
+![Projects List Page](assets/README/wireframes/project/projects_list_page/projects_list.png)
+
+![New Project Modal](assets/README/wireframes/project/projects_list_page/new_project_modal.png)
+
+User options in the bottom left:
+![User options](assets/README/wireframes/project/projects_list_page/user_options.png)
+
+</details>
+
+<details>
+<summary>Kanban View: defaul/small</summary>
+
+The view for the Kanban renders differently dependant on display size. In the defaul/small view the tasks are placed within an accordion that houses each status of a task.
+![Tasks Page](assets/README/wireframes/project/tasks_page/task_page.png)
+
+Each task has a delete button, and an edit button. Both of which raise a relevant modal with a form in to submit changes or deletions.
+
+The edit form allows for addition notes to be added:
+![Edit form](assets/README/wireframes/project/tasks_page/edit_modal.png)
+
+The delete is simple and so well skip it, it just confirms you want to take the action.
+
+In this view, you will also notice that the option to add a task appears in the side navbar. Adding a task creates another modal similar to the edit:
+![New Task Form](assets/README/wireframes/project/tasks_page/new_task.png)
+
+</details>
+
+<details>
+<summary>Kanban View: large</summary>
+
+Some of the information on the large view has already been give, so this will be brief.
+In the large view, the kanban is rendered as three columns that are separate (for more similar to the way GitHub boards do it).
+
+![Kanban Large](assets/README/wireframes/project/tasks_page/kanban_large.png)
+
+This is more readable for the user, and allows them to see all tasks in their relevant section.
+
+If a task is updated, added, or deleted, then a notification will appear to tell the user as much.
+</details>
 
 
 # Methodologies:
 
 ## Version Control
+Git and GitHub were used for version controll in this project. The main branch was protected, and I tried only to work on branches and merge them in so as to avoid major issues.
+For the most part this worked, although there were a couple of times were I had to push to the main branch to update something or attempt to fix a bug.
 
 ## Agile Methodology
 
