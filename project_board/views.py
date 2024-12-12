@@ -7,8 +7,6 @@ from .forms import NewProjectForm, NewTaskForm, EditShortNotes
 from .models import Project, Task, Note
 
 
-# Create your views here.
-
 def task_delete(request, slug, task_id):
     """
     View to delete tasks
@@ -17,7 +15,8 @@ def task_delete(request, slug, task_id):
     project = get_object_or_404(queryset, slug=slug)
     task = get_object_or_404(Task, pk=task_id)
 
-    if task.author == request.user or project.authorised_editor.contains(request.user):
+    if task.author == (request.user or
+                       project.authorised_editor.contains(request.user)):
         task.delete()
         messages.add_message(
             request,
@@ -69,11 +68,14 @@ class ProjectsList(generic.ListView):
 
     def get_queryset(self):
         if self.request.user.is_anonymous:
-            return Project.objects.none() # return empty queryset for anonymous user
+            # return empty queryset for anonymous user
+            return Project.objects.none()
         else:
-            return Project.objects.filter(owner=self.request.user).order_by('date_created')
-  
+            return Project.objects.filter(owner=self.request
+                                          .user).order_by('date_created')
+
     # Render different templates based on width of display
+    # Override class get_template_names
     def get_template_names(self):
         screen_size = self.get_screen_size()
 
@@ -82,6 +84,7 @@ class ProjectsList(generic.ListView):
         else:
             return ['project_board/index_default.html']
 
+    # get size of display and return string
     def get_screen_size(self):
         screen_size = self.request.COOKIES.get('currentMode', 0)
         return screen_size
@@ -104,10 +107,11 @@ class ProjectsList(generic.ListView):
             )
 
             # Automatically create a Note for the new project
-            # Note model has a OneToOneField, so it requires an associated project
+            # Note model has a OneToOneField, so it requires an
+            # associated project
             Note.objects.create(
                 Notes_from=new_project,    # Associating with new project
-                short = "Default short description",
+                short="Default short description",
                 essay="This is a default essay for the new project."
             )
 
@@ -116,11 +120,12 @@ class ProjectsList(generic.ListView):
             context = self.get_context_data()
             context['project_form'] = form
             return self.render_to_response(context)
-        
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
         context['project_form'] = NewProjectForm()
         return context
+
 
 class CollaboratorList(generic.ListView):
     def get_template_names(self):
@@ -139,12 +144,12 @@ class CollaboratorList(generic.ListView):
         if self.request.user.is_anonymous:
             return Project.objects.none()
         else:
-            return Project.objects.filter(authorised_editor = self.request.user)
+            return Project.objects.filter(authorised_editor=self.request.user)
 
 
 class ProjectDetailView(generic.DetailView):
     """
-    Amalgamate all models associated to a single instance of 
+    Amalgamate all models associated to a single instance of
     a project board :model:`project_board.Project`.
 
     **Context**
@@ -156,7 +161,7 @@ class ProjectDetailView(generic.DetailView):
     ``tasks``
         get all task instances linked to project :model:`project_board.Task`.
 
-    
+
     **Template**
 
     :template:`project_board/project_detail.html`
@@ -184,7 +189,7 @@ class ProjectDetailView(generic.DetailView):
         """
         slug = self.kwargs.get('slug')
         return get_object_or_404(Project, slug=slug)
-    
+
     def post(self, request, *args, **kwargs):
         slug = self.kwargs.get('slug')
         project = get_object_or_404(Project, slug=slug)
@@ -192,7 +197,6 @@ class ProjectDetailView(generic.DetailView):
         projectForm = NewProjectForm(request.POST)
         taskForm = NewTaskForm(request.POST)
         noteForm = EditShortNotes(data=request.POST, instance=project)
-
 
         if projectForm.is_valid():
             new_project = projectForm.save(commit=False)
@@ -206,17 +210,17 @@ class ProjectDetailView(generic.DetailView):
                 'New Project successfully created'
             )
 
-
             # Automatically create a Note for the new project
-            # Note model has a OneToOneField, so it requires an associated project
+            # Note model has a OneToOneField, so it requires an
+            # associated project
             Note.objects.create(
                 Notes_from=new_project,    # Associating with new project
-                short = "Default short description",
+                short="Default short description",
                 essay="This is a default essay for the new project."
             )
 
             return redirect('project_detail', slug=project.slug)
-        
+
         elif taskForm.is_valid():
             add_task = taskForm.save(commit=False)
             add_task.author = request.user
@@ -229,8 +233,8 @@ class ProjectDetailView(generic.DetailView):
                 'Successfully created new task'
             )
 
-            return redirect('project_detail', slug = project.slug)
-        
+            return redirect('project_detail', slug=project.slug)
+
         elif noteForm.is_valid():
             note, created = Note.objects.get_or_create(Notes_from=project)
             note.short = noteForm.cleaned_data['short']
@@ -241,7 +245,7 @@ class ProjectDetailView(generic.DetailView):
                 'Note successfully updated.'
             )
 
-            return redirect('project_detail', slug = project.slug)
+            return redirect('project_detail', slug=project.slug)
 
         else:
             context = self.get_context_data(project=project)
@@ -252,16 +256,16 @@ class ProjectDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         """
-        Add the additional context data for the tasks and notes to the template by
-        passing them into the context.
+        Add the additional context data for the tasks and notes to
+        the template by passing them into the context.
         """
         context = super().get_context_data()
         project = context['project']
 
-
         note = Note.objects.filter(Notes_from=project).first()
 
-        tasks = Task.objects.filter(associated_project=project).select_related('associated_project')
+        tasks = Task.objects.filter(
+            associated_project=project).select_related('associated_project')
         tasks_backlog = tasks.filter(status=0)
         tasks_todo = tasks.filter(status=1)
         tasks_in_progress = tasks.filter(status=2)
