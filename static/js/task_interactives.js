@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("delete clicked")
             let taskId = e.target.getAttribute("data-task_id");
             console.log(taskId)
-            deleteConfirm.href = `${window.location.pathname}
-            delete_task/${taskId}`;
+            deleteConfirm.href = `${window.location
+                .pathname}delete_task/${taskId}`;
             deleteTaskModal.show();
         })
     };
