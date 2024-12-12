@@ -206,6 +206,18 @@ Technologies:
 - Deployment: Heroku
 
 ## Structure
+<details>
+<summary>Logic Overview</summary>
+
+- Greeting page for user to register or login.
+- A dashboard that allows the user to easily navigate all features of the site.
+- Navbar always stuck to left side of screen to keep uniformity, and provide more height.
+- Project index with project cards displaying the title, description, and date. All with an "open project" button.
+- Project view of kanban board for task organisation. Clear columns for Todo, In Progress, and Done.
+- Tasks can be updated and deleted by pressing visible buttons on task.
+- Users can see the tasks associated to the selected project and plan accordingly.
+
+<details>
 
 ## Skeleton
 
