@@ -386,10 +386,43 @@ Certain ideas were taken into account during the creation of the layout of the s
 3. button stying to ensure buttons stand out
 
 ## Project Features:
-subtitle each section and provide images.
-## Current Features
 
-## Future Features
+<details>
+<summary>Greetings Page</summary>
+
+The Greetings Page is designed to say hi to our new users. Once registered they likely wont see this page again. At least that's the hope anyway.
+The page greets you with info about the company and the product, with a clear Agreement button placed in the bottom right.
+
+![Greetings Page](assets/README/wireframes/project/greetings_page/greetings_page.png)
+
+![Agreement Modal](assets/README/wireframes/project/greetings_page/agreement_modal.png)
+
+</details>
+
+<details>
+<summary>User Credentials</summary>
+
+The user is able to create an account, before they can access the sites features.
+- Upon registration or sign in a notification will appear to tell the user that it was successful or not.
+- Role based functionality is present as only owners of a project are able to access their projects.
+- The login status of the user is displayed in the bottom right corner of the screen from then on until the user logsout.
+
+Once the sign up button is clicked the user is taken to the registration page:
+![Sign Up Page](assets/README/wireframes/project/authentication_pages/signup_page.png)
+
+or, alternatively, they can login instead:
+![Sign In Page](assets/README/wireframes/project/authentication_pages/signin_page.png)
+
+</details>
+
+<details>
+<summary>Projects List Page</summary>
+
+The user, once logged in, is presented with a list of all their projects. They can either open an existing one, or create a new project by clicking on their name in the bottom left corner and then selecting New Project...
+
+![Projects List Page](assets/README/wireframes/project/projects_list_page/projects_list.png)
+
+![New Project Modal](assets/README/wireframes/project/projects_list_page/new_project_modal.png)
 
 
 # Methodologies:
